@@ -1,0 +1,5 @@
+name = "personal-site"
+type = "javascript"
+
+[site]
+bucket = "./"  # Assicurati che i file siano nella root
