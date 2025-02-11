@@ -1,3 +1,5 @@
-document.addEventListener("DOMContentLoaded", function() {
-    console.log("Benvenuto nel sito di Lucio Baiocchi!");
+document.addEventListener("DOMContentLoaded", function () {
+    console.log("Pagina caricata con successo!");
+
+    // Aggiungi altre funzionalità generali qui, se necessario.
 });
