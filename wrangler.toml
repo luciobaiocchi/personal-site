@@ -1,5 +1,4 @@
 name = "personal-site"
-type = "javascript"
 
 [site]
 bucket = "./"  # La directory che contiene i file statici (HTML, CSS, JS)
