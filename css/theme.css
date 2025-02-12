@@ -1,0 +1,91 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f4;
+}
+.logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 0px solid dark;
+} 
+/* Tema scuro */
+.dark-theme {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.dark-theme .navbar {
+    background-color: #1f1f1f !important;
+}
+
+.dark-theme .card {
+    background-color: #1f1f1f;
+    color: #ffffff;
+    border-color: #333333;
+}
+
+.dark-theme .container .h2{
+    background-color: #1f1f1f;
+    color: #852d2d;
+    border-color: #333333;
+}
+
+.dark-theme .navbar-brand, .dark-theme .nav-link {
+    color: #ffffff !important;
+}
+
+.dark-theme .logo-plan {
+    color: #ffffff;
+}
+
+/* Tema scuro */
+body.dark-theme {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.dark-theme .navbar {
+    background-color: #1f1f1f !important;
+}
+
+.dark-theme .card {
+    background-color: #1f1f1f;
+    color: #ffffff;
+    border-color: #333333;
+}
+
+.dark-theme .btn-primary {
+    background-color: #474747;
+    border-color: #474747;
+}
+
+.dark-theme .btn-primary:hover {
+    background-color: #989696;
+    border-color: #989696;
+}
+
+.dark-theme .navbar-brand, .dark-theme .nav-link {
+    color: #ffffff !important;
+}
+
+.dark-theme header {
+    background-color: #1f1f1f !important;
+}
+
+.dark-theme section {
+    background-color: #1f1f1f !important;
+    color: #ffffff;
+}
+
+.dark-theme footer {
+    background-color: #1f1f1f !important;
+}
+
+.dark-theme a {
+    color: #ffaa64;
+}
+
+.dark-theme a:hover {
+    color: #ffaa64;
+}
