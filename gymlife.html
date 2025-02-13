@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GymLife - Presentazione Progetto</title>
+    <meta name="description" content="Presentazione del progetto GymLife, un videogioco che simula la vita di un bodybuilder.">
+    <meta name="keywords" content="Lucio Baiocchi, sviluppo, programmazione, videogiochi, GymLife">
+    <meta name="author" content="Lucio Baiocchi">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./css/theme.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .logo-plan {
+            margin: 3px;
+            font-size: 35px;
+            color: #007396;
+        }
+        .project-intro {
+            background-color: #f8f9fa;
+            padding: 50px 0;
+        }
+        .project-details {
+            padding: 30px 0;
+        }
+        footer {
+            background-color: #343a40;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="img/LB.png" alt="Logo Lucio Baiocchi" class="logo"/>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse md-5" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Chi sono</a></li>
+                    <li class="nav-item"><a class="nav-link" href="projects.html">Progetti</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#contacts">Contatti</a></li>
+                </ul>
+            </div>  
+            <button id="theme-toggle" class="btn btn-outline-light ms-auto me-2">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Introduzione al Progetto -->
+    <section class="project-intro">
+        <div class="container text-center">
+            <h1 class="display-5">GymLife</h1>
+            <p class="lead">Un videogioco che simula la vita di un bodybuilder</p>
+        </div>
+    </section>
+
+    <!-- Dettagli del Progetto -->
+    <section class="project-details">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                          <div class="carousel-item active">
+                            <img src="img/projects/gymlife/Screenshot 2025-02-13 at 16.38.01.png" class="d-block w-100" alt="...">
+                          </div>
+                          <div class="carousel-item">
+                            <img src="img/projects/gymlife/Screenshot 2025-02-13 at 16.38.16.png" class="d-block w-100" alt="...">
+                          </div>
+                          <div class="carousel-item">
+                            <img src="img/projects/gymlife/Screenshot 2025-02-13 at 16.38.31.png" class="d-block w-100" alt="...">
+                          </div>
+                          <div class="carousel-item">
+                            <img src="img/projects/gymlife/Screenshot 2025-02-13 at 16.38.47.png" class="d-block w-100" alt="...">
+                          </div>
+                          <div class="carousel-item">
+                            <img src="img/projects/gymlife/Screenshot 2025-02-13 at 16.38.58.png" class="d-block w-100" alt="...">
+                          </div>
+                          <div class="carousel-item">
+                            <img src="img/projects/gymlife/Screenshot 2025-02-13 at 16.39.40.png" class="d-block w-100" alt="...">
+                          </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Next</span>
+                        </button>
+                      </div>
+                </div>
+                <div class="col-md-6">
+                    <h2>Descrizione del Progetto</h2>
+                    <p>GymLife è un videogioco che simula la vita di un bodybuilder. L'obiettivo del giocatore è raggiungere il livello massimo per ogni gruppo muscolare (gambe, petto, schiena) bilanciando tre statistiche chiave: stamina, umore e massa muscolare.</p>
+                    <p>Il guadagno monetario, necessario per comprare alimenti e accedere agli esercizi in palestra, è gestito attraverso minigiochi. Il giocatore ha a disposizione un inventario dove tenere gli alimenti e gestire le proprie risorse.</p>
+                </div>
+            </div>
+
+            <!-- Funzionalità Implementate -->
+            <div class="row mb-4">
+                <div class="col-md-12">
+                    <h2>Funzionalità Implementate</h2>
+                    <ul>
+                        <li>Implementazione di 3 mappe degli edifici principali + mappa generale della città</li>
+                        <li>Minigiochi interattivi per guadagnare denaro</li>
+                        <li>Inventario con alimenti consumabili e gestione del denaro</li>
+                        <li>Oggetti interagibili all'interno degli edifici</li>
+                        <li>Gestione delle statistiche del personaggio</li>
+                        <li>Game over quando una statistica critica scende sotto un certo limite</li>
+                        <li>Gestione grafica completa del gioco</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Funzionalità Opzionali -->
+            <div class="row mb-4">
+                <div class="col-md-12">
+                    <h2>Funzionalità Opzionali</h2>
+                    <ul>
+                        <li>Sistema di salvataggio delle partite terminate</li>
+                        <li>Imprevisti casuali che modificano le statistiche del personaggio</li>
+                        <li>Scelta del livello di difficoltà all'inizio del gioco</li>
+                        <li>Incremento delle statistiche proporzionale al completamento dei minigiochi</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Challenge Principali -->
+            <div class="row mb-4">
+                <div class="col-md-12">
+                    <h2>Challenge Principali</h2>
+                    <ul>
+                        <li>Implementazione grafica della mappa generale e delle sottomappe</li>
+                        <li>Collaborazione tra i componenti del gruppo</li>
+                        <li>Rispetto del paradigma MVC (Model-View-Controller)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Suddivisione del Lavoro -->
+            <div class="row mb-4">
+                <div class="col-md-12">
+                    <h2>Suddivisione del Lavoro</h2>
+                    <ul>
+                        <li><strong>De Carli Andrea:</strong> Creazione di tutte le 4 mappe e gestione degli oggetti interagibili all'interno di esse</li>
+                        <li><strong>Camillini Luca:</strong> Creazione di minigiochi interattivi relativi alla palestra e gestione del game over</li>
+                        <li><strong>Morri Mattia:</strong> Creazione di un minigioco bancario e implementazione dell'inventario con gestione annessa</li>
+                        <li><strong>Baiocchi Lucio:</strong> Creazione del personaggio principale, movimento e bilanciamento delle statistiche</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Call to Action -->
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <p><strong>Link repo:</strong> <a href="https://github.com/luciobaiocchi/OOP23-gym-life" class="btn btn-primary">GitHub</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light text-center py-3 mt-5">
+        <div class="container">
+            <p>&copy; 2024 Lucio Baiocchi</p>
+        </div>
+    </footer>
+
+    <script src="./javascript/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
