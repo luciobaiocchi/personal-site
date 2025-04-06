@@ -1,0 +1,79 @@
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f4;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 0 solid dark;
+}
+
+/* Dark Theme */
+body.dark-theme,
+.dark-theme {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.dark-theme .navbar {
+    background-color: #0d0d0d !important; /* Darker navbar for stronger contrast */
+    border-bottom: 2px solid #ffaa64; /* Accent separator */
+}
+
+.dark-theme .card {
+    background-color: #1c1c1c;
+    color: #ffffff;
+    border-color: #444444;
+}
+
+.dark-theme .container h2 {
+    background-color: #1c1c1c;
+    color: #ffaa64; /* Accent color for headings */
+    border-color: #444444;
+}
+
+.dark-theme .navbar-brand,
+.dark-theme .nav-link {
+    color: #ffffff !important;
+}
+
+.dark-theme .logo-plan {
+    color: #ffffff;
+}
+
+.dark-theme header {
+    background-color: #0d0d0d !important;
+}
+
+.dark-theme section {
+    background-color: #1c1c1c !important;
+    color: #ffffff;
+}
+
+.dark-theme footer {
+    background-color: #0d0d0d !important;
+}
+
+.dark-theme a {
+    color: #ffaa64;
+}
+
+.dark-theme a:hover {
+    color: #ffcc88;
+}
+
+/* Button styles remain unchanged */
+.dark-theme .btn-primary {
+    background-color: #474747;
+    border-color: #474747;
+}
+
+.dark-theme .btn-primary:hover {
+    background-color: #989696;
+    border-color: #989696;
+}
+
