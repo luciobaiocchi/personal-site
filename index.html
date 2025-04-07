@@ -13,51 +13,49 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="./css/theme.css">
     <style>
-        .profile-pic {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid white;
-        }
+
     </style>
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-                <!-- Aggiungi il logo usando un tag <img> dentro a navbar-brand -->
-            <a class="navbar-brand" href="index.html">
-                <img src="img/LB.png" alt="Logo Lucio Baiocchi" class="logo"/>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#about">Chi sono</a></li>
-                    <li class="nav-item"><a class="nav-link" href="projects.html">Progetti</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contacts">Contatti</a></li>
-                </ul>
-            </div>
-            <button id="theme-toggle" class="btn btn-outline-light ms-auto me-2">
+
+
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <!-- Aggiungi il logo usando un tag <img> dentro a navbar-brand -->
+        <a class="navbar-brand" href="index.html">
+            <img src="img/LB.png" alt="Logo Lucio Baiocchi" class="img-fluid rounded-circle float-start" width="30" height="24">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#about">About me</a></li>
+                <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contacts">Contacts</a></li>
+            </ul>
+            <button id="theme-toggle" class="btn btn-outline-light">
                 <i class="fas fa-moon"></i> <!-- Icona per il tema scuro -->
             </button>
         </div>
     </nav>
 
-<!-- Header -->
-<header class="text-center text-white bg-secondary py-5">
-    <img src="img/lucio.jpg" alt="Lucio Baiocchi" class="profile-pic mb-3">
-    <p>Studente e appassionato di tecnologia</p>
-</header>
+    <!-- Header -->
+    <header class="text-center text-white bg-secondary py-5">
+        <p>Studente e appassionato di tecnologia</p>
+    </header>
+
+    <!-- Navbar -->
+     <div class="header-custom" id="header-custom">
+     </div>
+    
     <!-- Chi Sono -->
     <section id="about" class="container my-5 p-4 bg-white shadow rounded">
-        <h2>Chi sono</h2>
-        <p>Sono uno studente di informatica presso l'università di Bologna.
-            Sono appassionato di tecnologia e in generale mi piace programmare e mettermi alla prova creando progetti da solo e in team.
-            Mi piace fare sport e allenarmi in palestra. Qui sul mio sito puoi trovare per il momento i progetti a cui ho lavorato.
-            Magari in futuro condividerò anche altri contenuti che riterrò interessanti
+        <h2>My story</h2>
+        <p>I am a computer science student at the University of Bologna. 
+            I am passionate about technology and in general I like programming and challenging myself by creating projects alone and in a team.
+            I like doing sports and working out in the gym. Here on my website you can find the projects I have worked on for the moment. 
+            Maybe in the future I will also share other content that I will find interesting
         </p>
     </section>
     
@@ -76,18 +74,18 @@
             </a>
         </div>
       </div>
-    </nav>
-
-    <section class="conteiner-fluid">
-      <h2>Main presentation</h2>
     </section>
+
+
     
     <!-- Footer -->
     <footer class="bg-dark text-white text-center py-3">
-        <p>&copy; 2024 Lucio Baiocchi | <a href="mailto:luciobaiocchi1@gmail.com" class="text-white">Contattami</a></p>
+        <p>&copy; 2024 Lucio Baiocchi | <a href="mailto:luciobaiocchi1@gmail.com" class="text-white">Contact me</a></p>
     </footer>
     
+
     <script src="./javascript/script.js"></script>
+    <script src="./javascript/header.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
