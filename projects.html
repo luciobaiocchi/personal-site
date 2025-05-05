@@ -11,7 +11,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="./css/theme.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
+
+    <link rel="stylesheet" href="./css/style.css">
     <style>
         .navbar-brand {
             font-size: 1.5rem; /* Dimensione standard per il navbar-brand */
@@ -25,112 +27,125 @@
     </style>
 </head>
 <body>
-    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-                <!-- Aggiungi il logo usando un tag <img> dentro a navbar-brand -->
+            <!--logo-->
             <a class="navbar-brand" href="index.html">
                 <img src="img/LB.png" alt="Logo Lucio Baiocchi" class="logo"/>
             </a>
-            <!-- Bottone per il tema -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <!-- Bottone tema -->
+            <button class="navbar-toggler ms-auto me-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse md-5" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Chi sono</a></li>
-                    <li class="nav-item"><a class="nav-link" href="projects.html">Progetti</a></li>
-                    <li class="nav-item"><a class="nav-link" href="index.html#contacts">Contatti</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#contacts">Contacts</a></li>
                 </ul>
             </div>  
-            <button id="theme-toggle" class="btn btn-outline-light ms-auto me-2">
-                <i class="fas fa-moon"></i> <!-- Icona per il tema scuro -->
+            <button class="btn theme-toggle border border-3 px-2 py-1 ms-1">
+                <i class="bi theme-icon bi-moon-stars-fill"></i>
             </button>
         </div>
     </nav>
-    
-    <div class="container mt-5">
-        <h1 class="text-center mb-4">I Miei Progetti</h1>
-        <!-- riga 1 -->
-        <div class="row mb-4">
-            <div class="col-md-4 p-3">
-                <div class="card shadow-sm">
-                    <img src="./img/projects/mydiet/logo_MyDiet.jpeg" class="card-img-top" alt="Diet Management System">
-                    <div class="card-body">
-                        <h5 class="card-title">My diet</h5>
-                        <p class="card-text">Un'app Java per la gestione della dieta.</p>
-                        <a href="mydiet.html" class="btn btn-primary mt-2">Scopri di più</a>
-                        <i class="fab fa-java logo-plan float-end"></i>
-                        <i class="fas fa-database logo-plan float-end" title="MySQL"></i>
+    <main class="container-fluid">
+        <div class="mt-5">
+            <h1 class="text-center mb-4">Projects</h1>
+            <!-- riga 1 -->
+
+            <div class="row mb-4">
+                <div class="col-md-4 p-3">
+                    <div class="card shadow-sm">
+                        <div class="d-md-block d-flex align-items-center">
+                            <img src="./img/projects/mydiet/logo_MyDiet.jpeg" class="card-img-top" alt="Diet Management System">
+                            <div class="card-body">
+                                <h5 class="card-title">My diet</h5>
+                                <p class="card-text">Un'app Java per la gestione della dieta.</p>
+                                <a href="mydiet.html" class="btn btn-primary mt-2">Scopri di più</a>
+                                <i class="fab fa-java logo-plan float-end"></i>
+                                <i class="fas fa-database logo-plan float-end" title="MySQL"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>            
+                <div class="col-md-4 p-3">
+                    <div class="card shadow-sm">                    
+                        <div class="d-md-block d-flex align-items-center">
+                            <img src="./img/projects/Logo_Gym-Life.jpeg" class="card-img-top    " alt="Diet Management System">
+                            <div class="card-body">
+                                <h5 class="card-title">Gym life</h5>
+                                <p class="card-text">A retrò java game about gym.</p>
+                                <a href="./projects/gymlife.html" class="btn btn-primary mt-2">Scopri di più</a>
+                                <i class="fab fa-java logo-plan float-end"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 p-3">
+                    <div class="card shadow-sm rounded">
+                        <div class="d-md-block d-flex align-items-center">
+                            <img src="./img/projects/Logo_IOT.png" class="card-img-top" alt="IOT Projects">
+                            <div class="card-body">
+                                <h5 class="card-title">IOT projects</h5>
+                                <p class="card-text">Collection of iot projects</p>
+                                <a href="iot_projects.html" class="btn btn-primary mt-2">Scopri di più</a>
+                                <i class="fab fa-java logo-plan float-end"></i>
+                                <i class="fa-brands fa-python logo-plan float-end"></i>
+                                <i class="fa-sharp fa-solid fa-c logo-plan float-end"></i>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 p-3">
-                <div class="card shadow-sm">
-                    <img src="./img/projects/Logo_Gym-Life.jpeg" class="card-img-top" alt="Diet Management System">
-                    <div class="card-body">
-                        <h5 class="card-title">Gym life</h5>
-                        <p class="card-text">A retrò java game about gym.</p>
-                        <a href="gymlife.html" class="btn btn-primary mt-2">Scopri di più</a>
-                        <i class="fab fa-java logo-plan float-end"></i>
+            <!-- riga 2 -->
+            <div class="row mb-4">
+                <div class="col-md-4 p-3">
+                    <div class="card shadow-sm">
+                        <div class="d-md-block d-flex align-items-center">
+                            <img src="img/projects/Logo_Chat_python.png" class="card-img-top" alt="Diet Management System">
+                            <div class="card-body">
+                                <h5 class="card-title">Chat-phython</h5>
+                                <p class="card-text">A simple client-server chat application</p>
+                                <a href="dettagli.html?id=diet-management" class="btn btn-primary mt-2">Scopri di più</a>
+                                <i class="fa-brands fa-python logo-plan float-end"></i>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4 p-3">
-                <div class="card shadow-sm">
-                    <img src="./img/projects/Logo_IOT.png" class="card-img-top" alt="Diet Management System">
-                    <div class="card-body">
-                        <h5 class="card-title">IOT projects</h5>
-                        <p class="card-text">Collection of iot projects</p>
-                        <a href="iot_projects.html" class="btn btn-primary mt-2">Scopri di più</a>
-                        <i class="fab fa-java logo-plan float-end"></i>
-                        <i class="fa-brands fa-python logo-plan float-end"></i>
-                        <i class="fa-sharp fa-solid fa-c logo-plan float-end"></i>
+                <div class="col-md-4 p-3">
+                    <div class="card shadow-sm">
+                        <div class="d-md-block d-flex align-items-center">
+                            <img src="img/projects/logo_DVRS.png" class="card-img-top" alt="Diet Management System">
+                            <div class="card-body">
+                                <h5 class="card-title">DVRS</h5>
+                                <p class="card-text">Distance vector routing system</p>
+                                <a href="dettagli.html?id=diet-management" class="btn btn-primary mt-2">Scopri di più</a>
+                                <i class="fa-brands fa-python logo-plan float-end"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 p-3">
+                    <div class="card shadow-sm">
+                        <div class="d-md-block d-flex align-items-center">
+                            <img src="img/projects/Logo-algo_elab.png" class="card-img-top" alt="Diet Management System">
+                            <div class="card-body">
+                                <h5 class="card-title">algorithms course project</h5>
+                                <p class="card-text">Un'app Java per la gestione della dieta.</p>
+                                <a href="dettagli.html?id=diet-management" class="btn btn-primary mt-2">Scopri di più</a>
+                                <i class="fab fa-java logo-plan float-end"></i>
+                                <i class="fas fa-database logo-plan float-end" title="MySQL"></i>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- riga 2 -->
-        <div class="row mb-5">
-            <div class="col-md-4 p-3">
-                <div class="card shadow-sm">
-                    <img src="img/projects/Logo_Chat_python.png" class="card-img-top" alt="Diet Management System">
-                    <div class="card-body">
-                        <h5 class="card-title">Chat-phython</h5>
-                        <p class="card-text">A simple client-server chat application</p>
-                        <a href="dettagli.html?id=diet-management" class="btn btn-primary mt-2">Scopri di più</a>
-                        <i class="fa-brands fa-python logo-plan float-end"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 p-3">
-                <div class="card shadow-sm">
-                    <img src="img/projects/logo_DVRS.png" class="card-img-top" alt="Diet Management System">
-                    <div class="card-body">
-                        <h5 class="card-title">DVRS</h5>
-                        <p class="card-text">Distance vector routing system</p>
-                        <a href="dettagli.html?id=diet-management" class="btn btn-primary mt-2">Scopri di più</a>
-                        <i class="fa-brands fa-python logo-plan float-end"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 p-3">
-                <div class="card shadow-sm">
-                    <img src="img/projects/Logo-algo_elab.png" class="card-img-top" alt="Diet Management System">
-                    <div class="card-body">
-                        <h5 class="card-title">algorithms course project</h5>
-                        <p class="card-text">Un'app Java per la gestione della dieta.</p>
-                        <a href="dettagli.html?id=diet-management" class="btn btn-primary mt-2">Scopri di più</a>
-                        <i class="fab fa-java logo-plan float-end"></i>
-                        <i class="fas fa-database logo-plan float-end" title="MySQL"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <footer class="bg-dark text-light text-center py-3 mt-5">
-        <p>&copy; 2024 Lucio Baiocchi | <a href="mailto:luciobaiocchi1@gmail.com" class="text-white">Contattami</a></p>
+    </main>
+
+    <footer class="text-center py-3 mt-5">
+        <p>&copy; 2025 Lucio Baiocchi | <a href="mailto:luciobaiocchi1@gmail.com">Contattami</a></p>
     </footer>
     
     <script src="./javascript/script.js"></script>

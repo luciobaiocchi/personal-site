@@ -3,72 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Presentazione Progetto - Lucio Baiocchi</title>
+    <title>Lucio Baiocchi</title>
     <link rel="icon" type="image/x-icon" href="img/LB.png">
-    <meta name="description" content="Presentazione dettagliata di un progetto di programmazione di Lucio Baiocchi">
-    <meta name="keywords" content="Lucio Baiocchi, sviluppo, programmazione, progetti">
+    <meta name="description" content="Lucio Baiocchi - Portfolio e Contatti">
+    <meta name="keywords" content="Lucio Baiocchi, sviluppo, programmazione, portfolio">
     <meta name="author" content="Lucio Baiocchi">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="./css/theme.css">
-    <style>
-        .logo-plan {
-            margin: 3px;
-            font-size: 35px;
-            color: #007396;
-        }
-        .project-intro {
-            background-color: #f8f9fa;
-            padding: 50px 0;
-        }
-        .project-details {
-            padding: 30px 0;
-        }
-        footer {
-            background-color: #343a40;
-        }
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
 
-        /* Stili per il carosello */
-        .carousel-control-prev-icon {
-            color: rgb(0, 0, 0); /* Imposta il colore del titolo a grigio */
-        }
-        .carousel-control-prev {
-            color: darkgray; /* Imposta il colore della descrizione a grigio scuro */
-        }
+    <link rel="stylesheet" href="./css/style.css">
+    <!--  
+     -->
+    <style>
+
     </style>
 </head>
+
 <body>
-    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
+            <!--logo-->
             <a class="navbar-brand" href="index.html">
                 <img src="img/LB.png" alt="Logo Lucio Baiocchi" class="logo"/>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <!-- Bottone tema -->
+            <button class="navbar-toggler ms-auto me-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse md-5" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Chi sono</a></li>
-                    <li class="nav-item"><a class="nav-link" href="projects.html">Progetti</a></li>
-                    <li class="nav-item"><a class="nav-link" href="index.html#contacts">Contatti</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#contacts">Contacts</a></li>
                 </ul>
             </div>  
-            <button id="theme-toggle" class="btn btn-outline-light ms-auto me-2">
-                <i class="fas fa-moon"></i>
+            <button class="btn theme-toggle border border-3 px-2 py-1 ms-1">
+                <i class="bi theme-icon bi-moon-stars-fill"></i>
             </button>
         </div>
     </nav>
+
+    <main class="container-fluid">
     <!-- Introduzione al Progetto -->
-    <section class="project-intro">
+    <section class="project-intro my-4">
         <div class="container text-center">
             <h1 class="display-5">MyDiet</h1>
-            <p class="lead">Un'applicazione Java per la gestione della dieta quotidiana</p>
+            <p class="lead">A Java application for the daily diet managment</p>
         </div>
     </section>
     <!-- Dettagli del Progetto -->
-    <section class="project-details">
+    <section class="project-details p-4">
         <div class="container">
             <div class="row mb-4">
                 <div class="col-md-6">
@@ -96,41 +82,41 @@
                       </div>
                 </div>
                 <div class="col-md-6">
-                    <h2>Descrizione del Progetto</h2>
-                    <p>MyDiet è un'applicazione Java progettata per aiutare gli utenti a tenere traccia delle calorie consumate e degli obiettivi nutrizionali giornalieri.</p>
-                    <p>Le principali funzionalità includono:</p>
+                    <h2>Project description</h2>
+                    <p>MyDiet is a Java application developed for the final exam of the database's course. The goal of MyDiet is helping people to keep track of their calories intake and their daily nutritionals goals.</p>
+                    <p>The main features are:</p>
                     <ul>
-                        <li>Gestione dei pasti e delle calorie</li>
-                        <li>Integrazione con un database MySQL per salvare i dati degli utenti</li>
-                        <li>Interfaccia grafica intuitiva basata su Java Swing</li>
+                        <li>Meals managment and relatives calories</li>
+                        <li>Integration whit a DB in order to keep track of all users datas.</li>
+                        <li>Interactive Gui based on Java swing</li>
                     </ul>
+                    <p>The application is based on a MVC architecture.</p>
                 </div>
             </div>
             <!-- Tecnologie Utilizzate -->
             <div class="row mb-4">
-                <div class="col-md-12">
-                    <h2>Tecnologie Utilizzate</h2>
-                    <div class="d-flex justify-content-start">
-                        <i class="fab fa-java logo-plan mx-2"></i>
-                        <i class="fas fa-database logo-plan mx-2" title="MySQL"></i>
-                    </div>
+                <div class="col-md-6">
+                    <h2>Languages used:</h2>
+                    <p>MySQL for DB. Java Swing for both frontend and backend </p>
+                </div>
+                <div class="col-md-6 text-center d-flex align-items-end justify-content-end">
+                    <p><strong>Link repo:</strong> <a href="https://github.com/luciobaiocchi/MyDiet" class="btn btn-primary">GitHub</a></p>
                 </div>
             </div>
             <!-- Risultati e Feedback -->
             <div class="row">
-                <div class="col-md-12">
-                    <h2>Risultati e Feedback</h2>
-                    <p>Il progetto ha ricevuto un feedback positivo dagli utenti che hanno apprezzato la semplicità d'uso e l'efficacia nell'aiutarli a raggiungere i loro obiettivi nutrizionali.</p>
-                    <p><strong>Link repo:</strong> <a href="https://github.com/luciobaiocchi/MyDiet" class="btn btn-primary">GitHub</a></p>
-                </div>
+                
             </div>
         </div>
     </section>
+
+    </main>
+
+
+        
     <!-- Footer -->
-    <footer class="bg-dark text-light text-center py-3 mt-5">
-        <div class="container">
-            <p>&copy; 2024 Lucio Baiocchi | <a href="mailto:luciobaiocchi1@gmail.com" class="text-white">Contattami</a></p>
-        </div>
+    <footer class="text-center py-3 mt-5">
+        <p>&copy; 2025 Lucio Baiocchi | <a href="mailto:luciobaiocchi1@gmail.com">Contact me</a></p>
     </footer>
     <script src="./javascript/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

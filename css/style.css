@@ -1,0 +1,195 @@
+:root {
+    /* Colors for normal mode*/
+    --primary-color: #546b4f;
+    --secondary-color: #f9801d;
+    --background: #f4f4f4;
+    --background-card: #ffffff;
+    --placeholder-color: #b6c9de;
+    --white: #ffffff;
+    --shadow-color: rgb(0, 0, 0, 0.1);
+
+    --primary-color-pressed: #232e22;
+
+
+    --text-color: #1c1b1b;
+    --text-header:rgba(255, 255, 255, 0.55);
+
+    --transparent: #ffffff00;
+    --transparent-50: #f6edd9c0;
+    --header-color:rgb(33, 37, 41);
+    --background-darker: #decdaa;
+    --theme-button-color: #6588c0;
+    --theme-button-color-darker: #154081;
+}
+
+[data-bs-theme="dark"] {
+    /* Colors for dark mode */
+    --primary-color: #A3B18A;
+    --secondary-color: #ffaa64;
+    --background: #121212;
+    
+    --background-card: #1c1c1c;
+    --placeholder-color: #5C5C5C;
+    --white: #E0E0E0;
+    --shadow-color: rgba(0, 0, 0, 0.508);
+
+    --primary-color-pressed: #486745;
+    
+    --text-color: #dbd9d9;
+    --text-header:rgba(255, 255, 255, 0.55);
+
+    --transparent: #ffffff00;
+    --transparent-50: #000000b0;
+
+    --header-color: #3c3c3cb6;
+    --background-darker: #323232;
+    --theme-button-color: #d7a251;
+    --theme-button-color-darker: #875100;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f4;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 0 solid dark;
+}
+
+/* Dark Theme */
+body{
+    background-color: var(--background);
+    color: var(--text-color);
+}
+
+.theme-toggle.border.border-3.px-2.py-1.ms-1 > i{
+    color: var(--theme-button-color);
+}
+
+body.dark-theme,
+.dark-theme {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.navbar {
+    background-color: var(--header-color) !important;
+    border-bottom: 2px solid var(--secondary-color); /* Accent separator */
+}
+
+.dark-theme .card {
+    background-color: #1c1c1c;
+    color: #ffffff;
+    border-color: #444444;
+}
+
+.dark-theme .container h2 {
+    background-color: #1c1c1c;
+    color: #ffaa64; /* Accent color for headings */
+    border-color: #444444;
+}
+
+.dark-theme .navbar-brand,
+.dark-theme .nav-link {
+    color: #ffffff !important;
+}
+
+.dark-theme .logo-plan {
+    color: #ffffff;
+}
+
+.dark-theme header {
+    background-color: #0d0d0d !important;
+}
+
+.dark-theme section {
+    background-color: #1c1c1c !important;
+    color: #ffffff;
+}
+
+body > footer {
+    background-color: var(--header-color) !important;
+}
+
+body > footer > p{
+    color: var(--text-header);
+}
+body > footer > p > a{
+    color: var(--secondary-color);
+}
+
+/* Card presentaizione*/
+#about{
+    background-color: var(--background-card);
+}
+
+/* contatti*/
+#contacts{
+    background-color: var(--background-card);
+}
+
+/* Icone contatti*/
+.dark-theme #contacts > div > a > i {
+    color: #ffaa64;
+}
+#contacts > div > a > i {
+    color: #f9801d;
+}
+
+
+.dark-theme a {
+    color: #ffaa64;
+}
+
+.dark-theme a:hover {
+    color: #ffcc88;
+}
+
+/* Button styles remain unchanged */
+.dark-theme .btn-primary {
+    background-color: #474747;
+    border-color: #474747;
+}
+
+.dark-theme .btn-primary:hover {
+    background-color: #989696;
+    border-color: #989696;
+}
+
+/* Img projects card */
+@media screen and (max-width: 768px) {
+    .card-img, .card-img-bottom, .card-img-top{
+        width: 30%;
+        border-radius: 10px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .card-img, .card-img-bottom, .card-img-top{
+        width: 100%;
+    }
+    body > main > div > div.row.mb-4 > div > div > div{
+        display: grid !important;
+        border-bottom-left-radius:0% !important;
+        border-bottom-right-radius:0% !important;
+    }
+}
+
+#hero-canvas-container{
+    position: relative; 
+    height: 150px; 
+    overflow: hidden;
+}
+
+#hero-canvas{
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    z-index: 0
+}
