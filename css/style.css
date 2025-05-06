@@ -52,6 +52,8 @@ body {
     background-color: #f4f4f4;
 }
 
+
+
 .logo {
     width: 50px;
     height: 50px;
@@ -162,22 +164,55 @@ body > footer > p > a{
 
 /* Img projects card */
 @media screen and (max-width: 768px) {
-    .card-img, .card-img-bottom, .card-img-top{
+    main .card-img, .card-img-bottom, .card-img-top{
         width: 30%;
-        border-radius: 10px;
+        border-radius: 5px;
+        border-top-right-radius:0% !important;
+        border-bottom-right-radius:0% !important;
+    }
+    body > main > div > div > div > div > div > a{
+        width: 20%;
     }
 }
 
 @media screen and (max-width: 576px) {
-    .card-img, .card-img-bottom, .card-img-top{
+    main .card-img, .card-img-bottom, .card-img-top{
         width: 100%;
+        border-bottom-left-radius:0% !important;
+        border-bottom-right-radius:0% !important;
     }
     body > main > div > div.row.mb-4 > div > div > div{
+        display: grid !important;
+    }
+    body > main > div > div > div > div > div > a{
+        width: 20%;
+    }
+    #about > div > div > div > div, #about > div > div > div > div > a{
         display: grid !important;
         border-bottom-left-radius:0% !important;
         border-bottom-right-radius:0% !important;
     }
+
+    #about > div > div > div > div > a > img{
+        width: 100%;
+    }
+    #about > div > div > div > div > a{
+        width: 100%;
+    }
 }
+
+#about > div > div > div > div > a > img{
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+#about > div > div > div > div > a{
+    width: 30%;
+    height: 100%;
+}
+
+
 
 #hero-canvas-container{
     position: relative; 
@@ -192,4 +227,23 @@ body > footer > p > a{
     width: 100%; 
     height: 100%; 
     z-index: 0
+}
+
+.fab, .fas, .fa, .fa-brands, .fa-sharp{
+    color: var(--secondary-color) !important;
+    font-size: 30px;
+    margin-top: 3%;
+    margin-right: 4px;
+}
+
+a.btn {
+    background-color: var(--background-card) !important;
+    color: var(--secondary-color) !important;
+    border-color: var(--secondary-color) !important;
+}
+
+a.btn:hover {
+    background-color: var(--secondary-color) !important;
+    color: var(--background-card) !important;
+    border-color: var(--secondary-color) !important;
 }

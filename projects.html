@@ -14,17 +14,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
 
     <link rel="stylesheet" href="./css/style.css">
-    <style>
-        .navbar-brand {
-            font-size: 1.5rem; /* Dimensione standard per il navbar-brand */
-            font-weight: 600;
-        }  
-        .logo-plan {
-            margin: 3px;
-            font-size: 35px; /* Dimensione dell'icona */
-            color: #007396; /* Colore del logo (blu) */
-        }
-    </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -49,7 +38,7 @@
             </button>
         </div>
     </nav>
-    <main class="container-fluid">
+    <main data-projects class="container-fluid">
         <div class="mt-5">
             <h1 class="text-center mb-4">Projects</h1>
             <!-- riga 1 -->
@@ -58,30 +47,55 @@
                 <div class="col-md-4 p-3">
                     <div class="card shadow-sm">
                         <div class="d-md-block d-flex align-items-center">
+                            <img src="./img/projects/giogreens/logo.png" class="card-img-top" alt="Diet Management System">
+                            <div class="card-body">
+                                <h5 class="card-title">Giogreens</h5>
+                                <p class="card-text">Web Ecommerce</p>
+                                <a href="./projects/giogreens.html" class="btn btn-primary mt-2 me-1 mb-1 ">See more</a>
+                                <i class="fa-brands fa-js float-end"></i>
+                                <i class="fa-brands fa-php float-end"></i>
+                                <i class="fa-brands fa-bootstrap float-end"></i>
+                                <i class="fa-brands fa-docker float-end"></i>
+                                <i class="fas fa-database logo-plan float-end mb-1" title="MySQL"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 p-3">
+                    <div class="card shadow-sm">
+                        <div class="d-md-block d-flex align-items-center">
                             <img src="./img/projects/mydiet/logo_MyDiet.jpeg" class="card-img-top" alt="Diet Management System">
                             <div class="card-body">
                                 <h5 class="card-title">My diet</h5>
-                                <p class="card-text">Un'app Java per la gestione della dieta.</p>
-                                <a href="mydiet.html" class="btn btn-primary mt-2">Scopri di più</a>
+                                <p class="card-text">A Java applicaton for diet managment.</p>
+                                <a href="./projects/mydiet.html" class="btn btn-primary mt-2">See more</a>
                                 <i class="fab fa-java logo-plan float-end"></i>
                                 <i class="fas fa-database logo-plan float-end" title="MySQL"></i>
                             </div>
                         </div>
                     </div>
-                </div>            
+                </div>
+                        
                 <div class="col-md-4 p-3">
                     <div class="card shadow-sm">                    
                         <div class="d-md-block d-flex align-items-center">
-                            <img src="./img/projects/Logo_Gym-Life.jpeg" class="card-img-top    " alt="Diet Management System">
+                            <img src="./img/projects/Logo_Gym-Life.jpeg" class="card-img-top" alt="Diet Management System">
                             <div class="card-body">
                                 <h5 class="card-title">Gym life</h5>
                                 <p class="card-text">A retrò java game about gym.</p>
-                                <a href="./projects/gymlife.html" class="btn btn-primary mt-2">Scopri di più</a>
+                                <a href="./projects/gymlife.html" class="btn btn-primary mt-2">See more</a>
                                 <i class="fab fa-java logo-plan float-end"></i>
                             </div>
                         </div>
                     </div>
                 </div>
+
+            </div>
+            
+            <!-- riga 2 -->
+            <div class="row mb-4">
+                
                 <div class="col-md-4 p-3">
                     <div class="card shadow-sm rounded">
                         <div class="d-md-block d-flex align-items-center">
@@ -89,7 +103,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">IOT projects</h5>
                                 <p class="card-text">Collection of iot projects</p>
-                                <a href="iot_projects.html" class="btn btn-primary mt-2">Scopri di più</a>
+                                <a href="./projects/iot_projects.html" class="btn btn-primary mt-2">See more</a>
                                 <i class="fab fa-java logo-plan float-end"></i>
                                 <i class="fa-brands fa-python logo-plan float-end"></i>
                                 <i class="fa-sharp fa-solid fa-c logo-plan float-end"></i>
@@ -97,9 +111,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- riga 2 -->
-            <div class="row mb-4">
                 <div class="col-md-4 p-3">
                     <div class="card shadow-sm">
                         <div class="d-md-block d-flex align-items-center">
@@ -107,12 +118,13 @@
                             <div class="card-body">
                                 <h5 class="card-title">Chat-phython</h5>
                                 <p class="card-text">A simple client-server chat application</p>
-                                <a href="dettagli.html?id=diet-management" class="btn btn-primary mt-2">Scopri di più</a>
+                                <a href="dettagli.html?id=diet-management" class="btn btn-primary mt-2">See more</a>
                                 <i class="fa-brands fa-python logo-plan float-end"></i>
                             </div>
                         </div>
                     </div>
                 </div>
+
                 <div class="col-md-4 p-3">
                     <div class="card shadow-sm">
                         <div class="d-md-block d-flex align-items-center">
@@ -120,26 +132,30 @@
                             <div class="card-body">
                                 <h5 class="card-title">DVRS</h5>
                                 <p class="card-text">Distance vector routing system</p>
-                                <a href="dettagli.html?id=diet-management" class="btn btn-primary mt-2">Scopri di più</a>
+                                <a href="dettagli.html?id=diet-management" class="btn btn-primary mt-2">See more</a>
                                 <i class="fa-brands fa-python logo-plan float-end"></i>
                             </div>
                         </div>
                     </div>
                 </div>
+
+            </div>
+            <div class="row mb-4">
                 <div class="col-md-4 p-3">
                     <div class="card shadow-sm">
                         <div class="d-md-block d-flex align-items-center">
                             <img src="img/projects/Logo-algo_elab.png" class="card-img-top" alt="Diet Management System">
                             <div class="card-body">
                                 <h5 class="card-title">algorithms course project</h5>
-                                <p class="card-text">Un'app Java per la gestione della dieta.</p>
-                                <a href="dettagli.html?id=diet-management" class="btn btn-primary mt-2">Scopri di più</a>
-                                <i class="fab fa-java logo-plan float-end"></i>
-                                <i class="fas fa-database logo-plan float-end" title="MySQL"></i>
+                                <p class="card-text">A best path finder of a city.</p>
+                                <a href="dettagli.html?id=diet-management" class="btn btn-primary mt-2">See more</a>
+                                <i class="fa-sharp fa-solid fa-c logo-plan float-end"></i>
                             </div>
                         </div>
                     </div>
                 </div>
+
+
             </div>
         </div>
     </main>
