@@ -18,7 +18,7 @@
     --transparent-50: #f6edd9c0;
     --header-color:rgb(33, 37, 41);
     --background-darker: #decdaa;
-    --theme-button-color: #6588c0;
+    --theme-button-color: #6588c0;  
     --theme-button-color-darker: #154081;
 }
 
@@ -26,7 +26,7 @@
     /* Colors for dark mode */
     --primary-color: #A3B18A;
     --secondary-color: #ffaa64;
-    --background: #181818;
+    --background: #252525;
     
     --background-card: #1c1c1c;
     --placeholder-color: #5C5C5C;
@@ -238,7 +238,7 @@ body > footer > p > a{
 }
 
 .theme-icon {
-    color: var(--secondary-color) !important;
+    color: var(--theme-button-color) !important;
     font-size: 20px;
     margin: 0px;
 }
@@ -253,4 +253,9 @@ a.btn:hover {
     background-color: var(--secondary-color) !important;
     color: var(--background-card) !important;
     border-color: var(--secondary-color) !important;
+}
+
+#hero-canvas-container{
+    background-color: var(--background) !important;
+    height: 30px;
 }
