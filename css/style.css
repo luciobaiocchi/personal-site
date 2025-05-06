@@ -26,7 +26,7 @@
     /* Colors for dark mode */
     --primary-color: #A3B18A;
     --secondary-color: #ffaa64;
-    --background: #121212;
+    --background: #181818;
     
     --background-card: #1c1c1c;
     --placeholder-color: #5C5C5C;
@@ -229,11 +229,18 @@ body > footer > p > a{
     z-index: 0
 }
 
-.fab, .fas, .fa, .fa-brands, .fa-sharp{
+.fab, .fas, .fa, .fa-brands, .fa-sharp, .bi, .fa-solid{
     color: var(--secondary-color) !important;
     font-size: 30px;
     margin-top: 3%;
     margin-right: 4px;
+    margin-bottom: 3px;
+}
+
+.theme-icon {
+    color: var(--secondary-color) !important;
+    font-size: 20px;
+    margin: 0px;
 }
 
 a.btn {
