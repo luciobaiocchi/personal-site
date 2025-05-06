@@ -50,9 +50,9 @@
         <!-- Introduzione -->
         <section class="project-intro row">
             <div class="container text-center col-12">
-                <h1 class="display-5 col-12">I miei progetti</h1>
-                <p class="lead col-12">Una raccolta di progetti IoT basati su microcontrollori per applicazioni domestiche e industriali.</p>
-                <p class="lead col-12">Per maggiori info consulta il mio profilo GitHub</p>
+                <h1 class="display-5 col-12 mt-4">My IOT projects</h1>
+                <p class="lead col-12">This is a collection of all the IOT projects that i made, in university and not.</p>
+                <p class="lead col-12">As for al the other project for further detail i racomend to check my GitHub profile.</p>
             </div>
         </section>
 
@@ -61,28 +61,35 @@
             <div class="container">
                 <div class="row mb-4">
                     <div class="col-md-6 col-12">
-                        <div class="ratio ratio-16x9 ">
+                        <div class="ratio ratio-16x9 mt-4">
                             <iframe src="https://www.youtube.com/embed/CACj1u8vGgM" allow="accelerometer; encrypted-media; gyroscope" allowfullscreen></iframe>
                         </div>
                     </div>
                     <div class="col-md-6 col-12 p-3">
-                        <h2>IOT-projects-assignment1</h2>
+                        <h2>Binary game</h2>
+                        <h5>IOT-projects-assignment1</h5>
                         <ul>
                             <li>
-                                Componenti: 4 LED verdi (L1-L4), 1 LED rosso (LS), 4 pulsanti (B1-B4), potenziometro (Pot) e LCD.
+                                Components: 4 green LEDs, 1 red LED, 4 buttons, 1 potentiomether and 1 LCD.
                             </li>
                             <li>
-                                Obiettivo: Convertire il numero mostrato sul display in binario accendendo i LED corretti (L1 = bit più significativo, L4 = meno).
+                                Goal of the game: Convert the binary number displayed on the LCD lighting up the corrects LEDs (L1 = highest bit and L4 the least).
                             </li>
                             <li>
-                                Gameplay: Ad ogni turno appare un numero casuale (0–15), da riprodurre in binario tramite i pulsanti entro il tempo T1.
+                                Gameplay: Every turn a random number appears (0-15), and using the buttons the player has to write the number in T1 time.
                             </li>
                             <li>
-                                Sfida: Se corretto, il punteggio aumenta e T1 si riduce di un fattore F.
+                                If correct, the score increase and T1 is reduced by a factor F.
                             </li>
                         </ul>
-                        <p><strong>Tecnologie:</strong> C++, PlatformIO</p>
-                        <a href="https://github.com/luciobaiocchi/IOT-project_1" class="btn btn-primary">GitHub</a>
+                        <div class="row">
+                            <div class="col-9">
+                                <p><strong>Tecnologies: </strong> C, PlatformIO</p>
+                            </div>
+                            <div class="col-3">
+                                <a href="https://github.com/luciobaiocchi/IOT-project_1" class="btn btn-primary">GitHub</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -93,18 +100,23 @@
             <div class="container">
                 <div class="row mb-4">
                     <div class="col-md-6">
-                        <div class="ratio ratio-16x9">
+                        <div class="ratio ratio-16x9 mt-4">
                             <iframe src="https://www.youtube.com/embed/G0cvC06uNy4" allow="accelerometer; encrypted-media; gyroscope" allowfullscreen></iframe>
                         </div>
                     </div>
                     <div class="col-md-6 p-3">
                         <h2>Smart Waste Management System</h2>
-                        <p>
-                            Smart Waste Management System
-        Un sistema di gestione intelligente dei rifiuti basato su Arduino che monitora parametri come il livello dei rifiuti, la temperatura e la presenza dell'utente, gestendo anche un cancello automatico e la comunicazione con un'interfaccia grafica (GUI).
+                        <h5>IOT-projects-assignment-2</h5>
+                        <p>This project aim to create a smart waste menagment system, based on Arduino microcontroller board. The system checks parameters such as waste level, temperature and user presence, managing also an auromatic gate and the remote comunication throughr a specific GUI.
                         </p>
-                        <p><strong>Tecnologie:</strong> Java, C++, PlatformIO</p>
-                        <a href="https://github.com/luciobaiocchi/IOT-project_2?tab=readme-ov-file#smart-waste-management-system" class="btn btn-primary">GitHub</a>
+                        <div class="row">
+                            <div class="col-9">
+                                <p><strong>Tecnologies:</strong> Java, C++, PlatformIO</p>
+                            </div>
+                            <div class="col-3">
+                                <a href="https://github.com/luciobaiocchi/IOT-project_2?tab=readme-ov-file#smart-waste-management-system" class="btn btn-primary">GitHub</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -116,32 +128,37 @@
             <div class="container">
                 <div class="row mb-4">
                     <div class="col-md-6">
-                        <div class="ratio ratio-16x9">
+                        <div class="ratio ratio-16x9 mt-4">
                             <iframe src="https://www.youtube.com/embed/YA5omr81nk0" allow="accelerometer; encrypted-media; gyroscope" allowfullscreen></iframe>
                         </div>
                     </div>
                     <div class="col-md-6 p-3">
                         <h2>IoT Projects</h2>
-                        <p>
-                            Il progetto consiste in un sistema avanzato per il monitoraggio della temperatura e il controllo automatico/manuale di una finestra. Il sistema è composto da quattro sottosistemi principali:
-                        </p>
+                        <h5>IOT-projects-assignment-3</h5>
+                        <p>The projects consist in an advances system for monitoring the temperature and controlling a window in automatic and manual mode. The system is structured in 4 main subsystems:</p>
                         <ul>
                             <li>
-                                Temperature Monitoring Subsystem, monitora la temperatura e comunica con il server.
+                                Temperature Monitoring Subsystem (ESP-32), monitors the temperature e share it with the server.
                             </li>
                             <li>
-                                Window Controller Subsystem, controlla l'apertura della finestra tramite un motore servo.
+                                Window Controller Subsystem (Arduino), hadels window opening using a servo motor.
                             </li>
                             <li>
-                                Control Unit Subsystem (Server/PC), collega tutti gli elementi del sistema e gestisce la logica.
+                                Control Unit Subsystem (Server/PC), Connects all the subsystems and manage all the logic.
                             </li>
                             <li>
-                                Dashboard Subsystem, l'interfaccia grafica del sistema.
+                                Dashboard Subsystem, Gui of the system, on another pc and connected with the server.
                             </li>
                         </ul>
                         </p>
-                        <p><strong>Tecnologie:</strong> C++, Java, Python, HTTP and MQTT protocols</p>
-                        <a href="https://github.com/luciobaiocchi/IOT-project_3" class="btn btn-primary">GitHub</a>
+                        <div class="row">
+                            <div class="col-9">
+                                <p><strong>Tecnologies:</strong> C++, Java, Python, HTTP and MQTT protocols</p>
+                            </div>
+                            <div class="col-3">
+                                <a href="https://github.com/luciobaiocchi/IOT-project_3" class="btn btn-primary">GitHub</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
