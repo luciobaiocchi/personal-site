@@ -4,20 +4,22 @@
     --secondary-color: #f9801d;
     --background: #f4f4f4;
     --background-card: #ffffff;
-    --placeholder-color: #b6c9de;
+    --placeholder-color: #030406;
     --white: #ffffff;
     --shadow-color: rgb(0, 0, 0, 0.1);
 
     --primary-color-pressed: #232e22;
 
 
-    --text-color: #1c1b1b;
+    --text-color: #4e4949;
     --text-header:rgba(255, 255, 255, 0.55);
+
+    --background-higer-main: linear-gradient(to bottom, #b7b7b7, #c6c6c6, #d5d5d5, #e4e4e4, #f4f4f4);
 
     --transparent: #ffffff00;
     --transparent-50: #f6edd9c0;
     --header-color:rgb(33, 37, 41);
-    --background-darker: #decdaa;
+    --background-darker: #b7b7b7;
     --theme-button-color: #6588c0;  
     --theme-button-color-darker: #154081;
 }
@@ -38,11 +40,12 @@
     --text-color: #dbd9d9;
     --text-header:rgba(255, 255, 255, 0.55);
 
+    --background-higer-main: linear-gradient(to bottom, #121212, #171717, #1c1c1c, #202020, #252525);
     --transparent: #ffffff00;
     --transparent-50: #000000b0;
 
     --header-color: #3c3c3cb6;
-    --background-darker: #323232;
+    --background-darker: #000000;
     --theme-button-color: #d7a251;
     --theme-button-color-darker: #875100;
 }
@@ -70,6 +73,7 @@ body{
 
 .theme-toggle.border.border-3.px-2.py-1.ms-1 > i{
     color: var(--theme-button-color);
+    margin: 0px;
 }
 
 body.dark-theme,
@@ -162,6 +166,15 @@ body > footer > p > a{
     border-color: #989696;
 }
 
+.fab, .fas, .fa, .fa-brands, .fa-sharp, .bi, .fa-solid{
+    color: var(--secondary-color) !important;
+    font-size: 30px;
+    margin-top: 3%;
+    margin-right: 4px;
+    margin-bottom: 3px;
+}
+
+
 /* Img projects card */
 @media screen and (max-width: 768px) {
     main .card-img, .card-img-bottom, .card-img-top{
@@ -173,31 +186,61 @@ body > footer > p > a{
     body > main > div > div > div > div > div > a{
         width: 20%;
     }
+    #navbarNav > button{
+        margin-left: 92% !important;
+    }
 }
 
 @media screen and (max-width: 576px) {
     main .card-img, .card-img-bottom, .card-img-top{
-        width: 100%;
+        width: 50%;
         border-bottom-left-radius:0% !important;
         border-bottom-right-radius:0% !important;
-    }
-    body > main > div > div.row.mb-4 > div > div > div{
-        display: grid !important;
     }
     body > main > div > div > div > div > div > a{
         width: 20%;
     }
     #about > div > div > div > div, #about > div > div > div > div > a{
-        display: grid !important;
         border-bottom-left-radius:0% !important;
         border-bottom-right-radius:0% !important;
     }
 
     #about > div > div > div > div > a > img{
-        width: 100%;
+        width: 40%;
     }
     #about > div > div > div > div > a{
-        width: 100%;
+        width: 40%;
+    }
+    .fab, .fas, .fa, .fa-brands, .fa-sharp, .bi, .fa-solid{
+        color: var(--secondary-color) !important;
+        font-size: 20px;
+        margin-top: 3%;
+        margin-right: 4px;
+        margin-bottom: 3px;
+    }
+    a.btn{
+        margin: 0px !important;
+        font-size: 12px;
+    }
+    .card-title{
+        font-size: 18px;
+    }
+    .card-text{
+        font-size: 15px;
+        margin-bottom: 4px;
+    }
+    #about > div > div > div > div > div > p{
+        font-size: 12px;
+        margin-bottom: 6px !important;
+    }
+    #about > div > div > div > div > div > h5{
+        font-size: 15px;
+    }
+    div.card-body{
+        padding: 3px !important;
+    }
+    #navbarNav > button{
+        margin-left: 89% !important;
     }
 }
 
@@ -212,22 +255,13 @@ body > footer > p > a{
     height: 100%;
 }
 
-
-
-#hero-canvas-container{
-    position: relative; 
-    height: 150px; 
-    padding: 0%;
-}
-
-
-.fab, .fas, .fa, .fa-brands, .fa-sharp, .bi, .fa-solid{
-    color: var(--secondary-color) !important;
+#contacts > div.d-flex.justify-content-around.gap-4 > a > i, #contacts > div > a > i{
     font-size: 30px;
-    margin-top: 3%;
-    margin-right: 4px;
-    margin-bottom: 3px;
 }
+
+
+
+
 
 .theme-icon {
     color: var(--theme-button-color) !important;
@@ -247,8 +281,44 @@ a.btn:hover {
     border-color: var(--secondary-color) !important;
 }
 
-#hero-canvas-container{
-    background-color: var(--background) !important;
-    height: 30px;
-    width: 100%;
+
+
+
+main[data-homeNegozio]>div.row.justify-content-center.py-5>div.col-10.col-md-4>a {
+    display: block;
+    color: white;
+    font-size: 50px !important;
+    border-radius: 1000px;
+    padding-top: 3%;
+    text-shadow: 0 0 10px #39FF14, 0 0 20px #39FF14, 0 0 30px #39FF14;
+    animation: blink 1.5s ease-in-out infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.2;
+    }
+}
+
+#higer-main{
+    background-image: var(--background-higer-main);
+}
+#higer-main > p{
+    display: block;
+    color: var(--white);
+    font-size: 30px !important;
+    border-radius: 1000px;
+    padding-top: 3%;
+    text-shadow: 0 0 10px var(--secondary-color), 0 0 20px var(--secondary-color), 0 0 30px var(--secondary-color);
+    animation: blink 3s ease-in-out infinite;
+}
+
+#navbarNav > ul > li > a{
+    text-align: end;
 }
