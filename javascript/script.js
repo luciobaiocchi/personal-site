@@ -30,4 +30,30 @@ document.addEventListener('DOMContentLoaded', () => {
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
         setTheme(newTheme);
     });
+    
+});
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Crea l'overlay una volta sola
+    const overlay = document.createElement('div');
+    overlay.id = 'lightbox-overlay';
+    overlay.innerHTML = '<img>';
+    document.body.appendChild(overlay);
+
+    const overlayImg = overlay.querySelector('img');
+
+    // Al click sull'immagine
+    document.querySelectorAll('.expandable-img').forEach(img => {
+        img.addEventListener('click', () => {
+            overlayImg.src = img.src;
+            overlay.style.display = 'flex';
+        });
+    });
+
+    // Chiudi al click sull'overlay
+    overlay.addEventListener('click', () => {
+        overlay.style.display = 'none';
+        overlayImg.src = '';
+    });
 });

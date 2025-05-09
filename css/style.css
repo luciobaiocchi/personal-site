@@ -322,3 +322,26 @@ main[data-homeNegozio]>div.row.justify-content-center.py-5>div.col-10.col-md-4>a
 #navbarNav > ul > li > a{
     text-align: end;
 }
+
+/* Sfondo scuro trasparente */
+#lightbox-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1050;
+}
+
+/* Immagine centrata */
+#lightbox-overlay img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 2px;
+    box-shadow: 0 0 20px #000;
+    cursor: zoom-out;
+}
