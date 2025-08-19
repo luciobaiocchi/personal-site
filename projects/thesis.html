@@ -81,20 +81,22 @@
                 </div>
 
                 <div class="mt-4">
-                    <md>##Project Description</md>
+                    <md>####Development of Intelligent Devices for Tracking and Communication Between Hiking Groups in Remote Environments</md>
+                    <md>#####Description</md>
+
+                    <md>The thesis presents the design and implementation of a distributed hardware–software platform that enables position tracking and message exchange between hikers in areas without cellular coverage.</md>
+
+                    <md>The system integrates an ESP32-based architecture with GPS modules, long-range LoRa transceivers, and low-power displays, focusing on energy efficiency and usability in emergency scenarios. A decentralized communication protocol is proposed to support dynamic network topologies, managing position updates, broadcast messages, and SOS alerts entirely peer-to-peer.</md>
+
+                    <md>A leader-election and synchronization mechanism is implemented to coordinate data collection rounds, minimizing transmission collisions while ensuring reliable propagation of positional information across the group.</md>
+
+                    <md>Objective: develop a decentralized LoRa-based positioning system for hikers, enabling robust peer-to-peer communication and cooperative safety features in remote outdoor scenarios.</md>
                     <md>This thesis project focuses on the design and prototyping of a **modular device for mountain safety**, aimed at assisting hikers and mountaineers in remote environments.</md>
 
-                    <md>The system integrates multiple sensors (GPS, accelerometer, barometer) with **LoRa communication** to provide real-time **position tracking**, **environmental monitoring**, and **emergency signaling** even in areas without cellular coverage.</md>
 
-                    <md>Key features include:
-                    - Position logging and live transmission to a LoRa gateway.
-                    - Detection of SOS signals via button or automatic fall detection.
-                    - Local display for user feedback.
-                    - Energy efficiency and robustness for outdoor use.</md>
 
-                    <md>Designed around the **ESP32** microcontroller, the prototype is developed using C++ (embedded), Python (data decoding), and a custom LoRa protocol for communication between devices and central receiver.</md>
 
-                    <md>This project bridges embedded systems, wireless communication, and safety applications in real-world, off-grid scenarios.</md>
+
                 </div>
             </div>
 
@@ -113,6 +115,82 @@
             <div class="row">
                 <!-- Optional: add link to thesis PDF or contact -->
             </div>
+
+        </div>
+    </section>
+
+
+    <section class="project-details">
+        <div class="container">
+            <div class="row mb-4 d-flex justify-content-center">
+                <div class="col-lg-6">
+                    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="../img/projects/thesis/app/4.png" class="d-block w-100 expandable-img" alt="Prototype image 1">
+                            </div>
+                            <div class="carousel-item active">
+                                <img src="../img/projects/thesis/app/5.png" class="d-block w-100 expandable-img" alt="Prototype image 1">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    <md>#####Heard Mobile Application</md>
+
+                    <md>Heard Mobile is a social platform and companion app dedicated to monitoring outdoor sports activities such as running and trekking. It allows users to record routes, speed, calories burned and other training metrics, analyse their performance over time, compare results with other athletes and share activities within a community.</md>
+                    <md> Is built to comunicate with the embedded device and visualize on the phone the position of other hikers in real time.</md>
+                   
+                
+                </div>
+            </div>
+
+            <!-- Tecnologie Utilizzate -->
+            <div class="row mb-4">
+                <div class="col-md-9">
+                    <h2>Technologies used:</h2>
+                    <ul>
+                        <li>Jetpack Compose → UI moderna e dichiarativa</li>
+                        <li>Firebase
+                            <ul>
+                                <li>Auth → Autenticazione utenti</li>
+                                <li>Firestore → Database NoSQL in Cloud</li>
+                                <li>Analytics → Tracciamento eventi</li>
+                            </ul>
+                        </li>
+                        <li>Ktor & KotlinX Serialization → Chiamate API REST e parsing JSON</li>
+                        <li>Koin → Dependency Injection semplice e modulare</li>
+                        <li>DataStore → Persistenza dati locale e salvataggio preferenza tema</li>
+                        <li>OSMDroid → Mappe OpenStreetMap</li>
+                        <li>Coil → Caricamento immagini efficiente</li>
+                        <li>YCharts → Grafici interattivi in Compose</li>
+                        <li>Google Play Services → Accesso alla geolocalizzazione</li>
+                        <li>Coroutines → Programmazione asincrona in Kotlin</li>
+                    </ul>
+                </div>
+                <div class="col-md-3 text-center d-flex align-items-end justify-content-end">
+                    <p><strong>Link repo:</strong> <a href="https://github.com/luciobaiocchi/thesis" class="btn btn-primary">GitHub (actually private)</a></p>
+                </div>
+            </div>
+
+
+
+            <!-- Call to Action -->
+            <div class="row">
+                <!-- Optional: add link to thesis PDF or contact -->
+            </div>
+
+
+               
         </div>
     </section>
 </main>

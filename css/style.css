@@ -345,3 +345,15 @@ main[data-homeNegozio]>div.row.justify-content-center.py-5>div.col-10.col-md-4>a
     box-shadow: 0 0 20px #000;
     cursor: zoom-out;
 }
+
+
+#higer-main {
+    background-image: url('../img/header.jpg'); 
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
