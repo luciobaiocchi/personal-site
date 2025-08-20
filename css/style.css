@@ -18,10 +18,11 @@
 
     --transparent: #ffffff00;
     --transparent-50: #f6edd9c0;
-    --header-color:rgb(33, 37, 41);
+    --header-color:rgba(33, 37, 41, 0.604);
     --background-darker: #b7b7b7;
     --theme-button-color: #6588c0;  
     --theme-button-color-darker: #154081;
+    --link-color: #ffffff;
 }
 
 [data-bs-theme="dark"] {
@@ -48,7 +49,35 @@
     --background-darker: #000000;
     --theme-button-color: #d7a251;
     --theme-button-color-darker: #875100;
+    --link-color: var(--text-color);
+
 }
+
+/* Hero style */
+.hero {
+    min-height: 100vh;
+    background: linear-gradient(180deg, rgba(0,0,0,0.5) 10%, rgba(0,0,0,1) 100%), 
+                url('../img/header.jpg') center/cover no-repeat;
+}
+
+/* Trasparent navbar + blur on scroll */
+.navbar.bg-transparent{
+    backdrop-filter: blur(6px);
+}
+
+/* Card hover effect */
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,.4);
+    transition: all .3s ease;
+}
+
+/* Dark body */
+body {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
 
 body {
     font-family: 'Poppins', sans-serif;
@@ -100,8 +129,8 @@ body.dark-theme,
 }
 
 .dark-theme .navbar-brand,
-.dark-theme .nav-link {
-    color: #ffffff !important;
+.dark-theme .nav-link , a.nav-link{
+    color: var(--link-color) !important;
 }
 
 .dark-theme .logo-plan {
@@ -357,3 +386,5 @@ main[data-homeNegozio]>div.row.justify-content-center.py-5>div.col-10.col-md-4>a
     align-items: center;
     justify-content: center;
 }
+
+

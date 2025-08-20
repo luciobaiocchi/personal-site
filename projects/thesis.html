@@ -24,7 +24,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <!--logo-->
-            <a class="navbar-brand" href="../index.html">
+            <a class="navbar-brand" href="../home.html">
                 <img src="../img/LB.png" alt="Logo Lucio Baiocchi" class="logo"/>
             </a>
             <!-- Bottone tema -->
@@ -33,9 +33,9 @@
             </button>
             <div class="collapse navbar-collapse md-5" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../home.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="../projects.html">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../index.html#contacts">Contacts</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../home.html#contacts">Contacts</a></li>
                 </ul>
                 <button class="btn theme-toggle border border-3 px-2 py-1 ms-1">
                     <i class="bi theme-icon bi-moon-stars-fill"></i>
@@ -44,156 +44,15 @@
         </div>
     </nav>
 
-    <main class="container-fluid">
-    <!-- Introduzione al Progetto -->
-    <section class="project-intro mt-4">
-        <div class="container text-center">
-            <h1 class="display-5">Bachelor's Thesis Project</h1>
+    <main class="container-fluid d-flex justify-content-center align-items-center" style="height: 80vh;">
+        <div class="card bg-dark text-light p-4 shadow-lg rounded-4" style="max-width: 440px;">
+            <div class="card-body text-center">
+                <i class="bi bi-gear-fill display-3 mb-3"></i>
+                <h3 class="card-title">Work in progress</h3>
+                <p class="card-text">This section is under development.</p>
+            </div>
         </div>
-    </section>
-
-    <!-- Dettagli del Progetto -->
-    <section class="project-details">
-        <div class="container">
-            <div class="row mb-4 d-flex justify-content-center">
-                <div class="col-lg-6">
-                    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img src="../img/projects/thesis/1.jpeg" class="d-block w-100 expandable-img" alt="Prototype image 1">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="../img/projects/thesis/2.jpeg" class="d-block w-100 expandable-img" alt="Prototype image 2">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="../img/projects/thesis/3.jpeg" class="d-block w-100 expandable-img" alt="Prototype image 2">
-                            </div>
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="mt-4">
-                    <md>####Development of Intelligent Devices for Tracking and Communication Between Hiking Groups in Remote Environments</md>
-                    <md>#####Description</md>
-
-                    <md>The thesis presents the design and implementation of a distributed hardware–software platform that enables position tracking and message exchange between hikers in areas without cellular coverage.</md>
-
-                    <md>The system integrates an ESP32-based architecture with GPS modules, long-range LoRa transceivers, and low-power displays, focusing on energy efficiency and usability in emergency scenarios. A decentralized communication protocol is proposed to support dynamic network topologies, managing position updates, broadcast messages, and SOS alerts entirely peer-to-peer.</md>
-
-                    <md>A leader-election and synchronization mechanism is implemented to coordinate data collection rounds, minimizing transmission collisions while ensuring reliable propagation of positional information across the group.</md>
-
-                    <md>Objective: develop a decentralized LoRa-based positioning system for hikers, enabling robust peer-to-peer communication and cooperative safety features in remote outdoor scenarios.</md>
-                    <md>This thesis project focuses on the design and prototyping of a **modular device for mountain safety**, aimed at assisting hikers and mountaineers in remote environments.</md>
-
-
-
-
-
-                </div>
-            </div>
-
-            <!-- Tecnologie Utilizzate -->
-            <div class="row mb-4">
-                <div class="col-md-9">
-                    <h2>Technologies used:</h2>
-                    <p>C++ (ESP32), LoRa, GPS module, OLED screen, accelerometer, barometer, and custom protocol design.</p>
-                </div>
-                <div class="col-md-3 text-center d-flex align-items-end justify-content-end">
-                    <p><strong>Link repo:</strong> <a href="https://github.com/luciobaiocchi/thesis" class="btn btn-primary">GitHub (actually private)</a></p>
-                </div>
-            </div>
-
-            <!-- Call to Action -->
-            <div class="row">
-                <!-- Optional: add link to thesis PDF or contact -->
-            </div>
-
-        </div>
-    </section>
-
-
-    <section class="project-details">
-        <div class="container">
-            <div class="row mb-4 d-flex justify-content-center">
-                <div class="col-lg-6">
-                    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img src="../img/projects/thesis/app/4.png" class="d-block w-100 expandable-img" alt="Prototype image 1">
-                            </div>
-                            <div class="carousel-item active">
-                                <img src="../img/projects/thesis/app/5.png" class="d-block w-100 expandable-img" alt="Prototype image 1">
-                            </div>
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="mt-4">
-                    <md>#####Heard Mobile Application</md>
-
-                    <md>Heard Mobile is a social platform and companion app dedicated to monitoring outdoor sports activities such as running and trekking. It allows users to record routes, speed, calories burned and other training metrics, analyse their performance over time, compare results with other athletes and share activities within a community.</md>
-                    <md> Is built to comunicate with the embedded device and visualize on the phone the position of other hikers in real time.</md>
-                   
-                
-                </div>
-            </div>
-
-            <!-- Tecnologie Utilizzate -->
-            <div class="row mb-4">
-                <div class="col-md-9">
-                    <h2>Technologies used:</h2>
-                    <ul>
-                        <li>Jetpack Compose → UI moderna e dichiarativa</li>
-                        <li>Firebase
-                            <ul>
-                                <li>Auth → Autenticazione utenti</li>
-                                <li>Firestore → Database NoSQL in Cloud</li>
-                                <li>Analytics → Tracciamento eventi</li>
-                            </ul>
-                        </li>
-                        <li>Ktor & KotlinX Serialization → Chiamate API REST e parsing JSON</li>
-                        <li>Koin → Dependency Injection semplice e modulare</li>
-                        <li>DataStore → Persistenza dati locale e salvataggio preferenza tema</li>
-                        <li>OSMDroid → Mappe OpenStreetMap</li>
-                        <li>Coil → Caricamento immagini efficiente</li>
-                        <li>YCharts → Grafici interattivi in Compose</li>
-                        <li>Google Play Services → Accesso alla geolocalizzazione</li>
-                        <li>Coroutines → Programmazione asincrona in Kotlin</li>
-                    </ul>
-                </div>
-                <div class="col-md-3 text-center d-flex align-items-end justify-content-end">
-                    <p><strong>Link repo:</strong> <a href="https://github.com/luciobaiocchi/thesis" class="btn btn-primary">GitHub (actually private)</a></p>
-                </div>
-            </div>
-
-
-
-            <!-- Call to Action -->
-            <div class="row">
-                <!-- Optional: add link to thesis PDF or contact -->
-            </div>
-
-
-               
-        </div>
-    </section>
-</main>
+    </main>
 
 
     <!-- Footer -->

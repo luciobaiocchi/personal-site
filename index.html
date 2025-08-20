@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="it" data-bs-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=0.9">
@@ -24,146 +24,36 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <!-- Navbar trasparente sopra hero -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-transparent position-absolute w-100 z-3">
         <div class="container">
-            <!--logo-->
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="home.html">
                 <img src="img/LB.png" alt="Logo Lucio Baiocchi" class="logo"/>
             </a>
-            <!-- Bottone tema -->
             <button class="navbar-toggler ms-auto me-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse md-5" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link" href="index.html#contacts">Contacts</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contacts">Contacts</a></li>
                 </ul>
-                <button class="btn theme-toggle border border-3 px-2 py-1 ms-1">
-                    <i class="bi theme-icon bi-moon-stars-fill"></i>
-                </button>
+                
             </div>  
         </div>
     </nav>
 
-    <!-- higher part -->
-    
-    
-    <main class="container-fluid">
-        <div class="row">
-            <div id="higer-main" class="col text-center py-5">
-                <p class="m-0 p-0">Welcome</p>
-            </div>
-          </div>
-        <div class="row d-flex justify-content-center mx-3 mt-5">
-            <div id="about" class="col-12 col-md-9 p-4 shadow rounded">
-                <h2>About me</h2>
-                <p>I am a computer science student at the University of Bologna. 
-                    I am passionate about technology and in general I like programming and challenging myself by creating projects alone and in a team.
-                    I like doing sports and working out in the gym. Here on my website you can find the projects I have worked on for the moment. 
-                    Maybe in the future I will also share other content that I will find interesting.
-                </p>
-            </div>
-        </div>
-
-        <div class="row d-flex justify-content-center mx-3 mt-5">
-            <div id="about" class="col-12 col-md-9 p-4 shadow rounded">
-                <h2>Latest projects</h2>
-                <div class="row mb-4">
-                    
-                <div class="col-md-4 p-3">
-                    <div class="card shadow-sm">
-                        <div class="d-md-block d-flex align-items-center">
-                            <img src="./img/projects/thesis/HEARD.png" class="card-img-top" alt="Diet Management System">
-                            <div class="card-body">
-                                <h5 class="card-title">Heard</h5>
-                                <p class="card-text">My thesis</p>
-                                <a href="./projects/thesis.html" class="btn btn-primary mt-2 stretched-link">See more</a>
-                                <i class="fa-sharp fa-solid fa-c logo-plan float-end"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                    <div class="col-md-4 p-3">
-                        <div class="card shadow-sm rounded">
-                            <div class="d-md-block d-flex align-items-center">
-                                <img src="./img/projects/giogreens/logo.png" class="card-img-top" alt="IOT Projects">
-                                <div class="card-body">
-                                    <h5 class="card-title">Giogreens</h5>
-                                    <p class="card-text">Web Ecommerce about plants.</p>
-                                    <a href="./projects/giogreens.html" class="btn btn-primary mt-2 stretched-link">See more</a>
-                                    <i class="fab fa-java logo-plan float-end"></i>
-                                    <i class="fa-brands fa-python logo-plan float-end"></i>
-                                    <i class="fa-sharp fa-solid fa-c logo-plan float-end"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>    
-
-                    <div class="col-md-4 p-3">
-                        <div class="card shadow-sm rounded">
-                            <div class="d-md-block d-flex align-items-center">
-                                <img src="./img/projects/Logo_IOT.png" class="card-img-top" alt="IOT Projects">
-                                <div class="card-body">
-                                    <h5 class="card-title">IOT projects</h5>
-                                    <p class="card-text">Collection of university iot projects</p>
-                                    <a href="./projects/iot_projects.html" class="btn btn-primary mt-2 stretched-link">See more</a>
-                                    <i class="fab fa-java logo-plan float-end"></i>
-                                    <i class="fa-brands fa-python logo-plan float-end"></i>
-                                    <i class="fa-sharp fa-solid fa-c logo-plan float-end"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>    
-
-                    
-                </div>
-            </div>
-        </div>
-            
-        <div class="row d-flex justify-content-center mx-3 mt-5">
-            <section id="contacts" class="col-12 col-md-9 p-4 shadow rounded">
-                <div class="d-flex justify-content-start gap-4"> 
-                </div>
-                <h3>Latest version of my CV</h3>
-                <div class="d-flex justify-content-around gap-4"> 
-                    <a href="https://drive.google.com/file/d/1O86KWMFzt9JewxW4GkLWO6ihL6lB6noX/view?usp=sharing" target="_blank" class="text-decoration-none">
-                        <i class="fa-solid fa-file h3"></i>
-                    </a>
-                </div>
-            </section>
-        </div>
-
-        <div class="row d-flex justify-content-center mx-3 mt-5">
-            <section id="contacts" class="col-12 col-md-9 p-4 shadow rounded">
-                <h3>Contacts</h3>
-                <div class="d-flex justify-content-center gap-4"> 
-                    <a href="mailto:luciobaiocchi1@gmail.com" class="text-decoration-none">
-                        <i class="bi bi-envelope h2"></i> 
-                    </a>
-                    <a href="https://github.com/luciobaiocchi" target="_blank" class="text-decoration-none">
-                        <i class="bi bi-github h2"></i> 
-                    </a>
-                    <a href="https://www.linkedin.com/in/lucio-baiocchi-39b420243/" target="_blank" class="text-decoration-none">
-                        <i class="bi bi-linkedin h2"></i>
-                    </a>
-                </div>
-            </section>
-        </div>
-    </main>
+    <!-- Hero -->
+    <header class="hero d-flex flex-column justify-content-center align-items-center text-center text-light">
+        <h1 class="display-3 fw-bold">Hi, I'm Lucio </h1>
+        <p class="lead">Computer Science engineer based in Italy</p>
+        <a href="./home.html" class="btn btn-primary mt-3">Explore my work</a>
+    </header>
 
 
-
-        
-    <!-- Footer -->
-    <footer class="text-center py-3 mt-5">
-        <p>&copy; 2025 Lucio Baiocchi | <a href="mailto:luciobaiocchi1@gmail.com">Contact me</a></p>
-    </footer>
     
 
-    <script src="./javascript/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
