@@ -44,15 +44,220 @@
         </div>
     </nav>
 
-    <main class="container-fluid d-flex justify-content-center align-items-center" style="height: 80vh;">
-        <div class="card bg-dark text-light p-4 shadow-lg rounded-4" style="max-width: 440px;">
-            <div class="card-body text-center">
-                <i class="bi bi-gear-fill display-3 mb-3"></i>
-                <h3 class="card-title">Work in progress</h3>
-                <p class="card-text">This section is under development.</p>
+<main class="container-fluid">
+    <!-- Introduzione al Progetto -->
+    <section class="project-intro my-4">
+        <div class="container text-center">
+            <h1 class="display-5 fw-bold">HEARD Project – Thesis Presentation</h1>
+            <p class="text-secondary fs-5">Design and Development of Embedded Devices for Hiker Group Safety</p>
+        </div>
+    </section>
+    <!-- Dettagli del Progetto -->
+    <section class="project-details p-4">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <div class="ratio ratio-16x9 mt-4">
+                        <iframe src="https://www.youtube.com/embed/rSgT1LedNBk" allow="accelerometer; encrypted-media; gyroscope" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="col-md-6 mt-md-0 mt-4">
+                    <h2>Project description</h2>
+                    <p>
+                        The HEARD system (Hiking Emergency Assistance and Rescue Device) is an IoT-based solution 
+                        designed to improve the safety of hiking groups in remote areas, where traditional connectivity 
+                        is limited or unavailable. The project focuses on real-time group coordination, autonomous 
+                        monitoring, and proactive detection of dangerous situations.
+                    </p>
+
+                    <h4 class="mt-4">Objectives</h4>
+                    <ul>
+                        <li>Enable long-range communication without cellular networks</li>
+                        <li>Support real-time position sharing among group members</li>
+                        <li>Detect off-route deviations automatically</li>
+                        <li>Provide emergency triggering and fast alert propagation</li>
+                    </ul>            
+                </div>
+                <div class="col-md-6 mt-md-0 mt-4">
+                    <h4 class="mt-4">System Architecture</h4>
+                    <p>
+                        The device ecosystem is composed of three embedded units:
+                    </p>
+                    <ul>
+                        <li><strong>Heard Core:</strong> the group leader’s device, responsible for route creation, synchronization, and global monitoring.</li>
+                        <li><strong>Heard Node:</strong> a compact device for adults, capable of transmitting positions and receiving alerts.</li>
+                        <li><strong>Heard Pico:</strong> a minimal emergency-only device, ideal for children.</li>
+                    </ul>
+                    <h4 class="mt-4">Communication Layer</h4>
+                    <p>
+                        The devices communicate via LoRa, enabling effective long-distance messaging (up to several kilometers). 
+                        A hybrid communication model allows both direct broadcasting and multi-hop message propagation when 
+                        nodes are spread along the trail.
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="../img/projects/thesis/1.jpeg" class="d-block w-100 expandable-img" alt="...">
+                            </div>
+                            <div class="carousel-item active">
+                                <img src="../img/projects/thesis/2.jpeg" class="d-block w-100 expandable-img" alt="...">
+                            </div>
+                            <div class="carousel-item active">
+                                <img src="../img/projects/thesis/3.jpeg" class="d-block w-100 expandable-img" alt="...">
+                            </div>
+                            <div class="carousel-item active">
+                                <img src="../img/projects/thesis/4.JPG" class="d-block w-100 expandable-img" alt="...">
+                            </div>
+                            <div class="carousel-item active">
+                                <img src="../img/projects/thesis/5.png" class="d-block w-100 expandable-img" alt="...">
+                            </div>
+                            <div class="carousel-item active">
+                                <img src="../img/projects/thesis/6.JPG" class="d-block w-100 expandable-img" alt="...">
+                            </div>
+                            <div class="carousel-item active">
+                                <img src="../img/projects/thesis/7.JPG" class="d-block w-100 expandable-img" alt="...">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev"
+                            style="color: black; background-color: rgba(0, 0, 0, 0); border: none;">
+                            <span class="carousel-control-prev-icon" aria-hidden="true" style="filter: invert(1);"> <!-- Invertire i colori dell'icona per renderla scura --></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next" style="color: black; background-color: rgba(0,0,0,0); border: none;">
+                            <span class="carousel-control-next-icon" aria-hidden="true" style="filter: invert(1);"> <!-- Invertire i colori dell'icona per renderla scura --></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+                <h4 class="mt-4">Route and Safety Detection</h4>
+                <p>
+                    Each device continuously checks whether the user is within the allowed corridor of the planned route. 
+                    The algorithm combines the Haversine formula with an equirectangular approximation to compute 
+                    point-to-path distances efficiently on embedded hardware.
+                </p>
+            </div>
+
+
+
+            <!-- Tecnologie Utilizzate -->
+            <div class="row mb-4 mt-5">
+                <div class="col-md-6">
+                    <h2>Technologies Used:</h2>
+                    <p>
+                        <strong>Hardware:</strong> ESP32 (Pico, LILYGO T-TWR), LoRa (RFM95), GPS (Quectel L86), wavehark e-ink display 2,9".<br>
+                        <strong>Firmware:</strong> C/C++ (PlatformIO), FreeRTOS (for multi-tasking).<br>
+                        <strong>Protocolli:</strong> MQTT (per il gateway opzionale).
+                    </p>
+                </div>
+                <div class="col-md-6 text-center d-flex align-items-end justify-content-end">
+                    <!-- Assicurati che questo link sia corretto -->
+                    <p><strong>Link repo:</strong> <a href="https://github.com/luciobaiocchi/thesis" class="btn btn-primary">GitHub</a></p>
+                </div>
+            </div>
+            <!-- Risultati e Feedback -->
+            <div class="row">
+                
             </div>
         </div>
+    </section>
+
+    <section class="project-details p-4"> <!-- Aggiunto bg-light per separare le sezioni -->
+         <div class="container">
+            <div class="row mb-4 align-items-center">
+                <div class="col-md-6">
+                    <h2 class="fw-bold mb-3"><i class="bi bi-phone me-2"></i>Mobile Application</h2>
+                    <p class="text-secondary">
+                        As an extension of the HEARD system, the mobile application provides a modern interface 
+                        for viewing group activity, managing routes, and monitoring safety events in real time.
+                    </p>
+                    <h4 class="mt-4">Main Features</h4>
+                    <ul>
+                        <li>Display of group members’ positions on local offline maps</li>
+                        <li>Visualization of route progress and safety alerts</li>
+                        <li>Sharing and reviewing completed hiking paths</li>
+                        <li>Integration with embedded devices for real-time updates</li>
+                    </ul>
+                    <h4 class="mt-4">App Purpose</h4>
+                    <p>
+                        The application is not a replacement for the embedded safety devices; instead, it serves as 
+                        a complementary tool for advanced analytics, deeper data visualization, and community sharing.
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <!-- Carousel 2 -->
+                    <!-- CORREZIONE: ID Univoco per il secondo carousel -->
+                    <div id="carouselApp" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <!-- CORREZIONE: Solo il primo item deve essere 'active' -->
+                            <div class="carousel-item active">
+                                <img src="../img/projects/thesis/app/1.png" class="d-block w-100 expandable-img" alt="App Screenshot 1">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../img/projects/thesis/app/2.png" class="d-block w-100 expandable-img" alt="App Screenshot 2">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../img/projects/thesis/app/3.png" class="d-block w-100 expandable-img" alt="App Screenshot 3">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../img/projects/thesis/app/4.png" class="d-block w-100 expandable-img" alt="App Screenshot 4">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../img/projects/thesis/app/5.png" class="d-block w-100 expandable-img" alt="App Screenshot 5">
+                            </div>
+                        </div>
+                        <!-- CORREZIONE: data-bs-target aggiornato a #carouselApp -->
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselApp" data-bs-slide="prev"
+                            style="color: black; background-color: rgba(0, 0, 0, 0); border: none;">
+                            <span class="carousel-control-prev-icon" aria-hidden="true" style="filter: invert(1);"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselApp" data-bs-slide="next" style="color: black; background-color: rgba(0,0,0,0); border: none;">
+                            <span class="carousel-control-next-icon" aria-hidden="true" style="filter: invert(1);"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <h4 class="mt-4">Future Development</h4>
+                    <p>
+                        Planned extensions include a cloud backend to store hiking sessions, AI-based risk prediction, 
+                        and interaction with IoT sensors placed along mountain trails.
+                    </p>
+                </div>
+            </div>
+                <div class="row mb-4 mt-5">
+                <div class="col-md-6">
+                    <h4 class="mt-3">Mobile App (Android - Kotlin):</h4>
+                        <li><strong>Jetpack Compose:</strong> Modern and declarative UI</li>
+                        <li><strong>Firebase:</strong> User Authentication, NoSQL Cloud Database (Firestore), Event Tracking (Analytics)</li>
+                        <li><strong>DataStore:</strong> Local data persistence and theme preference saving</li>
+                        <li><strong>OSMDroid:</strong> OpenStreetMap Maps integration</li>
+                        <li><strong>YCharts:</strong> Interactive charts in Compose</li>
+                        <li><strong>Google Play Services:</strong> Geolocation access</li>
+                    </ul>
+                </div>
+                <div class="col-md-6 text-center d-flex align-items-end justify-content-end">
+                    <!-- Assicurati che questo link sia corretto -->
+                    <p><strong>Link repo:</strong> <a href="https://github.com/luciobaiocchi/HEARD" class="btn btn-primary">GitHub</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     </main>
+
+
+
+
+
+
+    
+
+
 
 
     <!-- Footer -->
