@@ -9,10 +9,7 @@
     <meta name="keywords" content="Lucio Baiocchi, sviluppo, programmazione, portfolio">
     <meta name="author" content="Lucio Baiocchi">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
-
     <link rel="stylesheet" href="../css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.min.js"></script>
 
@@ -25,149 +22,118 @@
 
 <body>
     <!--Header-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-            <!--logo-->
-            <a class="navbar-brand" href="../home.html">
-                <img src="../img/LB.png" alt="Logo Lucio Baiocchi" class="logo"/>
-            </a>
-            <!-- Bottone tema -->
             <button class="navbar-toggler ms-auto me-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse md-5" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="../home.html">Home</a></li>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto text-center align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="../projects.html">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../home.html#contacts">Contacts</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../index.html#contacts">Contacts</a></li>
+                    <li class="nav-item">
+                        <button class="btn theme-toggle ms-1">
+                            <i class="bi theme-icon bi-moon-stars-fill"></i>
+                        </button>
+                    </li>
                 </ul>
-                <button class="btn theme-toggle border border-3 px-2 py-1 ms-1">
-                    <i class="bi theme-icon bi-moon-stars-fill"></i>
-                </button>
-            </div>  
+            </div>
         </div>
     </nav>
 
-    <main class="container-fluid">
-        <!-- Introduzione -->
-        <section class="project-intro row">
-            <div class="container text-center col-12">
-                <h1 class="display-5 col-12 mt-4">My IOT projects</h1>
-                <p class="lead col-12">This is a collection of all the IOT projects that i made, in university and not.</p>
-                <p class="lead col-12">As for al the other projects for further details i racomend to check my GitHub profile.</p>
-            </div>
+    <main>
+        <section class="project-intro">
+            <h1>IoT Projects</h1>
+            <p class="text-secondary">A collection of academic and personal Internet of Things experiments</p>
         </section>
 
-        <!-- Progetto 1-->
-        <section class="project-section">
-            <div class="container">
-                <div class="row mb-4">
-                    <div class="col-md-6 col-12">
-                        <div class="ratio ratio-16x9 mt-4">
-                            <iframe src="https://www.youtube.com/embed/CACj1u8vGgM" allow="accelerometer; encrypted-media; gyroscope" allowfullscreen></iframe>
-                        </div>
+        <!-- Project 1: Binary Game -->
+        <section class="project-details border-bottom">
+            <div class="project-grid">
+                <div>
+                    <h2>Binary Game</h2>
+                    <p>
+                        An interactive hardware-based game designed to test and improve knowledge of binary conversion 
+                        in a fast-paced environment.
+                    </p>
+                    <h4 class="mt-4">Gameplay & Components</h4>
+                    <ul>
+                        <li><strong>Components:</strong> 4 green LEDs, 1 red LED, 4 buttons, 1 potentiometer, 1 LCD.</li>
+                        <li><strong>Goal:</strong> Read the decimal number on the LCD and correctly light up the LEDs to represent it in binary.</li>
+                        <li><strong>Challenge:</strong> Time limit <code>T1</code> decreases as the score increases.</li>
+                    </ul>
+                    <p class="mt-4"><strong>Technologies:</strong> C, PlatformIO</p>
+                </div>
+                <div>
+                    <div class="ratio ratio-16x9">
+                        <iframe src="https://www.youtube.com/embed/CACj1u8vGgM" allow="accelerometer; encrypted-media; gyroscope" allowfullscreen></iframe>
                     </div>
-                    <div class="col-md-6 col-12 p-3">
-                        <h2>Binary game</h2>
-                        <h5>IOT-projects-assignment1</h5>
-                        <ul>
-                            <li>
-                                Components: 4 green LEDs, 1 red LED, 4 buttons, 1 potentiomether and 1 LCD.
-                            </li>
-                            <li>
-                                Goal of the game: Convert the binary number displayed on the LCD lighting up the corrects LEDs (L1 = highest bit and L4 the least).
-                            </li>
-                            <li>
-                                Gameplay: Every turn a random number appears (0-15), and using the buttons the player has to write the number in T1 time.
-                            </li>
-                            <li>
-                                If correct, the score increase and T1 is reduced by a factor F.
-                            </li>
-                        </ul>
-                        <div class="row">
-                            <div class="col-9">
-                                <p><strong>Tecnologies: </strong> C, PlatformIO</p>
-                            </div>
-                            <div class="col-3">
-                                <a href="https://github.com/luciobaiocchi/IOT-project_1" class="btn btn-primary">GitHub</a>
-                            </div>
-                        </div>
+                    <div class="text-end mt-3">
+                        <a href="https://github.com/luciobaiocchi/IOT-project_1" class="btn btn-primary">GitHub Repo</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Progetto 2-->
-        <section class="project-section">
-            <div class="container">
-                <div class="row mb-4">
-                    <div class="col-md-6">
-                        <div class="ratio ratio-16x9 mt-4">
-                            <iframe src="https://www.youtube.com/embed/G0cvC06uNy4" allow="accelerometer; encrypted-media; gyroscope" allowfullscreen></iframe>
-                        </div>
+        <!-- Project 2: Smart Waste Management -->
+        <section class="project-details border-bottom">
+            <div class="project-grid">
+                <div>
+                    <h2>Smart Waste Management System</h2>
+                    <p>
+                        An intelligent waste tracking system built on Arduino that monitors environmental parameters 
+                        and automates waste collection logistics.
+                    </p>
+                    <h4 class="mt-4">System Features</h4>
+                    <ul>
+                        <li><strong>Sensors:</strong> Real-time monitoring of waste level, temperature, and human presence.</li>
+                        <li><strong>Automation:</strong> Automatic gate management for disposal security.</li>
+                        <li><strong>Remote Communication:</strong> Integrated GUI for system status and alerts.</li>
+                    </ul>
+                    <p class="mt-4"><strong>Technologies:</strong> Java, C++, PlatformIO</p>
+                </div>
+                <div>
+                    <div class="ratio ratio-16x9">
+                        <iframe src="https://www.youtube.com/embed/G0cvC06uNy4" allow="accelerometer; encrypted-media; gyroscope" allowfullscreen></iframe>
                     </div>
-                    <div class="col-md-6 p-3">
-                        <h2>Smart Waste Management System</h2>
-                        <h5>IOT-projects-assignment-2</h5>
-                        <p>This project aim to create a smart waste menagment system, based on Arduino microcontroller board. The system checks parameters such as waste level, temperature and user presence, managing also an auromatic gate and the remote comunication throughr a specific GUI.
-                        </p>
-                        <div class="row">
-                            <div class="col-9">
-                                <p><strong>Tecnologies:</strong> Java, C++, PlatformIO</p>
-                            </div>
-                            <div class="col-3">
-                                <a href="https://github.com/luciobaiocchi/IOT-project_2?tab=readme-ov-file#smart-waste-management-system" class="btn btn-primary">GitHub</a>
-                            </div>
-                        </div>
+                    <div class="text-end mt-3">
+                        <a href="https://github.com/luciobaiocchi/IOT-project_2?tab=readme-ov-file#smart-waste-management-system" class="btn btn-primary">GitHub Repo</a>
                     </div>
                 </div>
             </div>
         </section>
 
-
-        <!-- Progetto 3-->
-        <section class="project-section">
-            <div class="container">
-                <div class="row mb-4">
-                    <div class="col-md-6">
-                        <div class="ratio ratio-16x9 mt-4">
-                            <iframe src="https://www.youtube.com/embed/YA5omr81nk0" allow="accelerometer; encrypted-media; gyroscope" allowfullscreen></iframe>
-                        </div>
+        <!-- Project 3: Monitoring & Window Control -->
+        <section class="project-details">
+            <div class="project-grid">
+                <div>
+                    <h2>Advanced Window Control System</h2>
+                    <p>
+                        A complex distributed system for automated temperature monitoring and physical window control 
+                        using custom hardware and server-side logic.
+                    </p>
+                    <h4 class="mt-4">Subsystems</h4>
+                    <ul>
+                        <li><strong>Temperature Monitoring:</strong> ESP-32 based sensor nodes.</li>
+                        <li><strong>Window Controller:</strong> Arduino-controlled servo motor for physical window movement.</li>
+                        <li><strong>Control Unit:</strong> Central server managing distributed logic.</li>
+                        <li><strong>Dashboard:</strong> Remote GUI connecting to the central server for manual override.</li>
+                    </ul>
+                    <p class="mt-4"><strong>Technologies:</strong> C++, Java, Python, HTTP/MQTT Protocols</p>
+                </div>
+                <div>
+                    <div class="ratio ratio-16x9">
+                        <iframe src="https://www.youtube.com/embed/YA5omr81nk0" allow="accelerometer; encrypted-media; gyroscope" allowfullscreen></iframe>
                     </div>
-                    <div class="col-md-6 p-3">
-                        <h2>IoT Projects</h2>
-                        <h5>IOT-projects-assignment-3</h5>
-                        <p>The projects consist in an advances system for monitoring the temperature and controlling a window in automatic and manual mode. The system is structured in 4 main subsystems:</p>
-                        <ul>
-                            <li>
-                                Temperature Monitoring Subsystem (ESP-32), monitors the temperature e share it with the server.
-                            </li>
-                            <li>
-                                Window Controller Subsystem (Arduino), hadels window opening using a servo motor.
-                            </li>
-                            <li>
-                                Control Unit Subsystem (Server/PC), Connects all the subsystems and manage all the logic.
-                            </li>
-                            <li>
-                                Dashboard Subsystem, Gui of the system, on another pc and connected with the server.
-                            </li>
-                        </ul>
-                        </p>
-                        <div class="row">
-                            <div class="col-9">
-                                <p><strong>Tecnologies:</strong> C++, Java, Python, HTTP and MQTT protocols</p>
-                            </div>
-                            <div class="col-3">
-                                <a href="https://github.com/luciobaiocchi/IOT-project_3" class="btn btn-primary">GitHub</a>
-                            </div>
-                        </div>
+                    <div class="text-end mt-3">
+                        <a href="https://github.com/luciobaiocchi/IOT-project_3" class="btn btn-primary">GitHub Repo</a>
                     </div>
                 </div>
             </div>
         </section>
-
-
     </main>
+
 
 
         

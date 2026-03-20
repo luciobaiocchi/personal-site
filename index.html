@@ -1,59 +1,107 @@
 <!DOCTYPE html>
-<html lang="it" data-bs-theme="dark">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.9">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lucio Baiocchi</title>
     <link rel="icon" type="image/x-icon" href="img/LB.png">
     <meta name="description" content="Lucio Baiocchi - Portfolio e Contatti">
     <meta name="keywords" content="Lucio Baiocchi, sviluppo, programmazione, portfolio">
     <meta name="author" content="Lucio Baiocchi">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="./css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.min.js"></script>
-
-    <!--  
-     -->
-    <style>
-
-    </style>
 </head>
 
 <body>
-    <!-- Navbar trasparente sopra hero -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-transparent position-absolute w-100 z-3">
+    <!-- ═══════════════════════════ NAVBAR ═══════════════════════════ -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-            <a class="navbar-brand" href="home.html">
-                <img src="img/LB.png" alt="Logo Lucio Baiocchi" class="logo"/>
-            </a>
             <button class="navbar-toggler ms-auto me-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse md-5" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto text-center align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contacts">Contacts</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#contacts">Contacts</a></li>
+                    <li class="nav-item">
+                        <button class="btn theme-toggle ms-1">
+                            <i class="bi theme-icon bi-moon-stars-fill"></i>
+                        </button>
+                    </li>
                 </ul>
-                
-            </div>  
+            </div>
         </div>
     </nav>
 
-    <!-- Hero -->
-    <header class="hero d-flex flex-column justify-content-center align-items-center text-center text-light">
-        <h1 class="display-3 fw-bold">Hi, I'm Lucio </h1>
-        <p class="lead">Computer Science engineer based in Italy</p>
-        <a href="./home.html" class="btn btn-primary mt-3">Explore my work</a>
-    </header>
+    <main>
+        <section id="about">
+            <h2>About me</h2>
+            <p>
+                Hi there! I'm a curious Computer Science student at Politecnico di Torino, passionate about building things from scratch on my own or as part of a team.
+                Lately I've been .
+            </p>
+            <p>
+                I'm also getting increasingly fascinated by distributed systems, how large-scale software coordinates, fails, and recovers.
+                When I'm not at a keyboard, you'll find me running, exploring the outdoors, or lifting at the gym. 🤙
+            </p>
+        </section>
 
+        <section id="latest-projects">
+            <h2>Latest projects</h2>
+            <div class="project-list">
+                <div class="project-item pb-3 mb-3 border-bottom">
+                    <h5 class="mb-1"><a href="./projects/pca_analysis.html" class="text-decoration-none" style="color: var(--text-color);">PCA Psychophysical Analysis</a></h5>
+                    <p class="mb-1 text-secondary" style="font-size: 0.9rem;">Dimensionality reduction and K-Means clustering on psychophysical data</p>
+                    <div class="tech-icons" style="opacity: 0.7;">
+                        <i class="fa-brands fa-python"></i>
+                    </div>
+                </div>
+                <div class="project-item pb-3 mb-3 border-bottom">
+                    <h5 class="mb-1"><a href="./projects/nm_optimization.html" class="text-decoration-none" style="color: var(--text-color);">Numerical Optimization</a></h5>
+                    <p class="mb-1 text-secondary" style="font-size: 0.9rem;">Modified and Truncated Newton methods for large-scale optimization</p>
+                    <div class="tech-icons" style="opacity: 0.7;">
+                        <i class="fa-brands fa-python"></i>
+                    </div>
+                </div>
+                <div class="project-item pb-3 mb-3">
+                    <h5 class="mb-1"><a href="./projects/lsa_rsvd.html" class="text-decoration-none" style="color: var(--text-color);">LSA with rSVD</a></h5>
+                    <p class="mb-1 text-secondary" style="font-size: 0.9rem;">Latent semantic analysis with custom Randomized SVD on 18,000 Usenet posts</p>
+                    <div class="tech-icons" style="opacity: 0.7;">
+                        <i class="fa-brands fa-python"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    
+        <section id="contacts">
+            <h2>Contacts</h2>
+            <div class="d-flex justify-content-center gap-4">
+                <a href="mailto:luciobaiocchi1@gmail.com" class="text-decoration-none">
+                    <i class="bi bi-envelope h2"></i>
+                </a>
+                <a href="https://github.com/luciobaiocchi" target="_blank" class="text-decoration-none">
+                    <i class="bi bi-github h2"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/lucio-baiocchi-39b420243/" target="_blank" class="text-decoration-none">
+                    <i class="bi bi-linkedin h2"></i>
+                </a>
+                <a href="https://www.youtube.com/@luciobaiocchi" target="_blank" class="text-decoration-none">
+                    <i class="bi bi-youtube h2"></i>
+                </a>
+            </div>
+        </section>
+    </main>
 
+    <!-- ═══════════════════════════ FOOTER ═══════════════════════════ -->
+    <footer class="text-center py-3 mt-5">
+        <p>&copy; 2025 Lucio Baiocchi | <a href="mailto:luciobaiocchi1@gmail.com">Contact me</a></p>
+    </footer>
+
+    <script src="./javascript/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

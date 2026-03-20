@@ -24,111 +24,112 @@
 
 <body>
     <!--Header-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-            <!--logo-->
-            <a class="navbar-brand" href="../home.html">
-                <img src="../img/LB.png" alt="Logo Lucio Baiocchi" class="logo"/>
-            </a>
-            <!-- Bottone tema -->
             <button class="navbar-toggler ms-auto me-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse md-5" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="../home.html">Home</a></li>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto text-center align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="../projects.html">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../home.html#contacts">Contacts</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../index.html#contacts">Contacts</a></li>
+                    <li class="nav-item">
+                        <button class="btn theme-toggle ms-1">
+                            <i class="bi theme-icon bi-moon-stars-fill"></i>
+                        </button>
+                    </li>
                 </ul>
-                <button class="btn theme-toggle border border-3 px-2 py-1 ms-1">
-                    <i class="bi theme-icon bi-moon-stars-fill"></i>
-                </button>
-            </div>  
+            </div>
         </div>
     </nav>
 
-    <main class="container-fluid">
-        <!-- Introduzione al Progetto -->
-        <section class="project-intro mt-4">
-            <div class="container text-center">
-                <h1 class="display-5">Algorithm final course project</h1>
-            </div>
+    <main>
+        <section class="project-intro">
+            <h1>Algorithm Final Course Project</h1>
+            <p class="text-secondary">Shortest path optimization in a dynamic rain-exposed city grid</p>
         </section>
 
-        <!-- Dettagli del Progetto -->
         <section class="project-details">
-            <div class="container">
-                <div class="row mb-4">
-                    <div class="col-lg-6">
-                        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img src="../img/projects/algorithm/1.png" class="d-block w-100 expandable-img" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="../img/projects/algorithm/2.png" class="d-block w-100 expandable-img" alt="...">
-                                </div>
-                            </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
+            <div class="project-grid">
+                <div>
+                    <h2>Project Description</h2>
+                    <p>
+                        Developed for the <strong>Algorithms and Data Structures</strong> course (2022/2023) at the University of Bologna. 
+                        The goal was to implement a highly efficient algorithm to find the shortest path in a <code>N x M</code> grid-based city map.
+                    </p>
+                    <h4 class="mt-4">The Challenge</h4>
+                    <p>
+                        A pedestrain must navigate from <code>(0,0)</code> to <code>(N-1, M-1)</code> while:
+                    </p>
+                    <ul>
+                        <li>Avoiding buildings (marked 1-9 by height)</li>
+                        <li>Minimizing exposure to rain falling at a 45° angle</li>
+                        <li>Accounting for building "rain shadows" that cover <code>c</code> cells to the right</li>
+                    </ul>
+                </div>
+                <div>
+                    <h2>Input & Output Format</h2>
+                    <h4 class="mt-4">Input</h4>
+                    <ul>
+                        <li>Grid size: <code>10 ≤ N, M ≤ 500</code></li>
+                        <li>Cell values: <code>'0'</code> (sidewalk) to <code>'9'</code> (building height)</li>
+                    </ul>
+                    <h4 class="mt-4">Output</h4>
+                    <ul>
+                        <li>Minimum steps <code>d</code> and rain exposure <code>r</code></li>
+                        <li>Path sequence (E, O, S, N)</li>
+                        <li>Returns <code>-1 -1</code> if unreachable</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="project-grid">
+                <div>
+                    <h2>Implementation Details</h2>
+                    <p>
+                        The solution requires efficient state management to track position and rain exposure simultaneously.
+                    </p>
+                    <h4 class="mt-4">Keywords</h4>
+                    <ul>
+                        <li>Dijkstra's Algorithm / BFS</li>
+                        <li>Dynamic Programming</li>
+                        <li>Shadow propagation logic</li>
+                        <li>Memory-efficient grid traversal</li>
+                    </ul>
+                </div>
+                <div>
+                    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active"><img src="../img/projects/algorithm/1.png" class="d-block w-100 expandable-img" alt="..."></div>
+                            <div class="carousel-item"><img src="../img/projects/algorithm/2.png" class="d-block w-100 expandable-img" alt="..."></div>
                         </div>
-                    </div>
-
-                    <div class="mt-4">
-                        <md>##Project Description</md>
-                        <md>This project is part of the **Algorithms and Data Structures** course at the University of Bologna, Academic Year 2022/2023.The goal is to implement an efficient algorithm to find the shortest path in a grid-based city map,avoiding buildings and minimizing exposure to rain. </md>
-                        
-
-                        <md>The city map is represented as a grid of size `N x M`, where each cell contains a character `'0'` to `'9'`:
-                        - `'0'` represents a sidewalk (walkable area).
-                        - `'1'` to `'9'` represent buildings with heights from 1 to 9 floors.</md>
-                            
-                        <md>Rain falls from left to right at a 45-degree angle. A building of height `c` blocks rain for the next `c` cells to its right.
-                        A pedestrian starts at the top-left cell `(0, 0)` and must reach the bottom-right cell `(N-1, M-1)` by moving to adjacent cells (up, down, left, or right), avoiding buildings.
-                        The goal is to find the shortest path that minimizes the number of cells exposed to rain.</md>
-                
-                        <md>## Input Format</md>
-                        
-                        <md>The input file contains:
-                        1. The first line: two integers `N` (rows) and `M` (columns), where `10 ≤ N, M ≤ 500`.
-                        2. The next `N` lines: each line contains `M` characters (`'0'` to `'9'`), representing the grid.</md>
-                        
-
-                        
-                        <md>## Output Format</md>
-                        
-                        <md>The program outputs:
-                        1. If the destination is reachable:
-                            - The first line: two integers `d` (minimum number of cells visited) and `r` (number of cells exposed to rain).
-                            - The second line: a sequence of `(d - 1)` characters representing the path (`E` for East, `O` for West, `S` for South, `N` for North).
-                        2. If the destination is unreachable:
-                            - A single line: `-1 -1`.</md>
-                            
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev" style="color: black; background-color: rgba(0, 0, 0, 0); border: none;">
+                            <span class="carousel-control-prev-icon" aria-hidden="true" style="filter: invert(1);"></span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next" style="color: black; background-color: rgba(0,0,0,0); border: none;">
+                            <span class="carousel-control-next-icon" aria-hidden="true" style="filter: invert(1);"></span>
+                        </button>
                     </div>
                 </div>
-                <!-- Tecnologie Utilizzate -->
-                <div class="row mb-4">
-                    <div class="col-md-9">
-                        <h2>Tecnologies used:</h2>
-                        <p>Just c</p>
-                    </div>
-                    <div class="col-md-3 text-center d-flex align-items-end justify-content-end">
-                        <p><strong>Link repo:</strong> <a href="https://github.com/luciobaiocchi/Elaborato-algoritmi-e-strutture-dati-" class="btn btn-primary">GitHub</a></p>
-                    </div>
+            </div>
+
+            <!-- Tecnologie Utilizzate -->
+            <div class="project-grid mt-5">
+                <div>
+                    <h2>Technologies Used</h2>
+                    <p>
+                        <strong>Language:</strong> Pure C.<br>
+                        <strong>Focus:</strong> Algorithm optimization, memory management, graph traversal.
+                    </p>
                 </div>
-                <!-- Call to Action -->
-                <div class="row">
+                <div class="text-end d-flex align-items-end justify-content-end">
+                    <p><strong>Link repo:</strong> <a href="https://github.com/luciobaiocchi/Elaborato-algoritmi-e-strutture-dati-" class="btn btn-primary">GitHub</a></p>
                 </div>
             </div>
         </section>
-
     </main>
+
 
     <!-- Footer -->
     <footer class="text-center py-3 mt-5">

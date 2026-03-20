@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCA Analysis – Lucio Baiocchi</title>
+    <link rel="icon" type="image/x-icon" href="../img/LB.png">
+    <meta name="description" content="PCA Psychophysical Analysis – Computational Linear Algebra project by Lucio Baiocchi">
+    <meta name="keywords" content="Lucio Baiocchi, PCA, principal component analysis, machine learning, scikit-learn, python, clustering">
+    <meta name="author" content="Lucio Baiocchi">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <button class="navbar-toggler ms-auto me-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto text-center align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../projects.html">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../index.html#contacts">Contacts</a></li>
+                    <li class="nav-item">
+                        <button class="btn theme-toggle ms-1">
+                            <i class="bi theme-icon bi-moon-stars-fill"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="project-intro">
+            <h1>PCA Psychophysical Analysis</h1>
+            <p class="text-secondary">Dimensionality reduction and clustering of psychophysical behavioral data – Computational Linear Algebra course</p>
+        </section>
+
+        <section class="project-details">
+            <div class="project-grid">
+                <div>
+                    <h2>Project Description</h2>
+                    <p>
+                        An exploratory data analysis project developed for the <strong>Computational Linear Algebra for Large Scale Problems</strong> course at Politecnico di Torino (2025/2026).
+                        The project applies PCA to reduce 93 initial variables into 5 principal components that capture the most significant variance in human psychophysical profiles, then uses K-Means clustering to identify distinct behavioral groups.
+                    </p>
+                    <h4 class="mt-4">Key Findings</h4>
+                    <ul>
+                        <li><strong>The Reckless Hedonist</strong> (Cluster 1): Larger physical stature (avg. 178.6 cm, 73.3 kg), sensation-seeking behavior.</li>
+                        <li><strong>The Anxious Conformist</strong> (Cluster 0): Smaller physical frames (avg. 169.3 cm, 59.3 kg).</li>
+                        <li><strong>The Female-Dominant Profile</strong> (Cluster 2): 60.6% female, distinct psychological markers.</li>
+                        <li><strong>The Heterogeneous Group</strong> (Cluster 3): High weight variability (σ = 16.8), diverse physical segment.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h2>Methodology</h2>
+                    <ul>
+                        <li><strong>Data Preprocessing:</strong> Ordinal Encoding for categorical variables, StandardScaler for numerical normalization.</li>
+                        <li><strong>PCA:</strong> Condensed 93 features into 5 principal components while retaining structural integrity.</li>
+                        <li><strong>K-Means Clustering:</strong> Segmented the population into 4 psychophysical profiles based on the principal components.</li>
+                        <li><strong>Statistical Profiling:</strong> Analyzed cluster centroids to interpret correlations between height/weight and behavioral factors (extraversion, anxiety).</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="project-grid mt-5">
+                <div>
+                    <h2>Technologies Used</h2>
+                    <p>
+                        <strong>Language:</strong> Python 3<br>
+                        <strong>Libraries:</strong> Scikit-Learn, Pandas, NumPy, Matplotlib<br>
+                        <strong>Environment:</strong> Jupyter Notebook<br>
+                        <strong>Techniques:</strong> PCA, K-Means Clustering, Ordinal Encoding, StandardScaler
+                    </p>
+                    <h4 class="mt-4">Academic Context</h4>
+                    <p>
+                        Course: Computational Linear Algebra for Large Scale Problems<br>
+                        Academic Year: 2025/2026<br>
+                        Authors: Lucio Baiocchi, Leonardo Passafiume
+                    </p>
+                </div>
+                <div class="text-end d-flex align-items-end justify-content-end">
+                    <p><strong>Link repo:</strong> <a href="https://github.com/luciobaiocchi/PCA_Analysis" class="btn btn-primary">GitHub</a></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="text-center py-3 mt-5">
+        <p>&copy; 2025 Lucio Baiocchi | <a href="mailto:luciobaiocchi1@gmail.com">Contact me</a></p>
+    </footer>
+    <script src="../javascript/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

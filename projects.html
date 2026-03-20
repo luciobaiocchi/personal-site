@@ -6,184 +6,95 @@
     <title>Progetti - Lucio Baiocchi</title>
     <link rel="icon" type="image/x-icon" href="img/LB.png">
     <meta name="description" content="Lucio Baiocchi - Portfolio e Contatti">
-    <meta name="keywords" content="Lucio Baiocchi, sviluppo, programmazione, portfolio">
-    <meta name="author" content="Lucio Baiocchi">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
-
     <link rel="stylesheet" href="./css/style.css">
+
+    <style>
+        .project-item {
+            padding: 1.5rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+        [data-bs-theme="dark"] .project-item {
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .project-item h3 a {
+            color: var(--text-color);
+            transition: color 0.2s;
+        }
+        .project-item h3 a:hover {
+            color: var(--primary-color);
+        }
+        .tech-icons {
+            display: flex;
+            gap: 0.8rem;
+            margin-top: 0.5rem;
+            opacity: 0.7;
+            font-size: 1.2rem;
+        }
+    </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-            <!--logo-->
-            <a class="navbar-brand" href="home.html">
-                <img src="img/LB.png" alt="Logo Lucio Baiocchi" class="logo"/>
-            </a>
-            <!-- Bottone tema -->
             <button class="navbar-toggler ms-auto me-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse md-5" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto text-center align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link" href="home.html#contacts">Contacts</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#contacts">Contacts</a></li>
+                    <li class="nav-item">
+                        <button class="btn theme-toggle ms-1">
+                            <i class="bi theme-icon bi-moon-stars-fill"></i>
+                        </button>
+                    </li>
                 </ul>
-                <button class="btn theme-toggle border border-3 px-2 py-1 ms-1">
-                    <i class="bi theme-icon bi-moon-stars-fill"></i>
-                </button>
-            </div>  
+            </div>
         </div>
     </nav>
-    <main data-projects class="container-fluid">
-        <div class="mt-5">
-            <!-- riga 1 -->            
-            <h1 class="text-center mb-4">Projects</h1>
-            <div class="row mb-4">
 
-                <div class="col-md-4 p-3">
-                    <div class="card shadow-sm">
-                        <div class="d-md-block d-flex align-items-center">
-                            <img src="./img/projects/thesis/HEARD.png" class="card-img-top" alt="Diet Management System">
-                            <div class="card-body">
-                                <h5 class="card-title">Heard</h5>
-                                <p class="card-text">My thesis</p>
-                                <a href="./projects/thesis.html" class="btn btn-primary mt-2 stretched-link">See more</a>
-                                <i class="fa-sharp fa-solid fa-c logo-plan float-end"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-4 p-3">
-                    <div class="card shadow-sm">
-                        <div class="d-md-block d-flex align-items-center">
-                            <img src="./img/projects/giogreens/logo.png" class="card-img-top" alt="Diet Management System">
-                            <div class="card-body">
-                                <h5 class="card-title">Giogreens</h5>
-                                <p class="card-text">Web Ecommerce</p>
-                                <a href="./projects/giogreens.html" class="btn btn-primary mt-2 me-1 mb-1 stretched-link">See more</a>
-                                <i class="fa-brands fa-js float-end"></i>
-                                <i class="fa-brands fa-php float-end"></i>
-                                <i class="fa-brands fa-bootstrap float-end"></i>
-                                <i class="fa-brands fa-docker float-end"></i>
-                                <i class="fas fa-database logo-plan float-end mb-1" title="MySQL"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4 p-3">
-                    <div class="card shadow-sm">
-                        <div class="d-md-block d-flex align-items-center">
-                            <img src="./img/projects/mydiet/logo_MyDiet.jpeg" class="card-img-top" alt="Diet Management System">
-                            <div class="card-body">
-                                <h5 class="card-title">My diet</h5>
-                                <p class="card-text">A Java applicaton for diet managment.</p>
-                                <a href="./projects/mydiet.html" class="btn btn-primary mt-2 stretched-link">See more</a>
-                                <i class="fab fa-java logo-plan float-end"></i>
-                                <i class="fas fa-database logo-plan float-end" title="MySQL"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                        
-
-
-            </div>
-            
-            <!-- riga 2 -->
-            <div class="row mb-4">
-                
-                <div class="col-md-4 p-3">
-                    <div class="card shadow-sm">                    
-                        <div class="d-md-block d-flex align-items-center">
-                            <img src="./img/projects/Logo_Gym-Life.jpeg" class="card-img-top" alt="Diet Management System">
-                            <div class="card-body">
-                                <h5 class="card-title">Gym life</h5>
-                                <p class="card-text">A retrò java game about gym.</p>
-                                <a href="./projects/gymlife.html" class="btn btn-primary mt-2 stretched-link">See more</a>
-                                <i class="fab fa-java logo-plan float-end"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4 p-3">
-                    <div class="card shadow-sm rounded">
-                        <div class="d-md-block d-flex align-items-center">
-                            <img src="./img/projects/Logo_IOT.png" class="card-img-top" alt="IOT Projects">
-                            <div class="card-body">
-                                <h5 class="card-title">IOT projects</h5>
-                                <p class="card-text">Collection of iot projects</p>
-                                <a href="./projects/iot_projects.html" class="btn btn-primary mt-2 stretched-link">See more</a>
-                                <i class="fab fa-java logo-plan float-end"></i>
-                                <i class="fa-brands fa-python logo-plan float-end"></i>
-                                <i class="fa-sharp fa-solid fa-c logo-plan float-end"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4 p-3">
-                    <div class="card shadow-sm">
-                        <div class="d-md-block d-flex align-items-center">
-                            <img src="img/projects/Logo_Chat_python.png" class="card-img-top" alt="Diet Management System">
-                            <div class="card-body">
-                                <h5 class="card-title">Chat-phython</h5>
-                                <p class="card-text">A simple client-server chat application</p>
-                                <a href="./projects/chat_python.html" class="btn btn-primary mt-2 stretched-link">See more</a>
-                                <i class="fa-brands fa-python logo-plan float-end"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-
-            </div>
-
-            <div class="row mb-4">
-                <div class="col-md-4 p-3">
-                    <div class="card shadow-sm">
-                        <div class="d-md-block d-flex align-items-center">
-                            <img src="img/projects/logo_DVRS.png" class="card-img-top" alt="Diet Management System">
-                            <div class="card-body">
-                                <h5 class="card-title">DVRS</h5>
-                                <p class="card-text">Distance vector routing system</p>
-                                <a href="./projects/dvrs.html" class="btn btn-primary mt-2 stretched-link">See more</a>
-                                <i class="fa-brands fa-python logo-plan float-end"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4 p-3">
-                    <div class="card shadow-sm">
-                        <div class="d-md-block d-flex align-items-center">
-                            <img src="img/projects/Logo-algo_elab.png" class="card-img-top" alt="Diet Management System">
-                            <div class="card-body">
-                                <h5 class="card-title">Algorithms course project</h5>
-                                <p class="card-text">A best path finder of a city.</p>
-                                <a href="./projects/algorithm.html" class="btn btn-primary mt-2 stretched-link">See more</a>
-                                <i class="fa-sharp fa-solid fa-c logo-plan float-end"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
+    <main>
+        <h1>Projects</h1>
+        <div id="projects-list"></div>
     </main>
 
-    <footer class="text-center py-3 mt-5">
+    <footer class="text-center py-4">
         <p>&copy; 2025 Lucio Baiocchi | <a href="mailto:luciobaiocchi1@gmail.com">Contact me</a></p>
     </footer>
-    
+
     <script src="./javascript/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+    const PROJECTS = [
+        { title: "PCA Psychophysical Analysis", desc: "PCA + K-Means on 93 behavioral variables — surfaced 4 psychophysical profiles from a dataset of human subjects.", link: "./projects/pca_analysis.html", tech: ["fa-brands fa-python"] },
+        { title: "Numerical Optimization", desc: "Implemented Modified & Truncated Newton solvers with sparse Hessian ops — solved 100k-variable problems in under 0.5s.", link: "./projects/nm_optimization.html", tech: ["fa-brands fa-python"] },
+        { title: "LSA with rSVD", desc: "Custom randomized SVD on 18k Usenet posts — topic clustering with Silhouette scoring and an interactive semantic search GUI.", link: "./projects/lsa_rsvd.html", tech: ["fa-brands fa-python"] },
+        { title: "Newspaper Classificator", desc: "End-to-end NLP classification pipeline — ranked 3rd out of 200 competing teams.", link: "./projects/newspaper_classificator.html", tech: ["fa-brands fa-python"] },
+        { title: "Heard", desc: "MSc thesis — real-time spatial audio rendering on embedded hardware in C.", link: "./projects/thesis.html", tech: ["fa-sharp fa-solid fa-c"] },
+        { title: "Giogreens", desc: "Full-stack plant e-commerce — PHP REST API, JS frontend, MySQL, Docker Compose.", link: "./projects/giogreens.html", tech: ["fa-brands fa-js", "fa-brands fa-php", "fa-brands fa-bootstrap", "fa-brands fa-docker", "fas fa-database"] },
+        { title: "My Diet", desc: "Java desktop nutrition tracker with graph-based meal planning and SQLite persistence.", link: "./projects/mydiet.html", tech: ["fab fa-java", "fas fa-database"] },
+        { title: "Gym Life", desc: "2D retro gym simulation game — fully built in Java with custom physics and sprite engine.", link: "./projects/gymlife.html", tech: ["fab fa-java"] },
+        { title: "IOT Projects", desc: "Multi-platform IoT systems — embedded C sensors, Java middleware, Python analytics.", link: "./projects/iot_projects.html", tech: ["fab fa-java", "fa-brands fa-python", "fa-sharp fa-solid fa-c"] },
+        { title: "Chat-Python", desc: "Multi-user TCP chat — socket programming with threading and user session management.", link: "./projects/chat_python.html", tech: ["fa-brands fa-python"] },
+        { title: "DVRS", desc: "Bellman-Ford distance vector routing simulator with convergence visualization.", link: "./projects/dvrs.html", tech: ["fa-brands fa-python"] },
+        { title: "Algorithms Course Project", desc: "Dijkstra shortest-path solver on large city graphs — custom heap in C.", link: "./projects/algorithm.html", tech: ["fa-sharp fa-solid fa-c"] },
+    ];
+
+    const list = document.getElementById("projects-list");
+    PROJECTS.forEach(p => {
+        const item = document.createElement("div");
+        item.className = "project-item";
+        item.innerHTML = `
+            <h3><a href="${p.link}" class="text-decoration-none">${p.title}</a></h3>
+            <p class="mb-1">${p.desc}</p>
+            <div class="tech-icons">${p.tech.map(cls => `<i class="${cls}"></i>`).join("")}</div>
+        `;
+        list.appendChild(item);
+    });
+    </script>
 </body>
 </html>

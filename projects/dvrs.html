@@ -22,105 +22,106 @@
 
 <body>
     <!--Header-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-            <!--logo-->
-            <a class="navbar-brand" href="../home.html">
-                <img src="../img/LB.png" alt="Logo Lucio Baiocchi" class="logo"/>
-            </a>
-            <!-- Bottone tema -->
             <button class="navbar-toggler ms-auto me-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse md-5" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="../home.html">Home</a></li>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto text-center align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="../projects.html">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../home.html#contacts">Contacts</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../index.html#contacts">Contacts</a></li>
+                    <li class="nav-item">
+                        <button class="btn theme-toggle ms-1">
+                            <i class="bi theme-icon bi-moon-stars-fill"></i>
+                        </button>
+                    </li>
                 </ul>
-                <button class="btn theme-toggle border border-3 px-2 py-1 ms-1">
-                    <i class="bi theme-icon bi-moon-stars-fill"></i>
-                </button>
-            </div>  
+            </div>
         </div>
     </nav>
 
-    <main class="container-fluid">
-        <!-- Introduzione al Progetto -->
-        <section class="project-intro mt-4">
-            <div class="container text-center">
-                <h1 class="display-5">DVRS</h1>
-            </div>
+    <main>
+        <section class="project-intro">
+            <h1>DVRS</h1>
+            <p class="text-secondary">Distance Vector Routing Simulator with an interactive graphical interface</p>
         </section>
 
-        <!-- Dettagli del Progetto -->
         <section class="project-details">
-            <div class="container">
-                <div class="row mb-4">
-                    <div class="col-lg-6">
-                        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img src="../img/projects/dvrs/1.png" class="d-block w-100 expandable-img" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="../img/projects/dvrs/2.png" class="d-block w-100 expandable-img" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="../img/projects/dvrs/3.png" class="d-block w-100 expandable-img" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="../img/projects/dvrs/4.png" class="d-block w-100 expandable-img" alt="...">
-                                </div>
-                            </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
+            <div class="project-grid">
+                <div>
+                    <h2>Project Description</h2>
+                    <p>
+                        The Distance Vector Routing Simulator is an educational tool designed to visualize and 
+                        understand the fundamental algorithms behind network routing. It provides a real-time 
+                        simulation of how nodes determine optimal paths in a dynamic environment.
+                    </p>
+                    <h4 class="mt-4">Interactive Features</h4>
+                    <ul>
+                        <li>Dynamic network creation (add nodes and links)</li>
+                        <li>Configurable link costs</li>
+                        <li>Real-time routing table updates</li>
+                        <li>Visual representation of the distance vector algorithm</li>
+                    </ul>
+                </div>
+                <div>
+                    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active"><img src="../img/projects/dvrs/1.png" class="d-block w-100 expandable-img" alt="..."></div>
+                            <div class="carousel-item"><img src="../img/projects/dvrs/2.png" class="d-block w-100 expandable-img" alt="..."></div>
+                            <div class="carousel-item"><img src="../img/projects/dvrs/3.png" class="d-block w-100 expandable-img" alt="..."></div>
+                            <div class="carousel-item"><img src="../img/projects/dvrs/4.png" class="d-block w-100 expandable-img" alt="..."></div>
                         </div>
-                    </div>
-
-                    <div class="mt-4">
-                        <h2>Distance Vector Routing Simulator</h2>
-                        <md>The Distance Vector Routing Simulator is an educational project developed in Python using the Tkinter library to provide an interactive graphical interface. The main goal is to help users understand the distance vector routing algorithm, a fundamental method for determining optimal paths between nodes in a network.</md>
-
-                        <md>With this simulator, users can:</md>
-
-                        <md>Create a network by adding nodes and links.
-                        Assign costs to links.
-                        Observe how nodes dynamically update their routing tables.</md>
-
-                        <md>## Project Architecture</md>
-
-                        <md>The project is structured into four main modules for modularity and maintainability:</md>
-
-                        <md>1. **node.py**: Defines the `Node` class, representing a network node. Each node maintains a list of neighbors and a routing table.</md>
-                        <md>2. **routing_table.py**: Manages routing table updates using the distance vector algorithm.</md>
-                        <md>3. **gui.py**: Implements the graphical interface using Tkinter, allowing users to interact with the network.</md>
-                        <md>4. **main.py**: The application's entry point, launching the main window and connecting components.</md>          
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev" style="color: black; background-color: rgba(0, 0, 0, 0); border: none;">
+                            <span class="carousel-control-prev-icon" aria-hidden="true" style="filter: invert(1);"></span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next" style="color: black; background-color: rgba(0,0,0,0); border: none;">
+                            <span class="carousel-control-next-icon" aria-hidden="true" style="filter: invert(1);"></span>
+                        </button>
                     </div>
                 </div>
-                <!-- Tecnologie Utilizzate -->
-                <div class="row mb-4">
-                    <div class="col-md-9">
-                        <h2>Tecnologies used:</h2>
-                        <p>Python 3 and Tkinter</p>
-                    </div>
-                    <div class="col-md-3 text-center d-flex align-items-end justify-content-end">
-                        <p><strong>Link repo:</strong> <a href="https://github.com/luciobaiocchi/elaborato-reti-di-telecomunicazioni" class="btn btn-primary">GitHub</a></p>
-                    </div>
+            </div>
+
+            <div class="project-grid">
+                <div>
+                    <h2>Project Architecture</h2>
+                    <p>
+                        The simulator is built with a modular approach in Python:
+                    </p>
+                    <ul>
+                        <li><strong>node.py:</strong> Core logic for network nodes and neighbor management.</li>
+                        <li><strong>routing_table.py:</strong> Implementation of the distance vector update logic.</li>
+                        <li><strong>gui.py:</strong> Interactive interface powered by Tkinter.</li>
+                        <li><strong>main.py:</strong> Application entry point and component orchestration.</li>
+                    </ul>
                 </div>
-                <!-- Call to Action -->
-                <div class="row">
+                <div>
+                    <h2>Educational Goals</h2>
+                    <p>
+                        Designed for the <strong>Telecommunications Networks</strong> course, this tool helps students 
+                        grasp complex concepts like hop-by-hop forwarding and cost optimization through direct interaction.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Tecnologie Utilizzate -->
+            <div class="project-grid mt-5">
+                <div>
+                    <h2>Technologies Used</h2>
+                    <p>
+                        <strong>Language:</strong> Python 3.<br>
+                        <strong>GUI Framework:</strong> Tkinter.<br>
+                        <strong>Concepts:</strong> Graph Theory, Distance Vector Algorithm, Socket-like simulations.
+                    </p>
+                </div>
+                <div class="text-end d-flex align-items-end justify-content-end">
+                    <p><strong>Link repo:</strong> <a href="https://github.com/luciobaiocchi/elaborato-reti-di-telecomunicazioni" class="btn btn-primary">GitHub</a></p>
                 </div>
             </div>
         </section>
-
     </main>
+
 
     <!-- Footer -->
     <footer class="text-center py-3 mt-5">

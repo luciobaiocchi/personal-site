@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucio Baiocchi</title>
+    <link rel="icon" type="image/x-icon" href="../img/LB.png">
+    <meta name="description" content="Lucio Baiocchi - Portfolio e Contatti">
+    <meta name="keywords" content="Lucio Baiocchi, machine learning, NLP, text classification, newspaper, scikit-learn, python">
+    <meta name="author" content="Lucio Baiocchi">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <!--Header-->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <button class="navbar-toggler ms-auto me-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto text-center align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../projects.html">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../index.html#contacts">Contacts</a></li>
+                    <li class="nav-item">
+                        <button class="btn theme-toggle ms-1">
+                            <i class="bi theme-icon bi-moon-stars-fill"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="project-intro">
+            <h1>Newspaper Classificator</h1>
+            <p class="text-secondary">Supervised ML pipeline for news article categorization – 3rd place out of 200 groups</p>
+        </section>
+
+        <section class="project-details">
+            <div class="project-grid">
+                <div>
+                    <h2>Project Description</h2>
+                    <p>
+                        A supervised machine learning pipeline developed at Politecnico di Torino for categorizing
+                        web-scraped news articles into seven distinct topics. The project competed against 200 groups
+                        and achieved <strong>3rd place</strong> with a public test macro F1 score of <strong>0.741</strong>.
+                    </p>
+                    <h4 class="mt-4">Classification Categories</h4>
+                    <ul>
+                        <li>International News</li>
+                        <li>Business</li>
+                        <li>Technology</li>
+                        <li>Entertainment</li>
+                        <li>Sports</li>
+                        <li>General News</li>
+                        <li>Health</li>
+                    </ul>
+                </div>
+                <div>
+                    <h2>Dataset</h2>
+                    <p>
+                        ~80,000 labeled training articles and 20,000 unlabeled test samples. Each entry includes
+                        article text, title, news source, timestamp, and PageRank score.
+                    </p>
+                    <h4 class="mt-4">Key Challenges</h4>
+                    <ul>
+                        <li>Class imbalance across the seven categories</li>
+                        <li>Noisy HTML artifacts in raw article content</li>
+                        <li>Semantic overlap between <em>International News</em> and <em>General News</em></li>
+                        <li>Short/brief article texts reducing signal</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="project-grid">
+                <div>
+                    <h2>Feature Engineering</h2>
+                    <ul>
+                        <li><strong>Metadata boosting:</strong> replicating high-purity news source identifiers (e.g. ESPN → Sports, PCWorld → Technology)</li>
+                        <li><strong>Text representations:</strong> word-level and character-level TF-IDF with Snowball stemming</li>
+                        <li><strong>Temporal features:</strong> day-of-week and time-of-day classifications</li>
+                        <li><strong>Structural metrics:</strong> article and title lengths with log(1 + x) transformation</li>
+                        <li><strong>Categorical encoding:</strong> OneHotEncoder with frequency thresholds</li>
+                        <li><strong>Normalization:</strong> StandardScaler on numerical features</li>
+                    </ul>
+                    <p class="mt-2">
+                        A <code>ColumnTransformer</code> orchestrated all parallel feature extraction pipelines.
+                    </p>
+                </div>
+                <div>
+                    <h2>Model Selection</h2>
+                    <p>Multiple algorithms were evaluated:</p>
+                    <table class="table table-bordered mt-2">
+                        <thead>
+                            <tr>
+                                <th>Model</th>
+                                <th>Macro F1</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Naive Baseline</td>
+                                <td>0.443</td>
+                            </tr>
+                            <tr>
+                                <td>Random Forest</td>
+                                <td>0.689</td>
+                            </tr>
+                            <tr>
+                                <td>LinearSVC</td>
+                                <td>0.703</td>
+                            </tr>
+                            <tr class="table-success">
+                                <td><strong>SGDClassifier</strong></td>
+                                <td><strong>0.726</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>
+                        <strong>SGDClassifier</strong> (SVM-style loss) was chosen for its effectiveness with
+                        high-dimensional sparse data and computational scalability.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Tecnologie Utilizzate -->
+            <div class="project-grid mt-5">
+                <div>
+                    <h2>Technologies Used</h2>
+                    <p>
+                        <strong>Language:</strong> Python<br>
+                        <strong>Libraries:</strong> Scikit-learn, Pandas, NumPy<br>
+                        <strong>Techniques:</strong> TF-IDF Vectorization, SGDClassifier, SVM, GridSearchCV
+                    </p>
+                    <h4 class="mt-4">Results</h4>
+                    <ul>
+                        <li>Validation Macro F1: <strong>0.726</strong></li>
+                        <li>Public Test Macro F1: <strong>0.741</strong></li>
+                        <li>Competition Ranking: <strong>3rd of 200 groups</strong></li>
+                    </ul>
+                </div>
+                <div class="text-end d-flex align-items-end justify-content-end">
+                    <p><strong>Link repo:</strong> <a href="https://github.com/luciobaiocchi/newspaper_classificator" class="btn btn-primary">GitHub</a></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="text-center py-3 mt-5">
+        <p>&copy; 2025 Lucio Baiocchi | <a href="mailto:luciobaiocchi1@gmail.com">Contact me</a></p>
+    </footer>
+    <script src="../javascript/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numerical Optimization – Lucio Baiocchi</title>
+    <link rel="icon" type="image/x-icon" href="../img/LB.png">
+    <meta name="description" content="Numerical Optimization for Large Scale Problems – Modified and Truncated Newton methods by Lucio Baiocchi">
+    <meta name="keywords" content="Lucio Baiocchi, numerical optimization, Newton method, conjugate gradient, large scale, python">
+    <meta name="author" content="Lucio Baiocchi">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <button class="navbar-toggler ms-auto me-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto text-center align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../projects.html">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../index.html#contacts">Contacts</a></li>
+                    <li class="nav-item">
+                        <button class="btn theme-toggle ms-1">
+                            <i class="bi theme-icon bi-moon-stars-fill"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="project-intro">
+            <h1>Numerical Optimization for Large Scale Problems</h1>
+            <p class="text-secondary">Implementation and benchmarking of Modified and Truncated Newton methods for second-order optimization</p>
+        </section>
+
+        <section class="project-details">
+            <div class="project-grid">
+                <div>
+                    <h2>Project Description</h2>
+                    <p>
+                        Final project for the <strong>Numerical Optimization for Large Scale Problems</strong> course at Politecnico di Torino (January 2026).
+                        The project implements and compares two advanced second-order optimization algorithms, benchmarking them on large-scale problems up to dimension N = 100,000.
+                    </p>
+                    <h4 class="mt-4">Algorithms Implemented</h4>
+                    <ul>
+                        <li><strong>Modified Newton Method:</strong> Uses Modified Cholesky Factorization to ensure descent in non-convex regions.</li>
+                        <li><strong>Truncated Newton (Newton-CG):</strong> Approximates the Newton step using Conjugate Gradient — no exact Hessian factorization needed.</li>
+                    </ul>
+                    <p>Both methods are globalized using a <strong>Backtracking Line Search</strong> strategy.</p>
+                </div>
+                <div>
+                    <h2>Test Problems</h2>
+                    <ul>
+                        <li><strong>Broyden Tridiagonal Function:</strong> Symmetric, pentadiagonal Hessian (bandwidth b=2).</li>
+                        <li><strong>Banded Trigonometric Function:</strong> Diagonal Hessian after algebraic decoupling.</li>
+                    </ul>
+                    <h4 class="mt-4">Key Optimizations</h4>
+                    <ul>
+                        <li>Sparse banded matrix operations (O(N) complexity instead of O(N³)).</li>
+                        <li>Dynamic τ-perturbation to maintain positive-definiteness of Hessian.</li>
+                        <li>Adaptive forcing sequence ηₖ for convergence near the optimum.</li>
+                        <li>Graph Coloring (Stride Strategy) for O(1) exact Hessian computation.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="project-grid">
+                <div>
+                    <h2>Key Findings</h2>
+                    <ul>
+                        <li><strong>Modified Newton</strong> outperforms on highly structured sparsity — Broyden at N=100,000 solved in ≈ 0.45 seconds.</li>
+                        <li><strong>Truncated Newton</strong> showed numerical instability on the Trigonometric problem due to negative curvature regions.</li>
+                        <li>Vectorized Finite Differences introduced negligible overhead with h=10⁻⁸ tuning.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h2>Technologies Used</h2>
+                    <p>
+                        <strong>Language:</strong> Python 3<br>
+                        <strong>Libraries:</strong> NumPy, SciPy (sparse, linalg), Matplotlib<br>
+                        <strong>Techniques:</strong> Modified Cholesky Factorization, Conjugate Gradient, Backtracking Line Search, Graph Coloring, Finite Differences<br>
+                        <strong>Authors:</strong> Lucio Baiocchi (s360244), Leonardo Passafiume (s358616) — Politecnico di Torino, Jan 2026
+                    </p>
+                </div>
+            </div>
+
+            <div class="project-grid mt-5">
+                <div></div>
+                <div class="text-end d-flex align-items-end justify-content-end">
+                    <p><strong>Link repo:</strong> <a href="https://github.com/luciobaiocchi/NM_opt_assignment" class="btn btn-primary">GitHub</a></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="text-center py-3 mt-5">
+        <p>&copy; 2025 Lucio Baiocchi | <a href="mailto:luciobaiocchi1@gmail.com">Contact me</a></p>
+    </footer>
+    <script src="../javascript/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

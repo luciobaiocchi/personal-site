@@ -23,90 +23,100 @@
 
 <body>
     <!--Header-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-            <!--logo-->
-            <a class="navbar-brand" href="../home.html">
-                <img src="../img/LB.png" alt="Logo Lucio Baiocchi" class="logo"/>
-            </a>
-            <!-- Bottone tema -->
             <button class="navbar-toggler ms-auto me-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse md-5" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="../home.html">Home</a></li>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto text-center align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="../projects.html">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../home.html#contacts">Contacts</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../index.html#contacts">Contacts</a></li>
+                    <li class="nav-item">
+                        <button class="btn theme-toggle ms-1">
+                            <i class="bi theme-icon bi-moon-stars-fill"></i>
+                        </button>
+                    </li>
                 </ul>
-                <button class="btn theme-toggle border border-3 px-2 py-1 ms-1">
-                    <i class="bi theme-icon bi-moon-stars-fill"></i>
-                </button>
-            </div>  
+            </div>
         </div>
     </nav>
 
-    <main class="container-fluid">
-        <!-- Introduzione al Progetto -->
-        <section class="project-intro mt-4">
-            <div class="container text-center">
-                <h1 class="display-5">Chat python</h1>
-            </div>
+    <main>
+        <section class="project-intro">
+            <h1>Chat Python</h1>
+            <p class="text-secondary">A concurrent multi-user chat room system using socket programming</p>
         </section>
 
-        <!-- Dettagli del Progetto -->
         <section class="project-details">
-            <div class="container">
-                <section class="project-section">
-                    <div class="container">
-                        <div class="row mb-4">
-                            <div class="col-lg-9  col-12">
-                                <div class="ratio ratio-16x9 mt-4">
-                                    <iframe src="https://www.youtube.com/embed/21a17PKDktM" allow="accelerometer; encrypted-media; gyroscope" allowfullscreen></iframe>
-                                </div>
-                            </div>
-                            <div class="col-12 p-3">
-                                <h2>Chat Room Project</h2>
-                                <p>
-                                    This project implements a client-server chat room system using Python's socket programming capabilities. The server manages multiple clients concurrently, enabling real-time message exchange in a shared chat room environment. The client application allows users to connect to the server, send messages, and receive messages from other users.
-                                </p>
-                                <md>## Features</md>
-                                <md>### Server:</md>
-                                <md>- Accepts multiple client connections.</md>
-                                <md>- Handles message broadcasting to all connected clients.</md>
-                                <md>- Manages a list of clients and their nicknames.</md>
-    
-                                <md>### Client:</md>
-                                <md>- Connects to the server using a unique nickname.</md>
-                                <md>- Sends and receives messages in real-time.</md>
-                                <md>- Provides a user-friendly graphical interface for chat interactions.</md>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-
-                <!-- Tecnologie Utilizzate -->
-                <div class="row mb-4">
-                    <div class="col-md-9">
-                        <h2>Tecnologies used:</h2>
-                        <md>>- **Programming Language:** Python</md>
-                        <md>>- **Libraries:**</md>
-                          <md>>- `socket` for network communication.</md>
-                          <md>>- `threading` for handling concurrent connections.</md>
-                          <md>>- `tkinter` for the graphical user interface (client-side).</md>
-                    </div>
-                    <div class="col-md-3 text-center d-flex align-items-end justify-content-end">
-                        <p><strong>Link repo:</strong> <a href="https://github.com/luciobaiocchi/Chat-phython" class="btn btn-primary">GitHub</a></p>
+            <div class="project-grid">
+                <div>
+                    <h2>Project Description</h2>
+                    <p>
+                        This project implements a robust client-server chat system in Python. It enables multiple 
+                        clients to connect to a central server and exchange messages in real-time within a shared 
+                        chat room environment.
+                    </p>
+                    <h4 class="mt-4">Core Functionality</h4>
+                    <ul>
+                        <li>Concurrent client handling via threading</li>
+                        <li>Real-time message broadcasting</li>
+                        <li>Dynamic nickname assignment and management</li>
+                        <li>Graphical User Interface for clients</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="ratio ratio-16x9">
+                        <iframe src="https://www.youtube.com/embed/21a17PKDktM" allow="accelerometer; encrypted-media; gyroscope" allowfullscreen></iframe>
                     </div>
                 </div>
-                <!-- Call to Action -->
-                <div class="row">
+            </div>
+
+            <div class="project-grid">
+                <div>
+                    <h2>Server Architecture</h2>
+                    <p>
+                        The server acts as the central hub, managing socket connections and message distribution.
+                    </p>
+                    <ul>
+                        <li>Listens for incoming TCP connections</li>
+                        <li>Spawns a new thread for each connected client</li>
+                        <li>Broadcasts messages from one client to all others</li>
+                        <li>Maintains a registry of active users</li>
+                    </ul>
+                </div>
+                <div>
+                    <h2>Client Application</h2>
+                    <p>
+                        The client provides an intuitive interface for users to interact with the chat room.
+                    </p>
+                    <ul>
+                        <li>Threaded message reception (non-blocking UI)</li>
+                        <li>Tkinter-based GUI for message display and input</li>
+                        <li>Automatic connection handling and protocol management</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Tecnologie Utilizzate -->
+            <div class="project-grid mt-5">
+                <div>
+                    <h2>Technologies Used</h2>
+                    <p>
+                        <strong>Language:</strong> Python 3.<br>
+                        <strong>Networking:</strong> <code>socket</code> library for TCP communication.<br>
+                        <strong>Concurrency:</strong> <code>threading</code> for parallel request handling.<br>
+                        <strong>GUI:</strong> <code>tkinter</code> for the client interface.
+                    </p>
+                </div>
+                <div class="text-end d-flex align-items-end justify-content-end">
+                    <p><strong>Link repo:</strong> <a href="https://github.com/luciobaiocchi/Chat-phython" class="btn btn-primary">GitHub</a></p>
                 </div>
             </div>
         </section>
-
     </main>
+
 
     <!-- Footer -->
     <footer class="text-center py-3 mt-5">

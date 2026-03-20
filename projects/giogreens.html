@@ -23,134 +23,123 @@
 
 <body>
     <!--Header-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-            <!--logo-->
-            <a class="navbar-brand" href="../home.html">
-                <img src="../img/LB.png" alt="Logo Lucio Baiocchi" class="logo"/>
-            </a>
-            <!-- Bottone tema -->
             <button class="navbar-toggler ms-auto me-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse md-5" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="../home.html">Home</a></li>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto text-center align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="../projects.html">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../home.html#contacts">Contacts</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../index.html#contacts">Contacts</a></li>
+                    <li class="nav-item">
+                        <button class="btn theme-toggle ms-1">
+                            <i class="bi theme-icon bi-moon-stars-fill"></i>
+                        </button>
+                    </li>
                 </ul>
-                <button class="btn theme-toggle border border-3 px-2 py-1 ms-1">
-                    <i class="bi theme-icon bi-moon-stars-fill"></i>
-                </button>
-            </div>  
+            </div>
         </div>
     </nav>
 
-    <main class="container-fluid">
-        <!-- Introduzione al Progetto -->
-        <section class="project-intro mt-4">
-            <div class="container text-center">
-                <h1 class="display-5">Giogreens</h1>
-                <p class="lead">A complete Ecommerce</p>
-            </div>
+    <main>
+        <section class="project-intro">
+            <h1>Giogreens</h1>
+            <p class="text-secondary">A complete Full-stack Ecommerce platform for urban farming</p>
         </section>
 
-        <!-- Dettagli del Progetto -->
         <section class="project-details">
-            <div class="container">
-                <div class="row mb-4">
-                    <div class="col-lg-6">
-                        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img src="../img/projects/giogreens/1.png" class="d-block w-100 expandable-img" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="../img/projects/giogreens/2.png" class="d-block w-100 expandable-img" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="../img/projects/giogreens/3.png" class="d-block w-100 expandable-img" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="../img/projects/giogreens/5.png" class="d-block w-100 expandable-img" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="../img/projects/giogreens/6.png" class="d-block w-100 expandable-img" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="../img/projects/giogreens/7.png" class="d-block w-100 expandable-img" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="../img/projects/giogreens/8.png" class="d-block w-100 expandable-img" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="../img/projects/giogreens/9.png" class="d-block w-100 expandable-img" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="../img/projects/giogreens/10.png" class="d-block w-100 expandable-img" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="../img/projects/giogreens/11.png" class="d-block w-100 expandable-img" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="../img/projects/giogreens/12.png" class="d-block w-100 expandable-img" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="../img/projects/giogreens/13.png" class="d-block w-100 expandable-img" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="../img/projects/giogreens/14.png" class="d-block w-100 expandable-img" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="../img/projects/giogreens/15.png" class="d-block w-100 expandable-img" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="../img/projects/giogreens/16.png" class="d-block w-100 expandable-img" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="../img/projects/giogreens/17.png" class="d-block w-100 expandable-img" alt="...">
-                                </div>
-                            </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
-                        </div>
-                    </div>
+            <div class="project-grid">
+                <div>
+                    <h2>Project Description</h2>
+                    <p>
+                        Giogreens is a comprehensive e-commerce platform developed for the Web Technologies course. 
+                        It provides a seamless experience for users to browse products and for administrators to 
+                        manage the entire business lifecycle.
+                    </p>
+                    <h4 class="mt-4">Key Features</h4>
+                    <ul>
+                        <li><strong>User Dashboard:</strong> Personalized area for order history and profile management.</li>
+                        <li><strong>Admin Panel:</strong> Full data access, sales statistics, and product management.</li>
+                        <li><strong>Notifications:</strong> System for sending updates and alerts to users.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h2>Architecture & Deployment</h2>
+                    <p>
+                        The application is fully containerized using <strong>Docker</strong> to ensure consistency 
+                        across development and production environments.
+                    </p>
+                    <ul>
+                        <li>3 Custom Docker containers (Web, App, DB)</li>
+                        <li>Streamlined installation and deployment process</li>
+                        <li>Scalable and isolated environment</li>
+                    </ul>
+                </div>
+            </div>
 
-                    <div class="col-lg-6 mt-lg-0 mt-4">
-                        <h2>Project Description</h2>
-                        <p>Giogreens is a full-stack e-commerce platform developed for the Web Technologies course.</p>
-                        <p>The entire application is containerized using three Docker containers to streamline deployment and ensure consistency across environments.</p>
-                        <p>From the client side, users can browse multiple pages such as the home page, catalog, and other sections that showcase the business goals.
-                            Each user has access to a personal dashboard, available only after logging in. For administrators, a custom management page provides full access 
-                            to all data stored in the database. Through this dashboard, the admin can view statistics related to sales trends, top-selling products, and best customers, 
-                            as well as add or modify products and send notifications to users.
-                        </p>                        
+            <div class="project-grid">
+                <div>
+                    <h2>Technical Implementation</h2>
+                    <p>
+                        The project uses a classic Lamp-style stack but modernized with Bootstrap and containerization.
+                    </p>
+                    <h4 class="mt-4">Frontend & Backend</h4>
+                    <p>
+                        The frontend leverages <strong>Bootstrap</strong> for responsiveness and <strong>JavaScript</strong> for 
+                        dynamic interactions. The backend is powered by <strong>PHP</strong>, interacting with a 
+                        relational <strong>MySQL</strong> database.
+                    </p>
+                </div>
+                <div>
+                    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active"><img src="../img/projects/giogreens/1.png" class="d-block w-100 expandable-img" alt="..."></div>
+                            <div class="carousel-item"><img src="../img/projects/giogreens/2.png" class="d-block w-100 expandable-img" alt="..."></div>
+                            <div class="carousel-item"><img src="../img/projects/giogreens/3.png" class="d-block w-100 expandable-img" alt="..."></div>
+                            <div class="carousel-item"><img src="../img/projects/giogreens/5.png" class="d-block w-100 expandable-img" alt="..."></div>
+                            <div class="carousel-item"><img src="../img/projects/giogreens/6.png" class="d-block w-100 expandable-img" alt="..."></div>
+                            <div class="carousel-item"><img src="../img/projects/giogreens/7.png" class="d-block w-100 expandable-img" alt="..."></div>
+                            <div class="carousel-item"><img src="../img/projects/giogreens/8.png" class="d-block w-100 expandable-img" alt="..."></div>
+                            <div class="carousel-item"><img src="../img/projects/giogreens/9.png" class="d-block w-100 expandable-img" alt="..."></div>
+                            <div class="carousel-item"><img src="../img/projects/giogreens/10.png" class="d-block w-100 expandable-img" alt="..."></div>
+                            <div class="carousel-item"><img src="../img/projects/giogreens/11.png" class="d-block w-100 expandable-img" alt="..."></div>
+                            <div class="carousel-item"><img src="../img/projects/giogreens/12.png" class="d-block w-100 expandable-img" alt="..."></div>
+                            <div class="carousel-item"><img src="../img/projects/giogreens/13.png" class="d-block w-100 expandable-img" alt="..."></div>
+                            <div class="carousel-item"><img src="../img/projects/giogreens/14.png" class="d-block w-100 expandable-img" alt="..."></div>
+                            <div class="carousel-item"><img src="../img/projects/giogreens/15.png" class="d-block w-100 expandable-img" alt="..."></div>
+                            <div class="carousel-item"><img src="../img/projects/giogreens/16.png" class="d-block w-100 expandable-img" alt="..."></div>
+                            <div class="carousel-item"><img src="../img/projects/giogreens/17.png" class="d-block w-100 expandable-img" alt="..."></div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev" style="color: black; background-color: rgba(0, 0, 0, 0); border: none;">
+                            <span class="carousel-control-prev-icon" aria-hidden="true" style="filter: invert(1);"></span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next" style="color: black; background-color: rgba(0,0,0,0); border: none;">
+                            <span class="carousel-control-next-icon" aria-hidden="true" style="filter: invert(1);"></span>
+                        </button>
                     </div>
                 </div>
-                <!-- Tecnologie Utilizzate -->
-                <div class="row mb-4">
-                    <div class="col-md-9">
-                        <h2>Tecnologies used:</h2>
-                        <p>For the front-end we used javascript and bootstrap. The backend is coded in php and the db used is a classic relational MySQL dabatabase</p>
-                        <p>As previously mentioned, i decided to build also 3 custom Docker container in orer to simplify the deployment and the installation process for everyone interested in trying to use this ecommerce.</p>
-                    </div>
-                    <div class="col-md-3 text-center d-flex align-items-end justify-content-end">
-                        <p><strong>Link repo:</strong> <a href="https://github.com/luciobaiocchi/MicroGreens" class="btn btn-primary">GitHub</a></p>
-                    </div>
+            </div>
+
+            <!-- Tecnologie Utilizzate -->
+            <div class="project-grid mt-5">
+                <div>
+                    <h2>Technologies Used</h2>
+                    <p>
+                        <strong>Frontend:</strong> JavaScript, CSS, Bootstrap.<br>
+                        <strong>Backend:</strong> PHP.<br>
+                        <strong>Database:</strong> MySQL.<br>
+                        <strong>DevOps:</strong> Docker (3-container setup).
+                    </p>
                 </div>
-                <!-- Call to Action -->
-                <div class="row">
+                <div class="text-end d-flex align-items-end justify-content-end">
+                    <p><strong>Link repo:</strong> <a href="https://github.com/luciobaiocchi/MicroGreens" class="btn btn-primary">GitHub</a></p>
                 </div>
             </div>
         </section>
-
     </main>
+
 
     <!-- Footer -->
     <footer class="text-center py-3 mt-5">
