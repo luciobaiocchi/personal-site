@@ -26,7 +26,7 @@
     --theme-button-color:    #2a1e00;
     --theme-button-color-darker: #60460a;
     --link-color:            #fffdf5;
-    --font-main:    monospace;
+    --font-main:    'IBM Plex Mono', monospace;
     --font-heading: 'Libre Baskerville', 'Georgia', serif;
     --font-mono:    'IBM Plex Mono', 'Courier New', monospace;
     --radius:    4px;

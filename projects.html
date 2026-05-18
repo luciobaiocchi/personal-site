@@ -87,12 +87,13 @@
     ];
 
     const list = document.getElementById("projects-list");
-    PROJECTS.forEach(p => {
+    PROJECTS.forEach((p, i) => {
         const item = document.createElement("div");
         item.className = "project-item";
+        const num = String(i + 1).padStart(2, '0');
         const externalLink = p.external ? ` <a href="${p.external}" target="_blank" class="ms-2 text-decoration-none text-secondary" style="font-size:0.8rem;">↗</a>` : "";
         item.innerHTML = `
-            <h3><a href="${p.link}" class="text-decoration-none">${p.title}</a>${externalLink}</h3>
+            <h3><span class="project-num">${num}</span><a href="${p.link}" class="text-decoration-none">${p.title}</a>${externalLink}</h3>
             <p class="mb-1">${p.desc}</p>
             <div class="tech-icons">${p.tech.map(cls => `<i class="${cls}"></i>`).join("")}</div>
         `;
