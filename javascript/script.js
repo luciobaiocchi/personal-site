@@ -39,13 +39,14 @@ document.addEventListener('DOMContentLoaded', () => {
             .replace(/^\//, '').replace(/\.html$/, '')
             .split('/').filter(p => p && p !== 'index');
 
+        const cursor = '<span class="nb-cursor">▋</span>';
         if (parts.length === 0) {
-            return '<span style="opacity:.75">~/lucio</span>';
+            return '<span style="opacity:.75">~/lucio</span>' + cursor;
         }
         const base = '<span style="opacity:.3">~/lucio</span>';
         const dirs = parts.slice(0, -1).map(p => `<span style="opacity:.25">/${p}</span>`).join('');
         const leaf = `<span style="opacity:.75">/${parts[parts.length - 1]}</span>`;
-        return base + dirs + leaf;
+        return base + dirs + leaf + cursor;
     }
 
     document.querySelectorAll('.navbar .container').forEach(container => {
@@ -88,6 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ── STATUSLINE FOOTER ────────────────────────────────────
     const footer = document.querySelector('body > footer');
     if (footer) {
+        const today = new Date().toISOString().split('T')[0];
         footer.innerHTML = `
             <span class="sl-left">© 2026 Lucio Baiocchi</span>
             <span class="sl-right">
@@ -98,9 +100,31 @@ document.addEventListener('DOMContentLoaded', () => {
                 <a href="https://www.linkedin.com/in/lucio-baiocchi-39b420243/" target="_blank">linkedin</a>
                 <span class="sl-sep">|</span>
                 <a href="https://www.youtube.com/@luciobaiocchi" target="_blank">youtube</a>
+                <span class="sl-sep">|</span>
+                <span style="opacity:.45">[${today}]</span>
             </span>
         `;
     }
+
+    // ── VIM NAVIGATION ───────────────────────────────────────
+    let gPressed = false, gTimer = null;
+    document.addEventListener('keydown', e => {
+        if (['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement.tagName)) return;
+        if (e.key === 'g' && !gPressed) {
+            gPressed = true;
+            clearTimeout(gTimer);
+            gTimer = setTimeout(() => { gPressed = false; }, 800);
+            return;
+        }
+        if (gPressed) {
+            gPressed = false;
+            clearTimeout(gTimer);
+            const sub = window.location.pathname.split('/').filter(Boolean).length > 1;
+            const base = sub ? '../' : '';
+            if (e.key === 'h') window.location.href = base + 'index.html';
+            if (e.key === 'p') window.location.href = base + 'projects.html';
+        }
+    });
 
     // ── LIGHTBOX ─────────────────────────────────────────────
     const overlay = document.createElement('div');

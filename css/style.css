@@ -223,6 +223,52 @@ h1 { font-size: 28px; }
     font-weight: 400;
 }
 
+/* blinking cursor in navbar prompt */
+.nb-cursor {
+    animation:   blink 1.2s step-end infinite;
+    font-size:   0.75em;
+    opacity:     0.55;
+    margin-left: 2px;
+}
+@keyframes blink {
+    0%, 100% { opacity: 0.55; }
+    50%       { opacity: 0; }
+}
+
+/* vertical video (Shorts 9:16) */
+.video-wrap-vertical { max-width: 260px; }
+.video-embed-vertical { aspect-ratio: 9 / 16 !important; }
+
+/* youtube thumbnail */
+.video-thumb-link { display: block; text-decoration: none; }
+.video-wrap {
+    width:        100%;
+    margin-bottom: 1rem;
+    position:     relative;
+}
+.video-embed {
+    width:        100%;
+    aspect-ratio: 16 / 9;
+    border:       1px solid var(--background-darker);
+    display:      block;
+}
+.video-play-overlay {
+    position:    absolute;
+    inset:       0;
+    display:     flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-mono);
+    font-size:   0.85rem;
+    color:       #fff;
+    background:  rgba(0,0,0,0.35);
+    letter-spacing: 0.06em;
+    transition:  background 0.2s;
+}
+.video-thumb-link:hover .video-play-overlay {
+    background: rgba(0,0,0,0.55);
+}
+
 /* line numbers in project list */
 .project-num {
     font-family:  var(--font-mono);
