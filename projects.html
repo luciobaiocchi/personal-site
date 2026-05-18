@@ -70,6 +70,8 @@
 
     <script>
     const PROJECTS = [
+        { title: "Nxord", desc: "Full-stack B2B platform that automates HoReCa order management with multimodal AI — any format (PDF, photo, audio) converted to structured ERP-ready records. In production.", link: "./projects/nxord.html", tech: ["fa-brands fa-python", "fa-brands fa-react", "fa-brands fa-docker"], external: "https://nxord.com/" },
+        { title: "Bakery Anomaly Detection", desc: "Rolling Z-score with conjunction rule for production order error detection in an artisanal bakery — 2 months in production, F1 85.7% without oracle selection. Paper in preparation for SOMI @ ECML-PKDD 2026.", link: "./projects/bakery_anomaly.html", tech: ["fa-brands fa-python"] },
         { title: "PCA Psychophysical Analysis", desc: "PCA + K-Means on 93 behavioral variables — surfaced 4 psychophysical profiles from a dataset of human subjects.", link: "./projects/pca_analysis.html", tech: ["fa-brands fa-python"] },
         { title: "Numerical Optimization", desc: "Implemented Modified & Truncated Newton solvers with sparse Hessian ops — solved 100k-variable problems in under 0.5s.", link: "./projects/nm_optimization.html", tech: ["fa-brands fa-python"] },
         { title: "LSA with rSVD", desc: "Custom randomized SVD on 18k Usenet posts — topic clustering with Silhouette scoring and an interactive semantic search GUI.", link: "./projects/lsa_rsvd.html", tech: ["fa-brands fa-python"] },
@@ -88,8 +90,9 @@
     PROJECTS.forEach(p => {
         const item = document.createElement("div");
         item.className = "project-item";
+        const externalLink = p.external ? ` <a href="${p.external}" target="_blank" class="ms-2 text-decoration-none text-secondary" style="font-size:0.8rem;">↗</a>` : "";
         item.innerHTML = `
-            <h3><a href="${p.link}" class="text-decoration-none">${p.title}</a></h3>
+            <h3><a href="${p.link}" class="text-decoration-none">${p.title}</a>${externalLink}</h3>
             <p class="mb-1">${p.desc}</p>
             <div class="tech-icons">${p.tech.map(cls => `<i class="${cls}"></i>`).join("")}</div>
         `;

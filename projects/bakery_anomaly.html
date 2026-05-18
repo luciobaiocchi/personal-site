@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bakery Anomaly Detection — Lucio Baiocchi</title>
+    <link rel="icon" type="image/x-icon" href="../img/LB.png">
+    <meta name="description" content="Anomaly detection for production orders in an artisanal bakery — 2 months in production">
+    <meta name="author" content="Lucio Baiocchi">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .benchmark-table th { font-weight: 600; }
+        .benchmark-table tr.deployed td { font-weight: 700; }
+        code {
+            font-family: var(--font-mono);
+            font-size: 0.88em;
+            background: var(--background-darker);
+            padding: 1px 5px;
+        }
+        pre {
+            font-family: var(--font-mono);
+            font-size: 0.82em;
+            background: var(--background-darker);
+            padding: 1rem;
+            line-height: 1.5;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <button class="navbar-toggler ms-auto me-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto text-center align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../projects.html">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../index.html#contacts">Contacts</a></li>
+                    <li class="nav-item">
+                        <button class="btn theme-toggle ms-1">
+                            <i class="bi theme-icon bi-moon-stars-fill"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="project-intro">
+            <h1>Bakery Anomaly Detection</h1>
+            <p class="text-secondary">Production order error detection for an artisanal bakery — applied ML where simpler is necessary</p>
+            <p style="font-size: 0.9rem;">
+                <strong>2 months in production</strong> ·
+                Paper in preparation for <em>SOMI @ ECML-PKDD 2026</em>
+            </p>
+        </section>
+
+        <section class="project-details">
+            <div class="project-grid">
+                <div>
+                    <h2>Overview</h2>
+                    <p>
+                        An end-to-end anomaly detection system built for an artisanal bakery in northern Italy (~50 employees, ~200 products).
+                        Every morning, a bakery manager exports a CSV listing planned production quantities for the day. This system ingests
+                        that file, flags likely data-entry errors before they propagate to procurement and kitchen scheduling, and lets the
+                        operator review and correct them in seconds.
+                    </p>
+                    <p>The operator is the bakery owner — not a data scientist.</p>
+                </div>
+                <div>
+                    <h2>The Core Problem</h2>
+                    <p>
+                        Standard anomaly detection methods (Isolation Forest, LOF, autoencoders) look impressive on benchmarks.
+                        This project documents why they are structurally inapplicable to a whole class of real SME deployments,
+                        and what the right tool actually is.
+                    </p>
+                    <p>Five properties make trained ML models unsuitable:</p>
+                    <ol>
+                        <li><strong>Day-of-week independence</strong> — Monday orders differ systematically from Saturday for every product. A DOW-aware model would need ~600 instances, each trained on 4 data points.</li>
+                        <li><strong>No inter-product correlation</strong> — a mistyped quantity carries zero signal in any other product.</li>
+                        <li><strong>Extreme data scarcity</strong> — a 4-week rolling window means 4 training observations per model.</li>
+                        <li><strong>Continuous distribution shift</strong> — seasonal volumes, new products, discontinued items.</li>
+                        <li><strong>Zero-maintenance requirement</strong> — no IT budget for retraining pipelines.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="project-grid">
+                <div>
+                    <h2>The Solution</h2>
+                    <p>
+                        A <strong>rolling statistical estimator with a conjunction rule</strong>: for each (product, day-of-week) pair,
+                        compute mean and standard deviation over the last W same-weekday observations (default W = 4).
+                        Flag an anomaly only when <em>all three</em> conditions hold simultaneously:
+                    </p>
+                    <ul>
+                        <li>Z-score &gt; 7.0</li>
+                        <li>Percentage deviation &gt; 30%</li>
+                        <li>Absolute deviation &gt; volume-tier threshold</li>
+                    </ul>
+                    <p>
+                        A fourth component — a <strong>year-over-year seasonality shield</strong> — suppresses false positives on
+                        seasonal products (Easter specialties, holiday items) by comparing against the same date one year prior.
+                    </p>
+                    <p>
+                        Self-adapting by construction: no model to retrain, no artefact to version, no drift detector to maintain.
+                        New products are handled from their second observation.
+                    </p>
+                </div>
+                <div>
+                    <h2>Architecture</h2>
+                    <pre>CSV upload (daily)
+       │
+  Streamlit frontend
+       │
+  Detection engine (Python)
+  ├── Rolling Z-score per (product, DOW)
+  ├── Conjunction rule
+  ├── Volume-tier thresholds
+  └── YoY seasonality shield
+       │
+  Supabase PostgreSQL
+  ├── Historical orders
+  ├── Precomputed baselines
+  ├── Audit log (append-only)
+  └── Auth (role-based)</pre>
+                    <p>
+                        Two user roles: an <strong>administrator view</strong> (full table with Z-score, deviation, time-series charts)
+                        and a simplified <strong>operator view</strong> (one review card per flag, business-language summaries:
+                        <em>"You ordered 500 kg; the usual Monday order is 48 ± 6 kg"</em>).
+                    </p>
+                    <p class="text-secondary" style="font-size: 0.88rem;">
+                        Deployed on free tiers only: Streamlit Cloud, Supabase, Cloudflare DNS.<br>
+                        Total recurring infrastructure cost: €0/month.
+                    </p>
+                </div>
+            </div>
+
+            <div class="mt-4 mb-5">
+                <h2>Benchmark Results</h2>
+                <p class="text-secondary" style="font-size: 0.9rem;">
+                    496-anomaly labelled test set, constructed with the bakery's cooperation. Competing methods receive
+                    oracle threshold selection (best possible F1 on test set) — the deployed Z-score gets no oracle.
+                </p>
+                <div class="table-responsive">
+                    <table class="table benchmark-table" style="font-size: 0.9rem;">
+                        <thead>
+                            <tr>
+                                <th>Method</th>
+                                <th>Window W</th>
+                                <th>Precision</th>
+                                <th>Recall</th>
+                                <th>F1</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="deployed">
+                                <td><strong>Z-score (deployed)</strong> ← no oracle</td>
+                                <td>4</td>
+                                <td>89.0%</td>
+                                <td>90.9%</td>
+                                <td><strong>85.7%</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Z-score (oracle)</td>
+                                <td>4</td>
+                                <td>83.0%</td>
+                                <td>91.1%</td>
+                                <td>86.9%</td>
+                            </tr>
+                            <tr>
+                                <td>MAD (oracle)</td>
+                                <td>4</td>
+                                <td>82.3%</td>
+                                <td>83.2%</td>
+                                <td>82.8%</td>
+                            </tr>
+                            <tr>
+                                <td>Holt-Winters (oracle)</td>
+                                <td>4</td>
+                                <td>—</td>
+                                <td>—</td>
+                                <td>0% (inapplicable)</td>
+                            </tr>
+                            <tr>
+                                <td>Z-score (oracle)</td>
+                                <td>24</td>
+                                <td>86.5%</td>
+                                <td>91.6%</td>
+                                <td>89.0%</td>
+                            </tr>
+                            <tr>
+                                <td>MAD (oracle)</td>
+                                <td>24</td>
+                                <td>83.7%</td>
+                                <td>92.8%</td>
+                                <td>88.0%</td>
+                            </tr>
+                            <tr>
+                                <td>Holt-Winters (oracle)</td>
+                                <td>24</td>
+                                <td>66.5%</td>
+                                <td>75.7%</td>
+                                <td>70.8%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p style="font-size: 0.88rem;">
+                    The deployed system outperforms all alternatives at every window size without oracle selection.
+                    The gap versus oracle Z-score is 1.2 pp. Holt-Winters is entirely inapplicable at W = 4
+                    and plateaus ~17 pp below Z-score at W = 24, while being 65–130× slower per inference.
+                </p>
+            </div>
+
+            <div class="project-grid">
+                <div>
+                    <h2>Key Lessons</h2>
+                    <ul>
+                        <li><strong>Precision calibration over recall</strong> in human-in-the-loop deployments. A false-positive rate above ~20% causes operator disengagement — effective detection drops to zero.</li>
+                        <li><strong>Seasonality bites hard in production.</strong> The YoY shield was added after the first Easter, when legitimate demand spikes eroded operator trust within days.</li>
+                        <li><strong>Zero-maintenance is a hard constraint.</strong> Any system requiring scheduled retraining would have been abandoned within weeks.</li>
+                        <li><strong>Explainability is structurally unavailable with IF/LOF.</strong> Rolling Z-score decomposes every flag into interpretable business quantities.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h2>Academic Output</h2>
+                    <p>
+                        <em>"When Simpler Is Necessary: Anomaly Detection for Production Orders in an Artisanal Bakery"</em><br>
+                        Lucio Baiocchi — MSc Data Science and Engineering, Politecnico di Torino<br>
+                        Submitted to <strong>SOMI Workshop @ ECML-PKDD 2026</strong> (Springer LNCS)
+                    </p>
+                    <p>
+                        Main contribution: a <strong>problem characterisation framework</strong> — a decision tree that predicts,
+                        from the structural properties of a monitoring problem, whether a rolling statistical estimator or a
+                        trained ML model is the appropriate tool.
+                    </p>
+                    <p style="font-size: 0.9rem;">
+                        <strong>Stack:</strong> Python · Streamlit · Supabase (PostgreSQL) · Streamlit Cloud · Cloudflare
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="text-center py-3 mt-5">
+        <p>&copy; 2025 Lucio Baiocchi | <a href="mailto:luciobaiocchi1@gmail.com">Contact me</a></p>
+    </footer>
+    <script src="../javascript/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,13 +1,61 @@
 /* ══════════════════════════════════════════════════════════
-   SEASONAL THEMES — to switch season:
-   Uncomment the desired season block, comment out the others.
-   Only ONE season active at a time.
+   THEMES — 4 seasonal palettes.
+   Controlled via data-season attribute on <html>.
+   Light/dark via data-bs-theme.
+   Default (no data-season set yet): summer.
    ══════════════════════════════════════════════════════════ */
 
-
-/* ─────────────── AUTUMN ────────────────────────────────── */
-/*
+/* ─── DEFAULT FALLBACK (summer, before JS runs) ──────────── */
 :root {
+    --primary-color:         #c68a00;
+    --secondary-color:       #c68a00;
+    --background:            #fffdf5;
+    --background-card:       #fff8e0;
+    --placeholder-color:     #a89060;
+    --white:                 #fffdf5;
+    --shadow-color:          rgba(80,60,0,.06);
+    --primary-color-pressed: #9a6a00;
+    --text-color:            #2a1e00;
+    --text-secondary:        #7a6030;
+    --text-header:           #7a6030;
+    --background-higer-main: linear-gradient(to bottom, #fdf2c0, #fff8e0, #fffdf5);
+    --transparent:           #fffdf500;
+    --transparent-50:        #fffdf5cc;
+    --header-color:          #b07800;
+    --background-darker:     #f0e0a0;
+    --theme-button-color:    #2a1e00;
+    --theme-button-color-darker: #60460a;
+    --link-color:            #fffdf5;
+    --font-main:    monospace;
+    --font-heading: 'Libre Baskerville', 'Georgia', serif;
+    --font-mono:    'IBM Plex Mono', 'Courier New', monospace;
+    --radius:    4px;
+    --radius-md: 6px;
+}
+[data-bs-theme="dark"] {
+    --primary-color:         #d4a830;
+    --secondary-color:       #d4a830;
+    --background:            #1a1400;
+    --background-card:       #261e06;
+    --placeholder-color:     #5a4a10;
+    --white:                 #e8ddb0;
+    --shadow-color:          rgba(0,0,0,.5);
+    --primary-color-pressed: #a07820;
+    --text-color:            #e8ddb0;
+    --text-secondary:        #9a8050;
+    --text-header:           #9a8050;
+    --background-higer-main: linear-gradient(to bottom, #100e00, #161200, #1a1400);
+    --transparent:           #1a140000;
+    --transparent-50:        #1a1400cc;
+    --header-color:          #6a5000;
+    --background-darker:     #100e00;
+    --theme-button-color:    #d4a830;
+    --theme-button-color-darker: #6a5010;
+    --link-color:            #e8ddb0;
+}
+
+/* ─────────────── AUTUMN ─────────────────────────────────── */
+html[data-season="autumn"] {
     --primary-color:         #a0522d;
     --secondary-color:       #a0522d;
     --background:            #faf6f0;
@@ -27,13 +75,8 @@
     --theme-button-color:    #2e1f0e;
     --theme-button-color-darker: #5c3820;
     --link-color:            #fdf9f4;
-    --font-main:    monospace;
-    --font-heading: 'Libre Baskerville', 'Georgia', serif;
-    --font-mono:    'IBM Plex Mono', 'Courier New', monospace;
-    --radius:    4px;
-    --radius-md: 6px;
 }
-[data-bs-theme="dark"] {
+html[data-season="autumn"][data-bs-theme="dark"] {
     --primary-color:         #c8845a;
     --secondary-color:       #c8845a;
     --background:            #1a1209;
@@ -54,122 +97,97 @@
     --theme-button-color-darker: #6a3c20;
     --link-color:            #e8ddd0;
 }
-*/
-/* ─────────────── END AUTUMN ─────────────────────────────── */
 
-
-/* ─────────────── SPRING (ACTIVE) ───────────────────────── */
-
-:root {
-    --primary-color: #4a7c59;
-    --secondary-color: #4a7c59;
-    --background: #f4faf5;
-    --background-card: #e9f5ec;
-    --placeholder-color: #7a9a82;
-    --white: #f4faf5;
-    --shadow-color: rgba(10, 50, 20, .06);
+/* ─────────────── SPRING ──────────────────────────────────── */
+html[data-season="spring"] {
+    --primary-color:         #4a7c59;
+    --secondary-color:       #4a7c59;
+    --background:            #f4faf5;
+    --background-card:       #e9f5ec;
+    --placeholder-color:     #7a9a82;
+    --white:                 #f4faf5;
+    --shadow-color:          rgba(10,50,20,.06);
     --primary-color-pressed: #2e5c3a;
-    --text-color: #1a2e1e;
-    --text-secondary: #5a7a62;
-    --text-header: #5a7a62;
+    --text-color:            #1a2e1e;
+    --text-secondary:        #5a7a62;
+    --text-header:           #5a7a62;
     --background-higer-main: linear-gradient(to bottom, #e4f0e6, #ecf7ef, #f4faf5);
-    --transparent: #f4faf500;
-    --transparent-50: #f4faf5cc;
-    --header-color: #3a6b48;
-    --background-darker: #cfe8d4;
-    --theme-button-color: #1a2e1e;
+    --transparent:           #f4faf500;
+    --transparent-50:        #f4faf5cc;
+    --header-color:          #3a6b48;
+    --background-darker:     #cfe8d4;
+    --theme-button-color:    #1a2e1e;
     --theme-button-color-darker: #2e5c3a;
-    --link-color: #f0faf2;
-    --font-main: monospace;
-    --font-heading: 'Libre Baskerville', 'Georgia', serif;
-    --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
-    --radius: 4px;
-    --radius-md: 6px;
+    --link-color:            #f0faf2;
 }
-
-[data-bs-theme="dark"] {
-    --primary-color: #6aaa7a;
-    --secondary-color: #6aaa7a;
-    --background: #0e1810;
-    --background-card: #162010;
-    --placeholder-color: #305030;
-    --white: #d0e8d8;
-    --shadow-color: rgba(0, 0, 0, .5);
+html[data-season="spring"][data-bs-theme="dark"] {
+    --primary-color:         #6aaa7a;
+    --secondary-color:       #6aaa7a;
+    --background:            #0e1810;
+    --background-card:       #162010;
+    --placeholder-color:     #305030;
+    --white:                 #d0e8d8;
+    --shadow-color:          rgba(0,0,0,.5);
     --primary-color-pressed: #4a8a5a;
-    --text-color: #d0e8d8;
-    --text-secondary: #6a9a74;
-    --text-header: #6a9a74;
+    --text-color:            #d0e8d8;
+    --text-secondary:        #6a9a74;
+    --text-header:           #6a9a74;
     --background-higer-main: linear-gradient(to bottom, #080e09, #0c1410, #0e1810);
-    --transparent: #0e181000;
-    --transparent-50: #0e1810cc;
-    --header-color: #284a32;
-    --background-darker: #080e09;
-    --theme-button-color: #6aaa7a;
+    --transparent:           #0e181000;
+    --transparent-50:        #0e1810cc;
+    --header-color:          #284a32;
+    --background-darker:     #080e09;
+    --theme-button-color:    #6aaa7a;
     --theme-button-color-darker: #2a5a36;
-    --link-color: #d0e8d8;
+    --link-color:            #d0e8d8;
 }
 
-/* ─────────────── END SPRING ─────────────────────────────── */
-
-
-/* ─────────────── SUMMER ─────────────────────────────────── */
-/*
-:root {
-    --primary-color: #c68a00;
-    --secondary-color: #c68a00;
-    --background: #fffdf5;
-    --background-card: #fff8e0;
-    --placeholder-color: #a89060;
-    --white: #fffdf5;
-    --shadow-color: rgba(80, 60, 0, .06);
+/* ─────────────── SUMMER ──────────────────────────────────── */
+html[data-season="summer"] {
+    --primary-color:         #c68a00;
+    --secondary-color:       #c68a00;
+    --background:            #fffdf5;
+    --background-card:       #fff8e0;
+    --placeholder-color:     #a89060;
+    --white:                 #fffdf5;
+    --shadow-color:          rgba(80,60,0,.06);
     --primary-color-pressed: #9a6a00;
-    --text-color: #2a1e00;
-    --text-secondary: #7a6030;
-    --text-header: #7a6030;
+    --text-color:            #2a1e00;
+    --text-secondary:        #7a6030;
+    --text-header:           #7a6030;
     --background-higer-main: linear-gradient(to bottom, #fdf2c0, #fff8e0, #fffdf5);
-    --transparent: #fffdf500;
-    --transparent-50: #fffdf5cc;
-    --header-color: #b07800;
-    --background-darker: #f0e0a0;
-    --theme-button-color: #2a1e00;
+    --transparent:           #fffdf500;
+    --transparent-50:        #fffdf5cc;
+    --header-color:          #b07800;
+    --background-darker:     #f0e0a0;
+    --theme-button-color:    #2a1e00;
     --theme-button-color-darker: #60460a;
-    --link-color: #fffdf5;
-    --font-main: monospace;
-    --font-heading: 'Libre Baskerville', 'Georgia', serif;
-    --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
-    --radius: 4px;
-    --radius-md: 6px;
+    --link-color:            #fffdf5;
 }
-
-[data-bs-theme="dark"] {
-    --primary-color: #d4a830;
-    --secondary-color: #d4a830;
-    --background: #1a1400;
-    --background-card: #261e06;
-    --placeholder-color: #5a4a10;
-    --white: #e8ddb0;
-    --shadow-color: rgba(0, 0, 0, .5);
+html[data-season="summer"][data-bs-theme="dark"] {
+    --primary-color:         #d4a830;
+    --secondary-color:       #d4a830;
+    --background:            #1a1400;
+    --background-card:       #261e06;
+    --placeholder-color:     #5a4a10;
+    --white:                 #e8ddb0;
+    --shadow-color:          rgba(0,0,0,.5);
     --primary-color-pressed: #a07820;
-    --text-color: #e8ddb0;
-    --text-secondary: #9a8050;
-    --text-header: #9a8050;
+    --text-color:            #e8ddb0;
+    --text-secondary:        #9a8050;
+    --text-header:           #9a8050;
     --background-higer-main: linear-gradient(to bottom, #100e00, #161200, #1a1400);
-    --transparent: #1a140000;
-    --transparent-50: #1a1400cc;
-    --header-color: #6a5000;
-    --background-darker: #100e00;
-    --theme-button-color: #d4a830;
+    --transparent:           #1a140000;
+    --transparent-50:        #1a1400cc;
+    --header-color:          #6a5000;
+    --background-darker:     #100e00;
+    --theme-button-color:    #d4a830;
     --theme-button-color-darker: #6a5010;
-    --link-color: #e8ddb0;
+    --link-color:            #e8ddb0;
 }
 
-*/
-/* ─────────────── END SUMMER ─────────────────────────────── */
-
-
-/* ─────────────── WINTER ─────────────────────────────────── */
-/*
-:root {
+/* ─────────────── WINTER ──────────────────────────────────── */
+html[data-season="winter"] {
     --primary-color:         #3a5a80;
     --secondary-color:       #3a5a80;
     --background:            #f5f7fa;
@@ -189,13 +207,8 @@
     --theme-button-color:    #141e2e;
     --theme-button-color-darker: #2c4260;
     --link-color:            #f0f5fa;
-    --font-main:    monospace;
-    --font-heading: 'Libre Baskerville', 'Georgia', serif;
-    --font-mono:    'IBM Plex Mono', 'Courier New', monospace;
-    --radius:    4px;
-    --radius-md: 6px;
 }
-[data-bs-theme="dark"] {
+html[data-season="winter"][data-bs-theme="dark"] {
     --primary-color:         #5a8ab0;
     --secondary-color:       #5a8ab0;
     --background:            #0a0d14;
@@ -216,5 +229,3 @@
     --theme-button-color-darker: #1c3060;
     --link-color:            #c8d8e8;
 }
-*/
-/* ─────────────── END WINTER ─────────────────────────────── */

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nxord — Lucio Baiocchi</title>
+    <link rel="icon" type="image/x-icon" href="../img/LB.png">
+    <meta name="description" content="Nxord - B2B Order Automation for HoReCa">
+    <meta name="keywords" content="Lucio Baiocchi, nxord, B2B, AI, HoReCa, order automation">
+    <meta name="author" content="Lucio Baiocchi">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .tech-table th { font-weight: 600; white-space: nowrap; }
+        .status-badge { font-size: 0.85rem; }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <button class="navbar-toggler ms-auto me-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto text-center align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../projects.html">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../index.html#contacts">Contacts</a></li>
+                    <li class="nav-item">
+                        <button class="btn theme-toggle ms-1">
+                            <i class="bi theme-icon bi-moon-stars-fill"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="project-intro">
+            <h1>Nxord</h1>
+            <p class="text-secondary">B2B Order Automation for HoReCa distributors — multimodal AI meets ERP integration</p>
+            <p class="mt-2" style="font-size: 0.9rem;">
+                <strong>In production</strong> — <a href="https://nxord.com/" target="_blank" class="text-decoration-none">nxord.com ↗</a>
+            </p>
+        </section>
+
+        <section class="project-details">
+            <div class="project-grid">
+                <div>
+                    <h2>Overview</h2>
+                    <p>
+                        Nxord is a full-stack B2B web platform that automates order management for food &amp; beverage distributors
+                        operating in the HoReCa (Hotel, Restaurant, Catering) sector. Built to eliminate manual order entry,
+                        the system accepts orders in any format — PDFs, WhatsApp photos, emails, audio recordings — and uses
+                        multimodal AI to turn them into validated, structured records ready for export to the ERP.
+                    </p>
+                    <p>The platform is in active production use by a wholesale distributor, processing daily orders with measurable time savings per transaction.</p>
+                </div>
+                <div>
+                    <h2>The Problem</h2>
+                    <p>
+                        HoReCa distributors receive orders through dozens of unstructured channels: handwritten receipts photographed
+                        on WhatsApp, scanned faxes, voice memos, emails with inconsistent formatting. Beyond the transcription burden,
+                        the data was <strong>completely fragmented</strong> — each order lived in a separate thread or inbox with no
+                        unified record. No client purchase history, no visibility into order trends, no basis for business decisions.
+                        Operators had to manually transcribe every item, cross-reference the product catalog, and re-enter everything
+                        into the AS400 ERP. The process was slow, error-prone, and scaled poorly with volume.
+                    </p>
+                </div>
+            </div>
+
+            <div class="project-grid">
+                <div>
+                    <h2>Solution</h2>
+                    <p>Nxord addresses the fragmentation problem end-to-end — from ingestion to intelligence:</p>
+                    <ol>
+                        <li class="mb-2">
+                            <strong>Multimodal extraction</strong> — operators drag-and-drop any format (PDF, photo, audio, email).
+                            Google Gemini extracts structured product and quantity data regardless of source,
+                            <strong>consolidating fragmented channels into a single pipeline</strong>.
+                        </li>
+                        <li class="mb-2">
+                            <strong>3-stage semantic matching</strong> — exact code lookup → fuzzy string matching → cosine similarity
+                            over pgvector embeddings. Handles spelling variations, short codes, inconsistent naming across sources.
+                        </li>
+                        <li class="mb-2">
+                            <strong>Commercial Intelligence</strong> — once orders are structured and unified, the accumulated data
+                            powers a full analytics layer: per-client purchase history, YoY trends, basket-analysis upsell opportunities,
+                            global KPI dashboard with Pareto concentration, and on-demand AI briefs streamed word-by-word via SSE.
+                        </li>
+                        <li class="mb-2">
+                            <strong>ERP integration</strong> — validated orders exported in AS400 fixed-width format via SFTP,
+                            with full audit trail per order.
+                        </li>
+                    </ol>
+                </div>
+                <div>
+                    <h2>Key Features</h2>
+                    <h5>Multimodal AI Extraction</h5>
+                    <ul>
+                        <li>Accepts PDF, images (JPG, PNG), audio, and plain text</li>
+                        <li>Google Gemini processes files asynchronously via Celery workers</li>
+                        <li>Handles WhatsApp photos of receipts, scanned faxes, informal messages</li>
+                    </ul>
+                    <h5>3-Stage Semantic Product Matching</h5>
+                    <ul>
+                        <li>Stage 1: exact code lookup</li>
+                        <li>Stage 2: fuzzy string matching</li>
+                        <li>Stage 3: cosine similarity over pgvector embeddings</li>
+                        <li>Confidence score per item; uncertain matches flagged for review</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="project-grid">
+                <div>
+                    <h2>Architecture Decisions</h2>
+                    <p>
+                        <strong>Offline vs online computation.</strong> The analytics pipeline is split: a batch job processes the
+                        sales history CSV in pure Python and stores pre-computed JSON reports in PostgreSQL. At request time,
+                        the API does a single <code>SELECT</code> — no computation, no ORM joins.
+                    </p>
+                    <p>
+                        <strong>pgvector for semantic matching.</strong> Every product name is embedded at upload time. Order items
+                        are matched by cosine similarity. The 3-stage pipeline (exact → fuzzy → semantic) keeps precision high.
+                    </p>
+                    <p>
+                        <strong>Session auth, no JWT.</strong> Django session cookies with <code>credentials: include</code>.
+                        The right choice for a B2B internal tool where server-side invalidation matters.
+                    </p>
+                    <p>
+                        <strong>SSE streaming for AI briefs.</strong> Gemini takes 5–15s to produce a brief.
+                        Server-Sent Events stream the response word-by-word to eliminate the perception of waiting.
+                    </p>
+                </div>
+            </div>
+
+            <div class="mt-5">
+                <h2>Tech Stack</h2>
+                <div class="table-responsive">
+                    <table class="table tech-table">
+                        <thead>
+                            <tr>
+                                <th>Layer</th>
+                                <th>Technology</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>Frontend</strong></td><td>React 19, TypeScript, Vite 7, Bootstrap 5.3</td></tr>
+                            <tr><td><strong>Backend</strong></td><td>Python 3.12, Django 5.2, Django REST Framework</td></tr>
+                            <tr><td><strong>Database</strong></td><td>PostgreSQL 16 + pgvector</td></tr>
+                            <tr><td><strong>Task Queue</strong></td><td>Celery 5 + Redis 7</td></tr>
+                            <tr><td><strong>AI</strong></td><td>Google Gemini (multimodal extraction + streaming brief)</td></tr>
+                            <tr><td><strong>Infrastructure</strong></td><td>Docker Compose, Cloudflare Tunnel, Hetzner VPS</td></tr>
+                            <tr><td><strong>Quality</strong></td><td>pre-commit (black, mypy, ESLint, tsc, bandit), GitHub Actions CI</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="project-grid mt-5">
+                <div>
+                    <h2>My Role</h2>
+                    <p>
+                        Co-founder of Nxord. I built the full stack: Django REST API, Celery task pipeline, pgvector embedding
+                        and matching, SFTP export, React frontend, Docker infrastructure, and CI. The analytics computation layer
+                        was developed collaboratively with my colleagues; I designed the schema contract and all Django/API integration.
+                    </p>
+                    <p>
+                        <strong>In production.</strong> First client: active daily use since early 2026. Pre-revenue — expanding to additional distributors in Q2/Q3 2026.
+                    </p>
+                </div>
+                <div class="d-flex align-items-end justify-content-end">
+                    <a href="https://nxord.com/" target="_blank" class="text-decoration-none" style="font-size: 1rem;">nxord.com ↗</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="text-center py-3 mt-5">
+        <p>&copy; 2025 Lucio Baiocchi | <a href="mailto:luciobaiocchi1@gmail.com">Contact me</a></p>
+    </footer>
+    <script src="../javascript/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

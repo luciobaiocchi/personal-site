@@ -1,37 +1,69 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // --- THEME TOGGLE ---
-    const themeToggleBtn = document.querySelector('.theme-toggle');
-    const themeIcon = document.querySelector('.theme-icon');
+    const SEASONS = ['autumn', 'spring', 'summer', 'winter'];
+    const LABELS  = { autumn: 'aut', spring: 'spr', summer: 'sum', winter: 'win' };
 
-    function setTheme(theme) {
-        document.documentElement.setAttribute('data-bs-theme', theme);
-        localStorage.setItem('theme', theme);
-        updateIcon(theme);
-    }
-
-    function updateIcon(theme) {
-        if (!themeIcon) return;
-        if (theme === 'dark') {
-            themeIcon.classList.remove('bi-moon-stars-fill');
-            themeIcon.classList.add('bi-sun-fill');
-        } else {
-            themeIcon.classList.remove('bi-sun-fill');
-            themeIcon.classList.add('bi-moon-stars-fill');
-        }
-    }
-
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    setTheme(savedTheme);
-
-    if (themeToggleBtn) {
-        themeToggleBtn.addEventListener('click', () => {
-            const currentTheme = document.documentElement.getAttribute('data-bs-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            setTheme(newTheme);
+    // ── SEASON ──────────────────────────────────────────────
+    function setSeason(season) {
+        document.documentElement.setAttribute('data-season', season);
+        localStorage.setItem('season', season);
+        document.querySelectorAll('.season-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.season === season);
         });
     }
 
-    // --- LIGHTBOX ---
+    // ── DARK / LIGHT ─────────────────────────────────────────
+    function setTheme(theme) {
+        document.documentElement.setAttribute('data-bs-theme', theme);
+        localStorage.setItem('theme', theme);
+        document.querySelectorAll('.theme-icon').forEach(icon => {
+            icon.classList.toggle('bi-sun-fill',        theme === 'dark');
+            icon.classList.toggle('bi-moon-stars-fill', theme !== 'dark');
+        });
+    }
+
+    // ── INIT ─────────────────────────────────────────────────
+    setSeason(localStorage.getItem('season') || 'summer');
+    setTheme(localStorage.getItem('theme')   || 'light');
+
+    // ── DARK/LIGHT TOGGLE BUTTON ─────────────────────────────
+    document.querySelectorAll('.theme-toggle').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const current = document.documentElement.getAttribute('data-bs-theme');
+            setTheme(current === 'dark' ? 'light' : 'dark');
+        });
+    });
+
+    // ── INJECT SEASON PICKER INTO NAVBAR ─────────────────────
+    document.querySelectorAll('.navbar-nav').forEach(nav => {
+        const li = document.createElement('li');
+        li.className = 'nav-item d-flex align-items-center';
+
+        const picker = document.createElement('div');
+        picker.className = 'season-picker d-flex align-items-center';
+
+        SEASONS.forEach((s, i) => {
+            if (i > 0) {
+                const sep = document.createElement('span');
+                sep.className = 'season-sep';
+                sep.textContent = '/';
+                picker.appendChild(sep);
+            }
+            const btn = document.createElement('button');
+            btn.className = 'season-btn';
+            btn.dataset.season = s;
+            btn.textContent = LABELS[s];
+            btn.addEventListener('click', () => setSeason(s));
+            picker.appendChild(btn);
+        });
+
+        li.appendChild(picker);
+        nav.insertBefore(li, nav.lastElementChild);
+    });
+
+    // Apply active class after injection
+    setSeason(localStorage.getItem('season') || 'summer');
+
+    // ── LIGHTBOX ─────────────────────────────────────────────
     const overlay = document.createElement('div');
     overlay.id = 'lightbox-overlay';
     overlay.innerHTML = '<img>';
