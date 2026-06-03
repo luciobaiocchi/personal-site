@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script>!function(){var t=localStorage.getItem('theme')||'light',s=localStorage.getItem('season')||'summer';document.documentElement.setAttribute('data-bs-theme',t);document.documentElement.setAttribute('data-season',s)}()</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Lucio Baiocchi</title>
+    <link rel="icon" type="image/x-icon" href="img/LB.png">
+    <meta name="description" content="Lucio Baiocchi - Blog">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <style>
+        .post-item {
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--background-darker);
+        }
+        .post-item:last-child {
+            border-bottom: none;
+        }
+        .post-item h3 a {
+            color: var(--text-color);
+            text-decoration: none;
+        }
+        .post-item h3 a:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+        .post-meta {
+            font-size: 13px;
+            color: var(--text-secondary);
+            display: flex;
+            gap: 1rem;
+            margin-top: 0.25rem;
+        }
+        .post-meta .views-count {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <button class="navbar-toggler ms-auto me-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto text-center align-items-center">
+                    <li class="nav-item">
+                        <button class="btn theme-toggle ms-1">
+                            <i class="bi theme-icon bi-moon-stars-fill"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <h1>Blog</h1>
+        <div id="posts-list"></div>
+    </main>
+
+    <footer class="text-center py-4">
+        <p>&copy; 2025 Lucio Baiocchi | <a href="mailto:luciobaiocchi1@gmail.com">Contact me</a></p>
+    </footer>
+
+    <script src="./javascript/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+    const VIEWS_WORKER = "https://views.luciobaiocchi1.workers.dev";
+
+    const POSTS = [
+        {
+            title: "How I built a real-time spatial audio system on embedded hardware",
+            desc: "A walkthrough of the HEARD thesis project — LoRa mesh networking, FreeRTOS scheduling, and GPS on an ESP32.",
+            date: "2025-06-01",
+            slug: "blog/example",
+            link: "./blog/example.html",
+            tags: ["Embedded", "C", "IoT"]
+        },
+        // Add more posts here
+    ];
+
+    async function getViews(slug) {
+        try {
+            const res = await fetch(`${VIEWS_WORKER}/views?slug=${encodeURIComponent(slug)}`);
+            if (!res.ok) return null;
+            const { views } = await res.json();
+            return views;
+        } catch {
+            return null;
+        }
+    }
+
+    async function renderPosts() {
+        const list = document.getElementById("posts-list");
+
+        for (const post of POSTS) {
+            const item = document.createElement("div");
+            item.className = "post-item";
+
+            const tagsHtml = post.tags
+                .map(t => `<span class="badge" style="background:var(--background-darker);color:var(--text-secondary);font-weight:500">${t}</span>`)
+                .join(" ");
+
+            item.innerHTML = `
+                <h3><a href="${post.link}">${post.title}</a></h3>
+                <div class="post-meta">
+                    <span>${formatDate(post.date)}</span>
+                    <span class="views-count"><i class="bi bi-eye"></i> <span id="views-${post.slug.replace(/\//g,'-')}">—</span></span>
+                </div>
+                <p class="mb-1 mt-2">${post.desc}</p>
+                <div class="mt-2" style="display:flex;gap:0.4rem;flex-wrap:wrap">${tagsHtml}</div>
+            `;
+            list.appendChild(item);
+        }
+
+        // Load view counts in parallel after rendering
+        await Promise.all(POSTS.map(async post => {
+            const views = await getViews(post.slug);
+            const el = document.getElementById(`views-${post.slug.replace(/\//g,'-')}`);
+            if (el && views !== null) el.textContent = views.toLocaleString();
+        }));
+    }
+
+    function formatDate(iso) {
+        return new Date(iso).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+    }
+
+    renderPosts();
+    </script>
+</body>
+</html>

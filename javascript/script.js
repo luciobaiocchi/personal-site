@@ -56,6 +56,40 @@ document.addEventListener('DOMContentLoaded', () => {
         container.insertBefore(prompt, container.firstChild);
     });
 
+    // ── INJECT NAV LINKS ─────────────────────────────────────
+    const _parts  = window.location.pathname.split('/');
+    const _parent = _parts[_parts.length - 2] || '';
+    const _sub    = _parent === 'projects' || _parent === 'blog';
+    const _base   = _sub ? '../' : './';
+    const _path = window.location.pathname;
+
+    function _isActive(id) {
+        if (id === 'contacts') return false;
+        if (id === 'index')    return /\/(index\.html)?$/.test(_path);
+        return _path.includes('/' + id);
+    }
+
+    const NAV_LINKS = [
+        { id: 'index',    href: _base + 'index.html',         label: 'Home' },
+        { id: 'projects', href: _base + 'projects.html',       label: 'Projects' },
+        { id: 'blog',     href: _base + 'blog.html',           label: 'Blog' },
+        { id: 'contacts', href: _base + 'index.html#contacts', label: 'Contacts' },
+    ];
+
+    document.querySelectorAll('.navbar-nav').forEach(nav => {
+        const anchor = nav.lastElementChild; // theme-toggle <li>
+        NAV_LINKS.forEach(l => {
+            const li = document.createElement('li');
+            li.className = 'nav-item';
+            const a = document.createElement('a');
+            a.className = 'nav-link' + (_isActive(l.id) ? ' active' : '');
+            a.href = l.href;
+            a.textContent = l.label;
+            li.appendChild(a);
+            nav.insertBefore(li, anchor);
+        });
+    });
+
     // ── INJECT SEASON PICKER INTO NAVBAR ─────────────────────
     document.querySelectorAll('.navbar-nav').forEach(nav => {
         const li = document.createElement('li');
@@ -119,10 +153,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (gPressed) {
             gPressed = false;
             clearTimeout(gTimer);
-            const sub = window.location.pathname.split('/').filter(Boolean).length > 1;
-            const base = sub ? '../' : '';
-            if (e.key === 'h') window.location.href = base + 'index.html';
-            if (e.key === 'p') window.location.href = base + 'projects.html';
+            if (e.key === 'h') window.location.href = _base + 'index.html';
+            if (e.key === 'p') window.location.href = _base + 'projects.html';
         }
     });
 
