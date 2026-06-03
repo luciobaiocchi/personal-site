@@ -12,24 +12,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../css/style.css">
-    <style>
-        .benchmark-table th { font-weight: 600; }
-        .benchmark-table tr.deployed td { font-weight: 700; }
-        code {
-            font-family: var(--font-mono);
-            font-size: 0.88em;
-            background: var(--background-darker);
-            padding: 1px 5px;
-        }
-        pre {
-            font-family: var(--font-mono);
-            font-size: 0.82em;
-            background: var(--background-darker);
-            padding: 1rem;
-            line-height: 1.5;
-            overflow-x: auto;
-        }
-    </style>
 </head>
 
 <body>
@@ -54,7 +36,7 @@
         <section class="project-intro">
             <h1>Bakery Anomaly Detection</h1>
             <p class="text-secondary">Production order error detection for an artisanal bakery — applied ML where simpler is necessary</p>
-            <p style="font-size: 0.9rem;">
+            <p class="project-desc">
                 <strong>2 months in production</strong> ·
                 Paper in preparation for <em>SOMI @ ECML-PKDD 2026</em>
             </p>
@@ -134,7 +116,7 @@
                         and a simplified <strong>operator view</strong> (one review card per flag, business-language summaries:
                         <em>"You ordered 500 kg; the usual Monday order is 48 ± 6 kg"</em>).
                     </p>
-                    <p class="text-secondary" style="font-size: 0.88rem;">
+                    <p class="text-secondary project-desc">
                         Deployed on free tiers only: Streamlit Cloud, Supabase, Cloudflare DNS.<br>
                         Total recurring infrastructure cost: €0/month.
                     </p>
@@ -143,12 +125,12 @@
 
             <div class="mt-4 mb-5">
                 <h2>Benchmark Results</h2>
-                <p class="text-secondary" style="font-size: 0.9rem;">
+                <p class="text-secondary project-desc">
                     496-anomaly labelled test set, constructed with the bakery's cooperation. Competing methods receive
                     oracle threshold selection (best possible F1 on test set) — the deployed Z-score gets no oracle.
                 </p>
                 <div class="table-responsive">
-                    <table class="table benchmark-table" style="font-size: 0.9rem;">
+                    <table class="table benchmark-table tech-table">
                         <thead>
                             <tr>
                                 <th>Method</th>
@@ -211,7 +193,7 @@
                         </tbody>
                     </table>
                 </div>
-                <p style="font-size: 0.88rem;">
+                <p class="project-desc">
                     The deployed system outperforms all alternatives at every window size without oracle selection.
                     The gap versus oracle Z-score is 1.2 pp. Holt-Winters is entirely inapplicable at W = 4
                     and plateaus ~17 pp below Z-score at W = 24, while being 65–130× slower per inference.
@@ -240,7 +222,7 @@
                         from the structural properties of a monitoring problem, whether a rolling statistical estimator or a
                         trained ML model is the appropriate tool.
                     </p>
-                    <p style="font-size: 0.9rem;">
+                    <p class="project-desc">
                         <strong>Stack:</strong> Python · Streamlit · Supabase (PostgreSQL) · Streamlit Cloud · Cloudflare
                     </p>
                 </div>

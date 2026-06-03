@@ -12,29 +12,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="./css/style.css">
 
-    <style>
-        .project-item {
-            padding: 1.5rem 0;
-            border-bottom: 1px solid rgba(0,0,0,0.1);
-        }
-        [data-bs-theme="dark"] .project-item {
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-        .project-item h3 a {
-            color: var(--text-color);
-            transition: color 0.2s;
-        }
-        .project-item h3 a:hover {
-            color: var(--primary-color);
-        }
-        .tech-icons {
-            display: flex;
-            gap: 0.8rem;
-            margin-top: 0.5rem;
-            opacity: 0.7;
-            font-size: 1.2rem;
-        }
-    </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark">
@@ -90,7 +67,7 @@
         const item = document.createElement("div");
         item.className = "project-item";
         const num = String(i + 1).padStart(2, '0');
-        const externalLink = p.external ? ` <a href="${p.external}" target="_blank" class="ms-2 text-decoration-none text-secondary" style="font-size:0.8rem;">↗</a>` : "";
+        const externalLink = p.external ? ` <a href="${p.external}" target="_blank" class="ms-2 text-decoration-none text-secondary" project-ext-link">↗</a>` : "";
         item.innerHTML = `
             <h3><span class="project-num">${num}</span><a href="${p.link}" class="text-decoration-none">${p.title}</a>${externalLink}</h3>
             <p class="mb-1">${p.desc}</p>

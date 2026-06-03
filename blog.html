@@ -11,35 +11,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="./css/style.css">
-    <style>
-        .post-item {
-            padding: 1.5rem 0;
-            border-bottom: 1px solid var(--background-darker);
-        }
-        .post-item:last-child {
-            border-bottom: none;
-        }
-        .post-item h3 a {
-            color: var(--text-color);
-            text-decoration: none;
-        }
-        .post-item h3 a:hover {
-            color: var(--primary-color);
-            text-decoration: underline;
-        }
-        .post-meta {
-            font-size: 13px;
-            color: var(--text-secondary);
-            display: flex;
-            gap: 1rem;
-            margin-top: 0.25rem;
-        }
-        .post-meta .views-count {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.3rem;
-        }
-    </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark">
@@ -105,7 +76,7 @@
             item.className = "post-item";
 
             const tagsHtml = post.tags
-                .map(t => `<span class="badge" style="background:var(--background-darker);color:var(--text-secondary);font-weight:500">${t}</span>`)
+                .map(t => `<span class="tag-badge">${t}</span>`)
                 .join(" ");
 
             item.innerHTML = `
@@ -115,7 +86,7 @@
                     <span class="views-count"><i class="bi bi-eye"></i> <span id="views-${post.slug.replace(/\//g,'-')}">—</span></span>
                 </div>
                 <p class="mb-1 mt-2">${post.desc}</p>
-                <div class="mt-2" style="display:flex;gap:0.4rem;flex-wrap:wrap">${tagsHtml}</div>
+                <div class="post-tags mt-2">${tagsHtml}</div>
             `;
             list.appendChild(item);
         }
