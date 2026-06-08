@@ -1,10 +1,10 @@
 /**
- * Cloudflare Worker — view counter with IP-based daily deduplication
+ * Cloudflare Worker — view counter (every POST increments)
  *
  * KV binding required: VIEWS_KV
  *
  * GET  /views?slug=blog/example        → { views: 42 }
- * POST /views?slug=blog/example        → { views: 43 }  (increments if not seen today)
+ * POST /views?slug=blog/example        → { views: 43 }
  */
 
 const CORS_HEADERS = {
@@ -34,23 +34,8 @@ export default {
         }
 
         if (request.method === "POST") {
-            const ip      = request.headers.get("CF-Connecting-IP") ?? "unknown";
-            const day     = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
-            const dedupKey = `seen:${slug}:${day}:${await hashIp(ip)}`;
-
-            const alreadySeen = await env.VIEWS_KV.get(dedupKey);
-            if (alreadySeen) {
-                return json({ views: current });
-            }
-
             const next = current + 1;
-            // Store view count indefinitely; dedup key expires at midnight + buffer
-            const secondsUntilExpiry = secondsUntilEndOfDay() + 3600;
-            await Promise.all([
-                env.VIEWS_KV.put(countKey, String(next)),
-                env.VIEWS_KV.put(dedupKey, "1", { expirationTtl: secondsUntilExpiry }),
-            ]);
-
+            await env.VIEWS_KV.put(countKey, String(next));
             return json({ views: next });
         }
 
@@ -63,18 +48,4 @@ function json(body, status = 200) {
         status,
         headers: { ...CORS_HEADERS, "Content-Type": "application/json" },
     });
-}
-
-// SHA-256 of the IP — no PII stored in KV
-async function hashIp(ip) {
-    const buf    = new TextEncoder().encode(ip);
-    const digest = await crypto.subtle.digest("SHA-256", buf);
-    return Array.from(new Uint8Array(digest)).map(b => b.toString(16).padStart(2, "0")).join("").slice(0, 16);
-}
-
-function secondsUntilEndOfDay() {
-    const now = new Date();
-    const end = new Date(now);
-    end.setUTCHours(23, 59, 59, 999);
-    return Math.ceil((end - now) / 1000);
 }
