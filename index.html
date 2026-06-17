@@ -66,11 +66,15 @@
                     </div>
                 </div>
                 <div class="project-item pb-3 mb-3 border-bottom">
-                    <h5 class="mb-1"><a href="./projects/medicaid.html" class="text-decoration-none">MedicAId</a></h5>
-                    <p class="mb-1 text-secondary project-desc">AI health assistant on WhatsApp with simulated FSE integration — LLM-powered, built in &lt;5h at hackathon</p>
+                    <h5 class="mb-1">
+                        <a href="./heard.html" class="text-decoration-none">HEARD</a>
+                        <a href="https://github.com/luciobaiocchi/heard" target="_blank" class="ms-2 text-decoration-none text-secondary" project-ext-link">github ↗</a>
+                    </h5>
+                    <p class="mb-1 text-secondary project-desc">Open-source LoRa mesh that keeps hiking groups together off-grid — GPS route-compliance, multi-hop relaying and one-press SOS. Print it, build it, hike with it.</p>
                     <div class="tech-icons">
-                        <i class="fa-brands fa-python"></i>
-                        <i class="fa-brands fa-whatsapp"></i>
+                        <i class="fa-sharp fa-solid fa-c"></i>
+                        <i class="fa-solid fa-tower-broadcast"></i>
+                        <i class="fa-solid fa-cube"></i>
                     </div>
                 </div>
                 <div class="project-item pb-3 mb-3 border-bottom">
@@ -85,19 +89,7 @@
 
         <section id="recent-posts">
             <h2>Recent posts</h2>
-            <div class="project-list">
-                <div class="project-item pb-3 mb-3 border-bottom">
-                    <h5 class="mb-1">
-                        <a href="./blog/ai.html" class="text-decoration-none">Starting an AI internship in Zurich — on engineering, inspiration, and what got me here</a>
-                    </h5>
-                    <p class="mb-1 text-secondary project-desc">A personal reflection on the engineering journey, programming culture, and starting an AI internship in Zurich.</p>
-                    <div class="post-tags mt-2">
-                        <span class="tag-badge">Ai</span>
-                        <span class="tag-badge">Human</span>
-                        <span class="tag-badge">Art</span>
-                    </div>
-                </div>
-            </div>
+            <div class="project-list" id="recent-posts-list"></div>
             <a href="./blog.html" class="text-decoration-none">All posts →</a>
         </section>
 
@@ -125,7 +117,27 @@
         <p>&copy; 2025 Lucio Baiocchi | <a href="mailto:luciobaiocchi1@gmail.com">Contact me</a></p>
     </footer>
 
+    <script src="./data/posts.js"></script>
     <script src="./javascript/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        (function () {
+            const list = document.getElementById("recent-posts-list");
+            const recent = window.POSTS.slice(0, 3);
+            recent.forEach(function (post, i) {
+                const isLast = i === recent.length - 1;
+                const tagsHtml = post.tags.map(function (t) {
+                    return '<span class="tag-badge">' + t + "</span>";
+                }).join(" ");
+                const div = document.createElement("div");
+                div.className = "project-item pb-3 mb-3" + (isLast ? "" : " border-bottom");
+                div.innerHTML =
+                    '<h5 class="mb-1"><a href="' + post.link + '" class="text-decoration-none">' + post.title + "</a></h5>" +
+                    '<p class="mb-1 text-secondary project-desc">' + post.desc + "</p>" +
+                    '<div class="post-tags mt-2">' + tagsHtml + "</div>";
+                list.appendChild(div);
+            });
+        })();
+    </script>
 </body>
 </html>

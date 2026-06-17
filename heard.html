@@ -1,0 +1,785 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <script>
+            !(function () {
+                var t = localStorage.getItem("theme") || "light",
+                    s = localStorage.getItem("season") || "summer";
+                document.documentElement.setAttribute("data-bs-theme", t);
+                document.documentElement.setAttribute("data-season", s);
+            })();
+        </script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>HEARD — Open-Source Hiking Safety Mesh | Lucio Baiocchi</title>
+        <link rel="icon" type="image/x-icon" href="img/LB.png" />
+        <meta
+            name="description"
+            content="HEARD (Hiking Emergency Assistance and Rescue Device) — an open-source LoRa mesh system that keeps hiking groups together off-grid. Print the enclosure, build the PCB, flash the firmware. Apache-2.0."
+        />
+        <meta
+            name="keywords"
+            content="HEARD, open source, hiking safety, LoRa, mesh network, ESP32, GPS, 3D printed, PCB, off-grid, Lucio Baiocchi"
+        />
+        <meta name="author" content="Lucio Baiocchi" />
+
+        <!-- Open Graph / social -->
+        <meta property="og:type" content="website" />
+        <meta
+            property="og:title"
+            content="HEARD — Open-Source Hiking Safety Mesh"
+        />
+        <meta
+            property="og:description"
+            content="Keep your hiking group together off-grid. LoRa mesh, GPS route-compliance, SOS. Fully open hardware — print it, build it, hike with it."
+        />
+        <meta
+            property="og:image"
+            content="https://luciobaiocchi.com/img/projects/thesis/HEARD.png"
+        />
+        <meta property="og:url" content="https://luciobaiocchi.com/heard" />
+        <meta name="twitter:card" content="summary_large_image" />
+
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        />
+        <link rel="stylesheet" href="css/style.css" />
+    </head>
+
+    <body class="heard-landing">
+        <!-- ════════ FIXED COVER (content scrolls up over it) ════════ -->
+        <img
+            src="img/header.jpg"
+            alt="The HEARD prototype on the workbench — breadboard, ESP32, GPS, e-ink display and hand-drawn protocol notes"
+            class="heard-cover-img"
+        />
+        <div class="heard-scrim"></div>
+
+        <header class="heard-cover">
+            <img
+                src="img/projects/thesis/HEARD.png"
+                alt="HEARD logo"
+                class="heard-logo"
+            />
+            <div class="heard-eyebrow">
+                Hiking Emergency Assistance and Rescue Device
+            </div>
+            <h1 class="heard-cover-title">HEARD</h1>
+            <p class="heard-cover-tagline">Nobody gets left behind.</p>
+            <a
+                href="#start"
+                class="heard-scrolldown"
+                aria-label="Scroll to content"
+                ><i class="fa-solid fa-chevron-down"></i
+            ></a>
+        </header>
+
+        <main class="heard-main" id="start">
+            <!-- ════════ INTRO ════════ -->
+            <section class="heard-hero">
+                <p class="heard-sub">
+                    An open-source LoRa mesh that keeps a hiking group together
+                    where there is no cell signal, live position tracking,
+                    automatic off-route detection, and a one-press SOS. Designed
+                    to be
+                    <strong>printed, built and used out of the box</strong>.
+                </p>
+
+                <div class="heard-badges">
+                    <span class="heard-badge"
+                        ><i class="fa-brands fa-osi"></i> Apache-2.0</span
+                    >
+                    <span class="heard-badge"
+                        ><i class="fa-solid fa-tower-broadcast"></i> LoRa mesh,
+                        no SIM</span
+                    >
+                    <span class="heard-badge"
+                        ><i class="fa-solid fa-cube"></i> 3D-printable
+                        enclosure</span
+                    >
+                    <span class="heard-badge"
+                        ><i class="fa-solid fa-microchip"></i> ESP32
+                        firmware</span
+                    >
+                    <span class="heard-badge"
+                        ><i class="fa-solid fa-star"></i> PCBWay sponsored</span
+                    >
+                </div>
+
+                <div class="heard-cta">
+                    <a href="#build" class="btn-heard btn-heard-primary"
+                        ><i class="fa-solid fa-screwdriver-wrench"></i> Build it
+                        yourself</a
+                    >
+                    <a
+                        href="https://github.com/luciobaiocchi/heard"
+                        target="_blank"
+                        class="btn-heard btn-heard-ghost"
+                        ><i class="fa-brands fa-github"></i> Star on GitHub</a
+                    >
+                    <a
+                        href="https://discord.com/channels/1516476259100655818/1516477385313357884"
+                        target="_blank"
+                        class="btn-heard btn-heard-ghost"
+                        ><i class="fa-brands fa-discord"></i> Join the
+                        Discord</a
+                    >
+                </div>
+
+                <div class="heard-repo-stats">
+                    <a
+                        href="https://github.com/luciobaiocchi/heard/stargazers"
+                        target="_blank"
+                        ><i class="fa-solid fa-star"></i>
+                        <span class="gh-stars">—</span> stars</a
+                    >
+                    <span class="sep">·</span>
+                    <a
+                        href="https://github.com/luciobaiocchi/heard/forks"
+                        target="_blank"
+                        ><i class="fa-solid fa-code-fork"></i>
+                        <span class="gh-forks">—</span> forks</a
+                    >
+                </div>
+
+                <img
+                    src="img/projects/thesis/6.JPG"
+                    alt="HEARD Core prototype showing the live e-ink screen with IN PATH status, next to a coin for scale"
+                    class="heard-hero-shot expandable-img"
+                />
+            </section>
+
+            <!-- ════════ STATS ════════ -->
+            <div class="heard-stats">
+                <div class="heard-stat">
+                    <span class="num">~3 km</span
+                    ><span class="lbl">LoRa range, open terrain</span>
+                </div>
+                <div class="heard-stat">
+                    <span class="num">~1 m</span
+                    ><span class="lbl">GPS accuracy (field-tested)</span>
+                </div>
+                <div class="heard-stat">
+                    <span class="num">&lt;1%</span
+                    ><span class="lbl">Path-deviation error rate</span>
+                </div>
+                <div class="heard-stat">
+                    <span class="num">3</span
+                    ><span class="lbl">Device variants</span>
+                </div>
+            </div>
+
+            <!-- ════════ PROBLEM ════════ -->
+            <section class="heard-section">
+                <h2>
+                    Safety gear is built for individuals. Accidents happen to
+                    groups.
+                </h2>
+                <p class="lead">
+                    Personal locator beacons and phone apps protect
+                    <em>one</em> person and assume a network. On a real trail a
+                    school group, a guided trek, a family what actually goes
+                    wrong is that someone drifts off the path, falls behind, and
+                    nobody notices until it is too late. Out where the cell
+                    towers stop, there is no tool that keeps the
+                    <strong>whole group</strong> aware of each other.
+                </p>
+                <p>
+                    HEARD started as a Computer Engineering bachelor's thesis at
+                    the University of Bologna (2024–2025, supervised by Prof.
+                    Alessandro Ricci) and is now a fully open-source project.
+                    The goal: a cheap, rugged, build-it-yourself device that any
+                    hiking group can carry so the guide always knows where
+                    everyone is and anyone can call for help with one button.
+                </p>
+            </section>
+
+            <!-- ════════ HOW IT WORKS ════════ -->
+            <section class="heard-section">
+                <h2>A self-healing mesh that watches the route</h2>
+                <p class="lead">
+                    Every hiker carries a GPS + LoRa device. A pre-loaded GPX
+                    route defines a corridor (±100&nbsp;m by default). Each
+                    device continuously classifies its position as
+                    <strong>IN_PATH</strong> or <strong>OUT_PATH</strong>. The
+                    guide's device (the Core) polls the group; anyone out of
+                    direct radio range is reached through multi-hop relaying by
+                    the devices in between.
+                </p>
+
+                <svg
+                    class="heard-diagram"
+                    viewBox="0 0 820 360"
+                    role="img"
+                    aria-label="Diagram of the HEARD mesh: a planned route with a deviation corridor, in-path hikers inside it, one hiker who has left the corridor below it, and multi-hop LoRa relaying from the Core"
+                >
+                    <!-- corridor band (±100 m) -->
+                    <path
+                        d="M 50 190 C 180 150, 290 150, 410 185 S 620 225, 770 165"
+                        fill="none"
+                        stroke="var(--heard-2)"
+                        stroke-opacity="0.14"
+                        stroke-width="56"
+                        stroke-linecap="round"
+                    />
+                    <!-- corridor boundaries (route translated ±28) -->
+                    <path
+                        d="M 50 162 C 180 122, 290 122, 410 157 S 620 197, 770 137"
+                        fill="none"
+                        stroke="var(--heard-2)"
+                        stroke-width="1.3"
+                        stroke-dasharray="6 6"
+                        stroke-opacity="0.55"
+                    />
+                    <path
+                        d="M 50 218 C 180 178, 290 178, 410 213 S 620 253, 770 193"
+                        fill="none"
+                        stroke="var(--heard-2)"
+                        stroke-width="1.3"
+                        stroke-dasharray="6 6"
+                        stroke-opacity="0.55"
+                    />
+                    <!-- planned route center line -->
+                    <path
+                        d="M 50 190 C 180 150, 290 150, 410 185 S 620 225, 770 165"
+                        fill="none"
+                        stroke="var(--heard-1)"
+                        stroke-width="2"
+                        stroke-dasharray="2 6"
+                        stroke-linecap="round"
+                        stroke-opacity="0.85"
+                    />
+
+                    <!-- LoRa relay links -->
+                    <g
+                        stroke="var(--heard-1)"
+                        stroke-width="1.6"
+                        stroke-dasharray="4 5"
+                        stroke-opacity="0.5"
+                        fill="none"
+                    >
+                        <path d="M 130 170 L 300 163" />
+                        <path d="M 300 163 L 470 201" />
+                        <path d="M 470 201 L 640 204" />
+                        <path d="M 470 201 L 525 315" />
+                    </g>
+
+                    <!-- deviation: hiker has left the corridor -->
+                    <path
+                        d="M 505 207 L 525 315"
+                        fill="none"
+                        stroke="#d23b3b"
+                        stroke-width="1.4"
+                        stroke-dasharray="3 4"
+                        stroke-opacity="0.85"
+                    />
+
+                    <!-- transmission rings around Core -->
+                    <circle
+                        cx="130"
+                        cy="170"
+                        r="30"
+                        fill="none"
+                        stroke="var(--heard-1)"
+                        stroke-opacity="0.35"
+                    />
+                    <circle
+                        cx="130"
+                        cy="170"
+                        r="46"
+                        fill="none"
+                        stroke="var(--heard-1)"
+                        stroke-opacity="0.16"
+                    />
+
+                    <!-- nodes -->
+                    <g font-family="var(--font-mono)" font-size="11">
+                        <!-- Core -->
+                        <circle
+                            cx="130"
+                            cy="170"
+                            r="11"
+                            fill="var(--heard-1)"
+                        />
+                        <text
+                            x="130"
+                            y="198"
+                            text-anchor="middle"
+                            fill="var(--text-secondary)"
+                        >
+                            Core
+                        </text>
+                        <!-- in-path hikers -->
+                        <circle cx="300" cy="163" r="8" fill="#2e9e5b" />
+                        <circle cx="470" cy="201" r="8" fill="#2e9e5b" />
+                        <circle cx="640" cy="204" r="8" fill="#2e9e5b" />
+                        <!-- out-of-path hiker (below the lower boundary) -->
+                        <circle cx="525" cy="315" r="8" fill="#d23b3b" />
+                        <text
+                            x="525"
+                            y="340"
+                            text-anchor="middle"
+                            fill="#d23b3b"
+                        >
+                            OUT_PATH
+                        </text>
+                    </g>
+                </svg>
+                <div class="heard-legend">
+                    <span
+                        ><span
+                            class="dot"
+                            style="background: var(--heard-1)"
+                        ></span>
+                        Core (guide) — polls &amp; records the route</span
+                    >
+                    <span
+                        ><span class="dot" style="background: #2e9e5b"></span>
+                        IN_PATH hiker (inside ±100 m corridor)</span
+                    >
+                    <span
+                        ><span class="dot" style="background: #d23b3b"></span>
+                        OUT_PATH hiker — left the corridor, flagged &amp;
+                        relayed</span
+                    >
+                </div>
+
+                <div class="heard-proto">
+                    <div class="msg">
+                        <code>REQ</code>
+                        <p>
+                            The Core broadcasts a position request carrying a
+                            hop-list and the positions it already knows.
+                        </p>
+                    </div>
+                    <div class="msg">
+                        <code>WAIT</code>
+                        <p>
+                            An intermediate node signals it is relaying onward,
+                            holding a timeout while distant nodes are contacted.
+                        </p>
+                    </div>
+                    <div class="msg">
+                        <code>POS</code>
+                        <p>
+                            Devices return aggregated position data back up the
+                            chain. Duplicate relays are suppressed via hop-list
+                            fingerprints.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ════════ HARDWARE ════════ -->
+            <section class="heard-section">
+                <h2>Off-the-shelf parts, one custom enclosure</h2>
+                <div class="heard-grid">
+                    <div>
+                        <p>
+                            The prototype is deliberately built from common,
+                            cheap modules so anyone can source and assemble it.
+                            An ESP32 runs the FreeRTOS firmware; a u-blox NEO-6M
+                            handles GPS; a LoRa transceiver does the long-range
+                            link; and the Core adds a 2.9" e-ink display that
+                            sips power and stays readable in direct sun.
+                        </p>
+                        <p>
+                            Everything lives inside a 3D-printed case designed
+                            around the Waveshare e-paper module — the STL files
+                            for the Core enclosure are published as a release on
+                            GitHub.
+                        </p>
+                        <a
+                            href="https://github.com/luciobaiocchi/heard/releases"
+                            target="_blank"
+                            class="btn-heard btn-heard-ghost mt-2"
+                            ><i class="fa-solid fa-download"></i> Download
+                            enclosure STLs</a
+                        >
+                    </div>
+                    <div>
+                        <img
+                            src="img/projects/thesis/7.JPG"
+                            alt="HEARD Core opened up, showing the 2.9 inch e-paper module, GPS antenna, LoRa and ESP32 wired inside the printed case"
+                            class="expandable-img"
+                        />
+                        <div class="caption">
+                            // heard core — internals, coin for scale
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="mt-5 mb-3 heard-h3">Bill of materials (Core)</h3>
+                <div class="table-responsive">
+                    <table class="bom-table">
+                        <thead>
+                            <tr>
+                                <th>Part</th>
+                                <th>Module</th>
+                                <th>Role</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>MCU</td>
+                                <td>ESP32 (dual-core, FreeRTOS)</td>
+                                <td>Runs firmware, mesh protocol &amp; UI</td>
+                            </tr>
+                            <tr>
+                                <td>GPS</td>
+                                <td>u-blox NEO-6M</td>
+                                <td>Position fix, ~1&nbsp;m accuracy</td>
+                            </tr>
+                            <tr>
+                                <td>Radio</td>
+                                <td>LoRa transceiver (e.g. RFM95)</td>
+                                <td>Long-range, license-free link</td>
+                            </tr>
+                            <tr>
+                                <td>Display</td>
+                                <td>Waveshare 2.9" e-ink</td>
+                                <td>Group status, IN/OUT_PATH (Core only)</td>
+                            </tr>
+                            <tr>
+                                <td>Input</td>
+                                <td>Momentary buttons + SOS</td>
+                                <td>Navigation &amp; emergency trigger</td>
+                            </tr>
+                            <tr>
+                                <td>Enclosure</td>
+                                <td>3D-printed (STL provided)</td>
+                                <td>Rugged, pocketable case</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- ════════ DEVICE VARIANTS ════════ -->
+            <section class="heard-section">
+                <div class="heard-kicker">The ecosystem</div>
+                <h2>Three devices, one mesh</h2>
+                <div class="heard-cards">
+                    <div class="heard-card">
+                        <span class="badge-role">Guide</span>
+                        <h3>Heard Core</h3>
+                        <p>
+                            The leader's unit. E-ink display, SOS button, route
+                            recording and group coordination — it polls everyone
+                            and shows the whole group at a glance.
+                        </p>
+                        <span class="status">Working prototype</span>
+                    </div>
+                    <div class="heard-card">
+                        <span class="badge-role">Hiker</span>
+                        <h3>Heard Node</h3>
+                        <p>
+                            The standard adult device — transmits its position,
+                            relays for others, and receives alerts. Standalone
+                            firmware is an open milestone.
+                        </p>
+                        <span class="status">Firmware in progress</span>
+                    </div>
+                    <div class="heard-card">
+                        <span class="badge-role">Kids / beginners</span>
+                        <h3>Heard Pico</h3>
+                        <p>
+                            A button-sized, emergency-first variant for children
+                            or first-timers. Minimal interface, maximum
+                            simplicity.
+                        </p>
+                        <span class="status">Concept</span>
+                    </div>
+                </div>
+
+                <div class="heard-grid heard-grid-gap">
+                    <div>
+                        <img
+                            src="img/projects/thesis/1.jpeg"
+                            alt="3D renders of the HEARD device family in an outdoor setting"
+                            class="expandable-img"
+                        />
+                        <div class="caption">
+                            // industrial-design renders — core &amp; pico
+                        </div>
+                    </div>
+                    <div>
+                        <img
+                            src="img/projects/thesis/3.jpeg"
+                            alt="Render close-up of the flip-guarded SOS button on the HEARD enclosure"
+                            class="expandable-img"
+                        />
+                        <div class="caption">
+                            // guarded sos button — no accidental triggers (only
+                            concept)
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ════════ BUILD IT ════════ -->
+            <section class="heard-section" id="build">
+                <h2>How to build</h2>
+                <p class="lead">
+                    HEARD is meant to be reproduced, not just admired. Even if
+                    we are working also on a "out of the box ready" solution the
+                    project is already easy to recreate. Here is the path from a
+                    cloned repo to a device in your pocket. Everything you need
+                    is in the GitHub repository, or
+                    <a
+                        href="https://www.youtube.com/watch?v=rSgT1LedNBk&t=1s"
+                        target="_blank"
+                        >watch the build on YouTube</a
+                    >.
+                </p>
+
+                <div class="heard-steps">
+                    <div class="heard-step">
+                        <div class="n"></div>
+                        <div>
+                            <h4>Print the enclosure</h4>
+                            <p>
+                                Grab the Core enclosure STLs from the GitHub
+                                release and print them. They're designed for the
+                                2.9" e-paper module — no supports needed for
+                                most parts.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="heard-step">
+                        <div class="n"></div>
+                        <div>
+                            <h4>
+                                Wire up the electronics (working on a PCB with
+                                all the components included)
+                            </h4>
+                            <p>
+                                Source the parts from the BOM above and follow
+                                the reference wiring. The breadboard schematic
+                                is published as a
+                                <a
+                                    href="https://wokwi.com/projects/436295484715573249"
+                                    target="_blank"
+                                    >Wokwi</a
+                                >
+                                project, so you can see better all the
+                                connections.
+                            </p>
+                            <img
+                                src="img/projects/thesis/5.png"
+                                alt="Wokwi breadboard schematic showing the ESP32 wired to a LoRa breakout, GPS breakout and e-paper module"
+                                class="expandable-img heard-step-img"
+                            />
+                        </div>
+                    </div>
+                    <div class="heard-step">
+                        <div class="n"></div>
+                        <div>
+                            <h4>
+                                Flash the firmware (Browser flasher will come)
+                            </h4>
+                            <p>
+                                The firmware is a PlatformIO project. Clone,
+                                open the <code>code/core</code> environment and
+                                upload — FreeRTOS handles GPS, radio and display
+                                tasks for you.
+                            </p>
+                            <pre><code>git clone https://github.com/luciobaiocchi/heard
+cd heard/code/core
+pio run -t upload        # build &amp; flash the Core firmware
+pio device monitor       # watch it acquire a GPS fix</code></pre>
+                        </div>
+                    </div>
+                    <div class="heard-step">
+                        <div class="n"></div>
+                        <div>
+                            <h4>
+                                Load a route &amp; hike (working on a bluetooth
+                                loading)
+                            </h4>
+                            <p>
+                                Use the <code>path_loader</code> utility to push
+                                a GPX track over serial. Power on, wait for a
+                                fix, and the Core starts tracking the group
+                                against the route. That's it — you're off-grid
+                                and accounted for.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ════════ SIMULATOR ════════ -->
+            <section class="heard-section">
+                <h2>A digital twin of the whole mesh</h2>
+                <p class="lead">
+                    You don't need a mountain to develop HEARD. The repo ships a
+                    simulator that compiles the
+                    <em>actual firmware protocol code</em> (the
+                    <code>ConnectionManager</code>) into a Python module via
+                    pybind11, then runs it tick-by-tick along real GPX tracks.
+                </p>
+                <p>
+                    The channel model includes distance-based signal falloff and
+                    optional terrain line-of-sight using ITU-R&nbsp;P.526
+                    knife-edge diffraction over real elevation tiles. A
+                    browser-based 3D replay viewer (MapLibre GL JS) plays back
+                    recorded runs on terrain — planned route, deviation
+                    corridor, device positions, LoRa transmission rings, live
+                    protocol state, delivery metrics and connectivity matrices.
+                    It's the same code you flash, validated in software first.
+                </p>
+            </section>
+
+            <!-- ════════ ROADMAP ════════ -->
+            <section class="heard-section">
+                <h2>Open milestones</h2>
+                <div class="heard-cards">
+                    <div class="heard-card">
+                        <span class="badge-role">Firmware</span>
+                        <h3>Standalone Node</h3>
+                        <p>
+                            Independent firmware for the Heard Node so non-Core
+                            devices run on their own. Help wanted.
+                        </p>
+                    </div>
+                    <div class="heard-card">
+                        <span class="badge-role">Hardware</span>
+                        <h3>Professional PCB</h3>
+                        <p>
+                            A proper PCB layout to replace the breadboard
+                            prototype — manufacturing sponsored by PCBWay.
+                        </p>
+                    </div>
+                    <div class="heard-card">
+                        <span class="badge-role">Networking</span>
+                        <h3>Meshtastic transport</h3>
+                        <p>
+                            Exploring Meshtastic as an interoperable transport
+                            layer for the mesh. Open for discussion.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ════════ TECH STACK ════════ -->
+            <section class="heard-section">
+                <h2>Tech stack</h2>
+                <div class="table-responsive">
+                    <table class="table tech-table">
+                        <tbody>
+                            <tr>
+                                <td><strong>Firmware</strong></td>
+                                <td>C++17, PlatformIO, FreeRTOS</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Simulation</strong></td>
+                                <td>Python, pybind11, NumPy, Matplotlib</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Visualization</strong></td>
+                                <td>
+                                    JavaScript (ES modules), MapLibre GL JS,
+                                    HTML/CSS
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Build</strong></td>
+                                <td>CMake, GitHub Actions CI</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Hardware design</strong></td>
+                                <td>Wokwi schematic, FreeCAD/STL enclosure</td>
+                            </tr>
+                            <tr>
+                                <td><strong>License</strong></td>
+                                <td>Apache License 2.0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="heard-disclaimer">
+                    ⚠ HEARD is a research prototype, not a certified safety
+                    device. Don't rely on it as your only means of rescue.
+                </p>
+            </section>
+
+            <!-- ════════ CLOSING CTA ════════ -->
+            <section class="heard-section">
+                <div class="heard-closing">
+                    <h2>Build one. Improve it. Share it back.</h2>
+                    <p>
+                        HEARD is fully open under Apache-2.0. Whether you want
+                        to print a Core, write the Node firmware, design the PCB
+                        or just say hi — you're welcome on the trail.
+                    </p>
+                    <div class="heard-cta">
+                        <a
+                            href="https://github.com/luciobaiocchi/heard"
+                            target="_blank"
+                            class="btn-heard btn-heard-primary"
+                            ><i class="fa-brands fa-github"></i> Open the
+                            repository</a
+                        >
+                        <a
+                            href="https://discord.com/channels/1516476259100655818/1516477385313357884"
+                            target="_blank"
+                            class="btn-heard btn-heard-ghost"
+                            ><i class="fa-brands fa-discord"></i> Join the
+                            Discord</a
+                        >
+                        <a
+                            href="mailto:luciobaiocchi1@gmail.com?subject=HEARD%20collaboration"
+                            class="btn-heard btn-heard-ghost"
+                            ><i class="fa-solid fa-envelope"></i> Get in
+                            touch</a
+                        >
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="text-center py-3 mt-5">
+            <p>
+                &copy; 2025 Lucio Baiocchi |
+                <a href="mailto:luciobaiocchi1@gmail.com">Contact me</a>
+            </p>
+        </footer>
+        <script src="javascript/script.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script>
+            // Live GitHub repo stats (public API, no auth)
+            fetch("https://api.github.com/repos/luciobaiocchi/heard")
+                .then(function (r) {
+                    return r.ok ? r.json() : Promise.reject(r.status);
+                })
+                .then(function (d) {
+                    var fmt = function (n) {
+                        return n != null ? n.toLocaleString() : "—";
+                    };
+                    document
+                        .querySelectorAll(".gh-stars")
+                        .forEach(function (el) {
+                            el.textContent = fmt(d.stargazers_count);
+                        });
+                    document
+                        .querySelectorAll(".gh-forks")
+                        .forEach(function (el) {
+                            el.textContent = fmt(d.forks_count);
+                        });
+                })
+                .catch(function () {
+                    /* leave the placeholder dashes if the API is unreachable */
+                });
+        </script>
+    </body>
+</html>
