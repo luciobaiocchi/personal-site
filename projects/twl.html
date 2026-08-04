@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script>!function(){var t=localStorage.getItem('theme')||'light',s=localStorage.getItem('season')||'summer';document.documentElement.setAttribute('data-bs-theme',t);document.documentElement.setAttribute('data-season',s)}()</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Towel (twl) — API-Key Broker for Coding Agents | Lucio Baiocchi</title>
+    <link rel="icon" type="image/x-icon" href="../img/LB.png">
+    <meta name="description" content="Towel is an open-source Rust credential broker that lets agent-run applications call fixed APIs without placing the real keys in the coding-agent process.">
+    <meta name="author" content="Lucio Baiocchi">
+    <link rel="canonical" href="https://luciobaiocchi.com/projects/twl">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Towel (twl) — keep project keys out of agent processes">
+    <meta property="og:description" content="A small open-source credential broker for applications run by coding agents.">
+    <meta property="og:url" content="https://luciobaiocchi.com/projects/twl">
+    <meta property="og:site_name" content="Lucio Baiocchi">
+    <meta name="twitter:card" content="summary">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": ["SoftwareApplication", "SoftwareSourceCode"],
+        "name": "Towel",
+        "alternateName": "twl",
+        "description": "An open-source credential broker that keeps destination-bound API keys out of coding-agent processes.",
+        "url": "https://luciobaiocchi.github.io/twl/",
+        "codeRepository": "https://github.com/luciobaiocchi/twl",
+        "programmingLanguage": "Rust",
+        "operatingSystem": "macOS, Linux",
+        "applicationCategory": "SecurityApplication",
+        "isAccessibleForFree": true,
+        "license": "https://github.com/luciobaiocchi/twl/blob/main/LICENSE",
+        "author": {
+            "@type": "Person",
+            "name": "Lucio Baiocchi",
+            "url": "https://luciobaiocchi.com/"
+        }
+    }
+    </script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Primary navigation">
+        <div class="container">
+            <button class="navbar-toggler ms-auto me-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto text-center align-items-center">
+                    <li class="nav-item">
+                        <button class="btn theme-toggle ms-1" type="button" aria-label="Toggle color theme">
+                            <i class="bi theme-icon bi-moon-stars-fill"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="project-intro">
+            <h1>Towel <code>twl</code></h1>
+            <p class="text-secondary">Let the agent run the app without handing it the real project key</p>
+            <p class="mt-2 project-desc">
+                <strong>Experimental open-source security tool</strong>
+                &nbsp;·&nbsp;
+                <a href="https://luciobaiocchi.github.io/twl/" target="_blank" rel="noopener noreferrer" class="text-decoration-none">website ↗</a>
+                &nbsp;·&nbsp;
+                <a href="https://github.com/luciobaiocchi/twl" target="_blank" rel="noopener noreferrer" class="text-decoration-none">source ↗</a>
+            </p>
+        </section>
+
+        <section class="project-details">
+            <div class="project-grid">
+                <div>
+                    <h2>Why I built it</h2>
+                    <p>
+                        Giving a coding agent an API key through an environment variable always felt like the wrong abstraction.
+                        The application needs to make an authenticated request; the agent does not need to see a reusable credential.
+                    </p>
+                    <p>
+                        Towel keeps those two things separate. I register a project and its allowed API destinations in a trusted store,
+                        authorize one session, and then start the agent through <code>twl</code>. The child sees fake keys and loopback URLs.
+                        The real credentials stay with the broker.
+                    </p>
+                </div>
+                <div>
+                    <h2>What happens in a session</h2>
+                    <ol>
+                        <li class="mb-2">I unlock one named project with Touch ID on macOS or the vault password on Linux.</li>
+                        <li class="mb-2">Towel starts a small HTTP broker on <code>127.0.0.1</code> and launches the child command.</li>
+                        <li class="mb-2">The child receives a random fake key and a route-specific local URL for each project route.</li>
+                        <li>The broker forwards requests only to the exact HTTPS destinations stored with the project and adds the real Bearer key on the way out.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="project-grid">
+                <div>
+                    <h2>The useful boundary</h2>
+                    <p>
+                        A key cannot be printed from the child environment, copied from a command line, or reused after the session.
+                        Workspace files also cannot change the destination that receives it. Redirects are disabled, and the broker ignores
+                        client-supplied forwarding and authentication headers.
+                    </p>
+                    <p>
+                        The scope is deliberately narrow. Towel is not a sandbox: while a session is running, the agent can still use the API,
+                        spend quota, and change any data that key is allowed to change. It protects the credential itself, not every action made with it.
+                    </p>
+                </div>
+                <div>
+                    <h2>Storage on each platform</h2>
+                    <p>
+                        On macOS, projects live in an application-scoped Data Protection Keychain record and real sessions require a correctly
+                        signed, hardened binary. On Linux, projects live in a password-encrypted <code>age</code> vault with strict file checks and
+                        atomic updates. If Bubblewrap is installed, Towel also masks that vault from the child process.
+                    </p>
+                    <p>
+                        Both platforms expose the same CLI and project format. Passwords, decoded vault records, and broker route credentials
+                        use zeroizing memory so their contents are cleared when their useful lifetime ends.
+                    </p>
+                </div>
+            </div>
+
+            <div class="mt-4 mb-5">
+                <h2>Try the canary demo</h2>
+                <p>
+                    The demo uses a generated canary instead of a real secret, so it is the safest way to inspect the request flow first.
+                </p>
+                <pre><code>cargo build --locked
+./target/debug/twl demo --config examples/towel.yaml -- \
+  python3 examples/application_client.py</code></pre>
+            </div>
+
+            <div class="project-grid">
+                <div>
+                    <h2>Built with</h2>
+                    <div class="table-responsive">
+                        <table class="table tech-table">
+                            <tbody>
+                                <tr><th scope="row">Core</th><td>Rust 1.82+</td></tr>
+                                <tr><th scope="row">macOS storage</th><td>Data Protection Keychain + LocalAuthentication</td></tr>
+                                <tr><th scope="row">Linux storage</th><td>Passphrase-encrypted age vault</td></tr>
+                                <tr><th scope="row">Broker</th><td>Loopback HTTP, fixed HTTPS upstreams</td></tr>
+                                <tr><th scope="row">License</th><td>Apache-2.0</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div>
+                    <h2>Current state</h2>
+                    <p>
+                        Towel is experimental security software and has not had an independent audit. I use disposable or tightly scoped development
+                        credentials while evaluating it, and I recommend the same to anyone trying it.
+                    </p>
+                    <p>
+                        The repository includes the threat model, security policy, adversarial regression tests, build scripts, and release-verification steps.
+                        Reviews and focused failure cases are especially welcome.
+                    </p>
+                    <p>
+                        <a href="https://luciobaiocchi.github.io/twl/" target="_blank" rel="noopener noreferrer" class="btn">Visit the project site ↗</a>
+                        <a href="https://github.com/luciobaiocchi/twl" target="_blank" rel="noopener noreferrer" class="btn ms-2">Read the source ↗</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="text-center py-3 mt-5"></footer>
+    <script src="../javascript/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

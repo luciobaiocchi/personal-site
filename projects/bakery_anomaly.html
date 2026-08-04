@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bakery Anomaly Detection — Lucio Baiocchi</title>
     <link rel="icon" type="image/x-icon" href="../img/LB.png">
-    <meta name="description" content="Anomaly detection for production orders in an artisanal bakery — 2 months in production">
+    <meta name="description" content="A practical anomaly detector built with an artisanal bakery to catch mistaken production quantities before the morning shift starts.">
     <meta name="author" content="Lucio Baiocchi">
+    <link rel="canonical" href="https://luciobaiocchi.com/projects/bakery_anomaly">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -17,13 +18,13 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-            <button class="navbar-toggler ms-auto me-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler ms-auto me-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto text-center align-items-center">
                     <li class="nav-item">
-                        <button class="btn theme-toggle ms-1">
+                        <button class="btn theme-toggle ms-1" type="button" aria-label="Toggle color theme">
                             <i class="bi theme-icon bi-moon-stars-fill"></i>
                         </button>
                     </li>
@@ -35,7 +36,7 @@
     <main>
         <section class="project-intro">
             <h1>Bakery Anomaly Detection</h1>
-            <p class="text-secondary">Production order error detection for an artisanal bakery — applied ML where simpler is necessary</p>
+            <p class="text-secondary">A local bakery taught me that the useful model is often the one nobody has to babysit</p>
             <p class="project-desc">
                 <strong>2 months in production</strong> ·
                 Paper in preparation for <em>SOMI @ ECML-PKDD 2026</em>
@@ -47,19 +48,18 @@
                 <div>
                     <h2>Overview</h2>
                     <p>
-                        An end-to-end anomaly detection system built for an artisanal bakery in northern Italy (~50 employees, ~200 products).
-                        Every morning, a bakery manager exports a CSV listing planned production quantities for the day. This system ingests
-                        that file, flags likely data-entry errors before they propagate to procurement and kitchen scheduling, and lets the
-                        operator review and correct them in seconds.
+                        I built this with an artisanal bakery in northern Italy (about 50 employees and 200 products).
+                        Every morning, the owner exports a CSV with that day's planned quantities. The app points out entries that look like
+                        typing mistakes before those numbers reach purchasing and the kitchen, then gets out of the way.
                     </p>
-                    <p>The operator is the bakery owner — not a data scientist.</p>
+                    <p>That last part matters: the person using it is the bakery owner, not a data scientist.</p>
                 </div>
                 <div>
-                    <h2>The Core Problem</h2>
+                    <h2>Why I did not train a model</h2>
                     <p>
-                        Standard anomaly detection methods (Isolation Forest, LOF, autoencoders) look impressive on benchmarks.
-                        This project documents why they are structurally inapplicable to a whole class of real SME deployments,
-                        and what the right tool actually is.
+                        My first instinct was to compare Isolation Forest, LOF, and other familiar anomaly detectors. The data quickly made
+                        that feel dishonest. Each product behaves differently on each weekday, history is short, and the distribution keeps moving.
+                        A model can look sophisticated here while learning almost nothing useful.
                     </p>
                     <p>Five properties make trained ML models unsuitable:</p>
                     <ol>
@@ -74,7 +74,7 @@
 
             <div class="project-grid">
                 <div>
-                    <h2>The Solution</h2>
+                    <h2>The version that stuck</h2>
                     <p>
                         A <strong>rolling statistical estimator with a conjunction rule</strong>: for each (product, day-of-week) pair,
                         compute mean and standard deviation over the last W same-weekday observations (default W = 4).
@@ -90,8 +90,8 @@
                         seasonal products (Easter specialties, holiday items) by comparing against the same date one year prior.
                     </p>
                     <p>
-                        Self-adapting by construction: no model to retrain, no artefact to version, no drift detector to maintain.
-                        New products are handled from their second observation.
+                        There is no training job, model artefact, or drift monitor to maintain. The baseline moves with the recent data,
+                        and a new product can be handled from its second observation.
                     </p>
                 </div>
                 <div>
@@ -194,20 +194,20 @@
                     </table>
                 </div>
                 <p class="project-desc">
-                    The deployed system outperforms all alternatives at every window size without oracle selection.
-                    The gap versus oracle Z-score is 1.2 pp. Holt-Winters is entirely inapplicable at W = 4
-                    and plateaus ~17 pp below Z-score at W = 24, while being 65–130× slower per inference.
+                    The deployed settings land within 1.2 percentage points of the oracle-tuned Z-score at the same four-week window,
+                    without choosing a threshold on the test set. Longer windows score a little higher offline, but they adapt too slowly
+                    for the bakery's changing catalogue. Holt-Winters cannot fit the four-observation case at all and is far slower at W = 24.
                 </p>
             </div>
 
             <div class="project-grid">
                 <div>
-                    <h2>Key Lessons</h2>
+                    <h2>What changed after people used it</h2>
                     <ul>
-                        <li><strong>Precision calibration over recall</strong> in human-in-the-loop deployments. A false-positive rate above ~20% causes operator disengagement — effective detection drops to zero.</li>
-                        <li><strong>Seasonality bites hard in production.</strong> The YoY shield was added after the first Easter, when legitimate demand spikes eroded operator trust within days.</li>
-                        <li><strong>Zero-maintenance is a hard constraint.</strong> Any system requiring scheduled retraining would have been abandoned within weeks.</li>
-                        <li><strong>Explainability is structurally unavailable with IF/LOF.</strong> Rolling Z-score decomposes every flag into interpretable business quantities.</li>
+                        <li><strong>Too many warnings make every warning invisible.</strong> Once false positives get near 20%, the owner stops trusting the list.</li>
+                        <li><strong>Easter broke the first version.</strong> Legitimate seasonal spikes looked alarming, so I added the year-over-year check.</li>
+                        <li><strong>Maintenance has to be close to zero.</strong> A scheduled retraining pipeline would not survive in this setting.</li>
+                        <li><strong>The explanation is part of the result.</strong> “500 kg versus a usual Monday of 48 ± 6 kg” is something the operator can act on.</li>
                     </ul>
                 </div>
                 <div>
@@ -231,7 +231,7 @@
     </main>
 
     <footer class="text-center py-3 mt-5">
-        <p>&copy; 2025 Lucio Baiocchi | <a href="mailto:luciobaiocchi1@gmail.com">Contact me</a></p>
+        <p>&copy; 2026 Lucio Baiocchi | <a href="mailto:luciobaiocchi1@gmail.com">Contact me</a></p>
     </footer>
     <script src="../javascript/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nxord — Lucio Baiocchi</title>
     <link rel="icon" type="image/x-icon" href="../img/LB.png">
-    <meta name="description" content="Nxord - B2B Order Automation for HoReCa">
-    <meta name="keywords" content="Lucio Baiocchi, nxord, B2B, AI, HoReCa, order automation">
+    <meta name="description" content="Nxord turns food-distributor orders from PDFs, photos, email, and audio into checked records ready for an existing ERP.">
     <meta name="author" content="Lucio Baiocchi">
+    <link rel="canonical" href="https://luciobaiocchi.com/projects/nxord">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -18,13 +18,13 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-            <button class="navbar-toggler ms-auto me-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler ms-auto me-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto text-center align-items-center">
                     <li class="nav-item">
-                        <button class="btn theme-toggle ms-1">
+                        <button class="btn theme-toggle ms-1" type="button" aria-label="Toggle color theme">
                             <i class="bi theme-icon bi-moon-stars-fill"></i>
                         </button>
                     </li>
@@ -36,19 +36,18 @@
     <main>
         <section class="project-intro">
             <h1>Nxord</h1>
-            <p class="text-secondary">B2B Order Automation for HoReCa distributors — multimodal AI meets ERP integration</p>
+            <p class="text-secondary">We started with one food distributor and one very repetitive job: retyping orders all morning</p>
             <p class="mt-2 project-desc">
-                <strong>In production</strong> — <a href="https://nxord.com/" target="_blank" class="text-decoration-none">nxord.com ↗</a>
-                &nbsp;·&nbsp; <a href="https://www.youtube.com/watch?v=ukANeF1hcEU&t=3s" target="_blank" class="text-decoration-none">demo video ↗</a>
+                <strong>In production</strong> — <a href="https://nxord.com/" target="_blank" rel="noopener noreferrer" class="text-decoration-none">nxord.com ↗</a>
+                &nbsp;·&nbsp; <a href="https://www.youtube.com/watch?v=ukANeF1hcEU&t=3s" target="_blank" rel="noopener noreferrer" class="text-decoration-none">demo video ↗</a>
             </p>
         </section>
 
-        <a href="https://www.youtube.com/watch?v=ukANeF1hcEU&t=3s" target="_blank" class="video-thumb-link">
+        <a href="https://www.youtube.com/watch?v=ukANeF1hcEU&t=3s" target="_blank" rel="noopener noreferrer" class="video-thumb-link">
             <div class="video-wrap">
                 <img src="https://img.youtube.com/vi/ukANeF1hcEU/maxresdefault.jpg"
                      alt="Nxord demo video"
-                     class="video-embed"
-                     class="img-cover">
+                     class="video-embed img-cover">
                 <div class="video-play-overlay">▶ watch on youtube</div>
             </div>
         </a>
@@ -58,53 +57,43 @@
                 <div>
                     <h2>Overview</h2>
                     <p>
-                        Nxord is a full-stack B2B web platform that automates order management for food &amp; beverage distributors
-                        operating in the HoReCa (Hotel, Restaurant, Catering) sector. Built to eliminate manual order entry,
-                        the system accepts orders in any format — PDFs, WhatsApp photos, emails, audio recordings — and uses
-                        multimodal AI to turn them into validated, structured records ready for export to the ERP.
+                        I co-founded Nxord after seeing how a food and beverage distributor actually receives orders: a PDF here,
+                        a photo from WhatsApp there, then an email or voice message written in somebody else's shorthand. Nxord reads those inputs,
+                        matches them against the distributor's catalogue, and gives the operator a checked order instead of another transcription task.
                     </p>
-                    <p>The platform is in active production use by a wholesale distributor, processing daily orders with measurable time savings per transaction.</p>
+                    <p>It is now used every day by a wholesale distributor and still fits around the ERP they already depend on.</p>
                 </div>
                 <div>
-                    <h2>The Problem</h2>
+                    <h2>What the distributor was dealing with</h2>
                     <p>
-                        HoReCa distributors receive orders through dozens of unstructured channels: handwritten receipts photographed
-                        on WhatsApp, scanned faxes, voice memos, emails with inconsistent formatting. Beyond the transcription burden,
-                        the data was <strong>completely fragmented</strong> — each order lived in a separate thread or inbox with no
-                        unified record. No client purchase history, no visibility into order trends, no basis for business decisions.
-                        Operators had to manually transcribe every item, cross-reference the product catalog, and re-enter everything
-                        into the AS400 ERP. The process was slow, error-prone, and scaled poorly with volume.
+                        Each order lived in a different inbox or chat. Operators read it, decoded product nicknames, looked up catalogue codes,
+                        and typed the same information into an AS400 system. The work was slow, but the bigger loss was the trail it left behind:
+                        there was no single history of what each customer bought or how those habits were changing.
                     </p>
                 </div>
             </div>
 
             <div class="project-grid">
                 <div>
-                    <h2>Solution</h2>
-                    <p>Nxord addresses the fragmentation problem end-to-end — from ingestion to intelligence:</p>
+                    <h2>What we changed</h2>
+                    <p>The operator now has one place to drop an order and one place to correct it:</p>
                     <ol>
                         <li class="mb-2">
-                            <strong>Multimodal extraction</strong> — operators drag-and-drop any format (PDF, photo, audio, email).
-                            Google Gemini extracts structured product and quantity data regardless of source,
-                            <strong>consolidating fragmented channels into a single pipeline</strong>.
+                            <strong>Read the source.</strong> PDFs, photos, audio, email, and plain text go through the same intake screen.
                         </li>
                         <li class="mb-2">
-                            <strong>3-stage semantic matching</strong> — exact code lookup → fuzzy string matching → cosine similarity
-                            over pgvector embeddings. Handles spelling variations, short codes, inconsistent naming across sources.
+                            <strong>Match the catalogue.</strong> Exact codes come first, then fuzzy text, then pgvector similarity for the awkward cases.
                         </li>
                         <li class="mb-2">
-                            <strong>Commercial Intelligence</strong> — once orders are structured and unified, the accumulated data
-                            powers a full analytics layer: per-client purchase history, YoY trends, basket-analysis upsell opportunities,
-                            global KPI dashboard with Pareto concentration, and on-demand AI briefs streamed word-by-word via SSE.
+                            <strong>Keep the history.</strong> The same structured records feed customer history, year-over-year trends, basket analysis, and short sales briefs.
                         </li>
                         <li class="mb-2">
-                            <strong>ERP integration</strong> — validated orders exported in AS400 fixed-width format via SFTP,
-                            with full audit trail per order.
+                            <strong>Return to the old system.</strong> Checked orders leave in the fixed-width AS400 format over SFTP, with an audit trail.
                         </li>
                     </ol>
                 </div>
                 <div>
-                    <h2>Key Features</h2>
+                    <h2>The useful parts</h2>
                     <h5>Multimodal AI Extraction</h5>
                     <ul>
                         <li>Accepts PDF, images (JPG, PNG), audio, and plain text</li>
@@ -123,7 +112,7 @@
 
             <div class="project-grid">
                 <div>
-                    <h2>Architecture Decisions</h2>
+                    <h2>Choices I would make again</h2>
                     <p>
                         <strong>Offline vs online computation.</strong> The analytics pipeline is split: a batch job processes the
                         sales history CSV in pure Python and stores pre-computed JSON reports in PostgreSQL. At request time,
@@ -169,25 +158,25 @@
 
             <div class="project-grid mt-5">
                 <div>
-                    <h2>My Role</h2>
+                    <h2>What I worked on</h2>
                     <p>
-                        Co-founder of Nxord. I built the full stack: Django REST API, Celery task pipeline, pgvector embedding
-                        and matching, SFTP export, React frontend, Docker infrastructure, and CI. The analytics computation layer
-                        was developed collaboratively with my colleagues; I designed the schema contract and all Django/API integration.
+                        I co-founded Nxord and built most of the product path: the Django API, Celery jobs, pgvector matching,
+                        SFTP export, React interface, Docker setup, and CI. I worked on the analytics layer with my colleagues;
+                        my part there was the data contract and its Django/API integration.
                     </p>
                     <p>
                         <strong>In production.</strong> First client: active daily use since early 2026. Pre-revenue — expanding to additional distributors in Q2/Q3 2026.
                     </p>
                 </div>
                 <div class="d-flex align-items-end justify-content-end">
-                    <a href="https://nxord.com/" target="_blank" class="text-decoration-none">nxord.com ↗</a>
+                    <a href="https://nxord.com/" target="_blank" rel="noopener noreferrer" class="text-decoration-none">nxord.com ↗</a>
                 </div>
             </div>
         </section>
     </main>
 
     <footer class="text-center py-3 mt-5">
-        <p>&copy; 2025 Lucio Baiocchi | <a href="mailto:luciobaiocchi1@gmail.com">Contact me</a></p>
+        <p>&copy; 2026 Lucio Baiocchi | <a href="mailto:luciobaiocchi1@gmail.com">Contact me</a></p>
     </footer>
     <script src="../javascript/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

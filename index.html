@@ -1,32 +1,65 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <script>!function(){var t=localStorage.getItem('theme')||'light',s=localStorage.getItem('season')||'summer';document.documentElement.setAttribute('data-bs-theme',t);document.documentElement.setAttribute('data-season',s)}()</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lucio Baiocchi</title>
+    <title>Lucio Baiocchi — Software Engineer &amp; Computer Science Student</title>
     <link rel="icon" type="image/x-icon" href="img/LB.png">
-    <meta name="description" content="Lucio Baiocchi - Portfolio e Contatti">
-    <meta name="keywords" content="Lucio Baiocchi, sviluppo, programmazione, portfolio">
+    <meta name="description" content="Portfolio of Lucio Baiocchi, a software engineer and Computer Science student building AI, distributed systems, embedded hardware, and open-source tools.">
     <meta name="author" content="Lucio Baiocchi">
+    <link rel="canonical" href="https://luciobaiocchi.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Lucio Baiocchi — Software Engineer">
+    <meta property="og:description" content="AI systems, distributed software, embedded hardware, and open-source tools.">
+    <meta property="og:url" content="https://luciobaiocchi.com/">
+    <meta property="og:image" content="https://luciobaiocchi.com/img/lucio.jpg">
+    <meta property="og:site_name" content="Lucio Baiocchi">
+    <meta name="twitter:card" content="summary">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="./css/style.css">
-    <script src="https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.min.js"></script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Person",
+                "@id": "https://luciobaiocchi.com/#person",
+                "name": "Lucio Baiocchi",
+                "url": "https://luciobaiocchi.com/",
+                "image": "https://luciobaiocchi.com/img/lucio.jpg",
+                "jobTitle": "Software Engineer",
+                "sameAs": [
+                    "https://github.com/luciobaiocchi",
+                    "https://www.linkedin.com/in/lucio-baiocchi-39b420243/",
+                    "https://www.youtube.com/@luciobaiocchi"
+                ]
+            },
+            {
+                "@type": "WebSite",
+                "@id": "https://luciobaiocchi.com/#website",
+                "name": "Lucio Baiocchi",
+                "url": "https://luciobaiocchi.com/",
+                "publisher": { "@id": "https://luciobaiocchi.com/#person" }
+            }
+        ]
+    }
+    </script>
 </head>
 
 <body>
     <!-- ═══════════════════════════ NAVBAR ═══════════════════════════ -->
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-            <button class="navbar-toggler ms-auto me-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler ms-auto me-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto text-center align-items-center">
                     <li class="nav-item">
-                        <button class="btn theme-toggle ms-1">
+                        <button class="btn theme-toggle ms-1" type="button" aria-label="Toggle color theme">
                             <i class="bi theme-icon bi-moon-stars-fill"></i>
                         </button>
                     </li>
@@ -39,14 +72,14 @@
         <section id="about">
             <h2>About me</h2>
             <p>
-                Hi there! I'm a curious Computer Science student at Politecnico di Torino, passionate about building things from scratch on my own or as part of a team.
-                Lately I've worked on anomaly detection in supply chain management.
+                Hi! I'm a Computer Science student at Politecnico di Torino. I like building things from scratch, especially when the work crosses a boundary between software and the real world.
+                Lately that has meant anomaly detection for a bakery, order tooling for a food distributor, and open-source security software for coding agents.
             </p>
 
             <p>
-                I'm also getting increasingly fascinated by distributed systems, how large-scale software coordinates, fails, and recovers.
-                In my free time i'm building a simulated environment to test distributed frameworks in realistic scenarios.
-                When I'm not at a keyboard, you'll find me running, or lifting at the gym. 🤙
+                I'm increasingly fascinated by distributed systems: how separate pieces coordinate, fail, and recover.
+                In my free time I'm building a simulated environment for testing distributed frameworks under more realistic conditions.
+                When I'm not at a keyboard, you'll usually find me running or lifting at the gym. 🤙
             </p>
         </section>
 
@@ -55,10 +88,23 @@
             <div class="project-list">
                 <div class="project-item pb-3 mb-3 border-bottom">
                     <h5 class="mb-1">
-                        <a href="./projects/nxord.html" class="text-decoration-none">Nxord</a>
-                        <a href="https://nxord.com/" target="_blank" class="ms-2 text-decoration-none text-secondary" project-ext-link">nxord.com ↗</a>
+                        <a href="./projects/twl.html" class="text-decoration-none">Towel (twl)</a>
+                        <a href="https://luciobaiocchi.github.io/twl/" target="_blank" rel="noopener noreferrer" class="ms-2 text-decoration-none text-secondary project-ext-link">site ↗</a>
+                        <a href="https://github.com/luciobaiocchi/twl" target="_blank" rel="noopener noreferrer" class="ms-2 text-decoration-none text-secondary project-ext-link">github ↗</a>
                     </h5>
-                    <p class="mb-1 text-secondary project-desc">Full-stack B2B platform — multimodal AI order automation for HoReCa distributors</p>
+                    <p class="mb-1 text-secondary project-desc">Open-source Rust credential broker for agent-run apps — real API keys stay in a trusted process and reach only fixed destinations</p>
+                    <div class="tech-icons">
+                        <i class="fa-brands fa-rust" title="Rust"></i>
+                        <i class="fa-solid fa-shield-halved" title="Security"></i>
+                        <i class="fa-solid fa-key" title="Credential broker"></i>
+                    </div>
+                </div>
+                <div class="project-item pb-3 mb-3 border-bottom">
+                    <h5 class="mb-1">
+                        <a href="./projects/nxord.html" class="text-decoration-none">Nxord</a>
+                        <a href="https://nxord.com/" target="_blank" rel="noopener noreferrer" class="ms-2 text-decoration-none text-secondary project-ext-link">nxord.com ↗</a>
+                    </h5>
+                    <p class="mb-1 text-secondary project-desc">A platform I co-founded for a food distributor: it reads messy incoming orders, matches the products, and prepares them for the existing ERP</p>
                     <div class="tech-icons">
                         <i class="fa-brands fa-python"></i>
                         <i class="fa-brands fa-react"></i>
@@ -68,9 +114,9 @@
                 <div class="project-item pb-3 mb-3 border-bottom">
                     <h5 class="mb-1">
                         <a href="./heard.html" class="text-decoration-none">HEARD</a>
-                        <a href="https://github.com/luciobaiocchi/heard" target="_blank" class="ms-2 text-decoration-none text-secondary" project-ext-link">github ↗</a>
+                        <a href="https://github.com/luciobaiocchi/heard" target="_blank" rel="noopener noreferrer" class="ms-2 text-decoration-none text-secondary project-ext-link">github ↗</a>
                     </h5>
-                    <p class="mb-1 text-secondary project-desc">Open-source LoRa mesh that keeps hiking groups together off-grid — GPS route-compliance, multi-hop relaying and one-press SOS. Print it, build it, hike with it.</p>
+                    <p class="mb-1 text-secondary project-desc">My bachelor's thesis turned open-hardware project: handheld LoRa devices that help hiking groups stay together when phone signal disappears</p>
                     <div class="tech-icons">
                         <i class="fa-sharp fa-solid fa-c"></i>
                         <i class="fa-solid fa-tower-broadcast"></i>
@@ -79,12 +125,13 @@
                 </div>
                 <div class="project-item pb-3 mb-3 border-bottom">
                     <h5 class="mb-1"><a href="./projects/bakery_anomaly.html" class="text-decoration-none">Bakery Anomaly Detection</a></h5>
-                    <p class="mb-1 text-secondary project-desc">Rolling Z-score for production order error detection — 2 months in production, paper @ ECML-PKDD 2026</p>
+                    <p class="mb-1 text-secondary project-desc">A simple anomaly detector I built with an artisanal bakery to catch mistaken production quantities before the morning shift starts</p>
                     <div class="tech-icons">
                         <i class="fa-brands fa-python"></i>
                     </div>
                 </div>
             </div>
+            <a href="./projects.html" class="text-decoration-none">All projects →</a>
         </section>
 
         <section id="recent-posts">
@@ -96,16 +143,16 @@
         <section id="contacts">
             <h2>Contacts</h2>
             <div class="d-flex justify-content-center gap-4">
-                <a href="mailto:luciobaiocchi1@gmail.com" class="text-decoration-none">
+                <a href="mailto:luciobaiocchi1@gmail.com" class="text-decoration-none" aria-label="Email Lucio Baiocchi">
                     <i class="bi bi-envelope h2"></i>
                 </a>
-                <a href="https://github.com/luciobaiocchi" target="_blank" class="text-decoration-none">
+                <a href="https://github.com/luciobaiocchi" target="_blank" rel="noopener noreferrer" class="text-decoration-none" aria-label="Lucio Baiocchi on GitHub">
                     <i class="bi bi-github h2"></i>
                 </a>
-                <a href="https://www.linkedin.com/in/lucio-baiocchi-39b420243/" target="_blank" class="text-decoration-none">
+                <a href="https://www.linkedin.com/in/lucio-baiocchi-39b420243/" target="_blank" rel="noopener noreferrer" class="text-decoration-none" aria-label="Lucio Baiocchi on LinkedIn">
                     <i class="bi bi-linkedin h2"></i>
                 </a>
-                <a href="https://www.youtube.com/@luciobaiocchi" target="_blank" class="text-decoration-none">
+                <a href="https://www.youtube.com/@luciobaiocchi" target="_blank" rel="noopener noreferrer" class="text-decoration-none" aria-label="Lucio Baiocchi on YouTube">
                     <i class="bi bi-youtube h2"></i>
                 </a>
             </div>
@@ -114,7 +161,7 @@
 
     <!-- ═══════════════════════════ FOOTER ═══════════════════════════ -->
     <footer class="text-center py-3 mt-5">
-        <p>&copy; 2025 Lucio Baiocchi | <a href="mailto:luciobaiocchi1@gmail.com">Contact me</a></p>
+        <p>&copy; 2026 Lucio Baiocchi | <a href="mailto:luciobaiocchi1@gmail.com">Contact me</a></p>
     </footer>
 
     <script src="./data/posts.js"></script>

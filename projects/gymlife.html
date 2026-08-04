@@ -1,21 +1,20 @@
 
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <script>!function(){var t=localStorage.getItem('theme')||'light',s=localStorage.getItem('season')||'summer';document.documentElement.setAttribute('data-bs-theme',t);document.documentElement.setAttribute('data-season',s)}()</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lucio Baiocchi</title>
-    <link rel="icon" type="image/x-icon" href="img/LB.png">
-    <meta name="description" content="Lucio Baiocchi - Portfolio e Contatti">
-    <meta name="keywords" content="Lucio Baiocchi, sviluppo, programmazione, portfolio">
+    <title>GymLife — A Java Gym Simulation Game | Lucio Baiocchi</title>
+    <link rel="icon" type="image/x-icon" href="../img/LB.png">
+    <meta name="description" content="A handmade 2D Java game about balancing workouts, energy, and mood, with original sprites, collision handling, and game logic.">
     <meta name="author" content="Lucio Baiocchi">
+    <link rel="canonical" href="https://luciobaiocchi.com/projects/gymlife">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../css/style.css">
-    <script src="https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.min.js"></script>
 
-    <!--  
+    <!--
      -->
 </head>
 
@@ -23,13 +22,13 @@
     <!--Header-->
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-            <button class="navbar-toggler ms-auto me-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler ms-auto me-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto text-center align-items-center">
                     <li class="nav-item">
-                        <button class="btn theme-toggle ms-1">
+                        <button class="btn theme-toggle ms-1" type="button" aria-label="Toggle color theme">
                             <i class="bi theme-icon bi-moon-stars-fill"></i>
                         </button>
                     </li>
@@ -41,19 +40,19 @@
     <main>
         <section class="project-intro">
             <h1>GymLife</h1>
-            <p class="text-secondary">A comprehensive bodybuilder simulation game</p>
+            <p class="text-secondary">A slightly silly 2D Java game about training hard without running your character into the ground</p>
         </section>
 
         <section class="project-details">
             <div class="project-grid">
                 <div>
-                    <h2>Project Description</h2>
+                    <h2>The game</h2>
                     <p>
-                        GymLife is a video game that simulates the lifestyle and challenges of a bodybuilder. 
-                        The primary goal is to maximize muscle mass across different groups (legs, chest, back) 
-                        while managing critical life stats.
+                        GymLife started as a way to build a complete game without leaning on a game engine.
+                        The goal is to grow your character's legs, chest, and back while keeping enough energy and good humour
+                        to continue. Push one stat too far and the rest of the day gets harder.
                     </p>
-                    <h4 class="mt-4">Gameplay Mechanics</h4>
+                    <h4 class="mt-4">How it plays</h4>
                     <ul>
                         <li><strong>Stat Balancing:</strong> Manage Stamina, Humor, and Muscle Mass.</li>
                         <li><strong>Resource Management:</strong> Earn money via minigames to afford food and gym access.</li>
@@ -64,17 +63,17 @@
                 <div>
                     <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
-                            <div class="carousel-item active"><img src="../img/projects/gymlife/Screenshot 2025-02-13 at 16.38.01.png" class="d-block w-100 expandable-img" alt="..."></div>
-                            <div class="carousel-item"><img src="../img/projects/gymlife/Screenshot 2025-02-13 at 16.38.16.png" class="d-block w-100 expandable-img" alt="..."></div>
-                            <div class="carousel-item"><img src="../img/projects/gymlife/Screenshot 2025-02-13 at 16.38.31.png" class="d-block w-100 expandable-img" alt="..."></div>
-                            <div class="carousel-item"><img src="../img/projects/gymlife/Screenshot 2025-02-13 at 16.38.47.png" class="d-block w-100 expandable-img" alt="..."></div>
-                            <div class="carousel-item"><img src="../img/projects/gymlife/Screenshot 2025-02-13 at 16.38.58.png" class="d-block w-100 expandable-img" alt="..."></div>
-                            <div class="carousel-item"><img src="../img/projects/gymlife/Screenshot 2025-02-13 at 16.39.40.png" class="d-block w-100 expandable-img" alt="..."></div>
+                            <div class="carousel-item active"><img src="../img/projects/gymlife/Screenshot 2025-02-13 at 16.38.01.png" class="d-block w-100 expandable-img" alt="GymLife gameplay screenshot 1" loading="lazy"></div>
+                            <div class="carousel-item"><img src="../img/projects/gymlife/Screenshot 2025-02-13 at 16.38.16.png" class="d-block w-100 expandable-img" alt="GymLife gameplay screenshot 2" loading="lazy"></div>
+                            <div class="carousel-item"><img src="../img/projects/gymlife/Screenshot 2025-02-13 at 16.38.31.png" class="d-block w-100 expandable-img" alt="GymLife gameplay screenshot 3" loading="lazy"></div>
+                            <div class="carousel-item"><img src="../img/projects/gymlife/Screenshot 2025-02-13 at 16.38.47.png" class="d-block w-100 expandable-img" alt="GymLife gameplay screenshot 4" loading="lazy"></div>
+                            <div class="carousel-item"><img src="../img/projects/gymlife/Screenshot 2025-02-13 at 16.38.58.png" class="d-block w-100 expandable-img" alt="GymLife gameplay screenshot 5" loading="lazy"></div>
+                            <div class="carousel-item"><img src="../img/projects/gymlife/Screenshot 2025-02-13 at 16.39.40.png" class="d-block w-100 expandable-img" alt="GymLife gameplay screenshot 6" loading="lazy"></div>
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev" aria-label="Previous image">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next" aria-label="Next image">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         </button>
                     </div>
@@ -83,12 +82,12 @@
 
             <div class="project-grid">
                 <div>
-                    <h2>Academic Background</h2>
+                    <h2>Project context</h2>
                     <p>
-                        This project was developed for the <strong>Object-Oriented Programming</strong> course at the University of Bologna. 
-                        It was a collaborative effort, focusing on clean architecture and robust game logic.
+                        This project was developed for the <strong>Object-Oriented Programming</strong> course at the University of Bologna.
+                        We split the work across the team, wrote the game logic in Java, and learned quickly which abstractions helped and which ones only looked tidy on a diagram.
                     </p>
-                    <h4 class="mt-4">Development Logic</h4>
+                    <h4 class="mt-4">How we built it</h4>
                     <ul>
                         <li>MVC (Model-View-Controller) architecture</li>
                         <li>Extensive JUnit testing for game balance</li>
@@ -96,9 +95,9 @@
                     </ul>
                 </div>
                 <div>
-                    <h2>Key Features</h2>
+                    <h2>Other bits we added</h2>
                     <p>
-                        Beyond the core simulation, GymLife includes several interactive elements to keep players engaged:
+                        The main loop needed a few distractions so that earning money and training did not feel like updating a spreadsheet:
                     </p>
                     <ul>
                         <li>Action-based minigames for income</li>
@@ -111,7 +110,7 @@
             <!-- Tecnologie Utilizzate -->
             <div class="project-grid mt-5">
                 <div>
-                    <h2>Technologies Used</h2>
+                    <h2>Built with</h2>
                     <p>
                         <strong>Language:</strong> Java.<br>
                         <strong>Architecture:</strong> MVC.<br>
@@ -129,12 +128,9 @@
 
     <!-- Footer -->
     <footer class="text-center py-3 mt-5">
-        <p>&copy; 2025 Lucio Baiocchi | <a href="mailto:luciobaiocchi1@gmail.com">Contact me</a></p>
+        <p>&copy; 2026 Lucio Baiocchi | <a href="mailto:luciobaiocchi1@gmail.com">Contact me</a></p>
     </footer>
     <script src="../javascript/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-
-
-    

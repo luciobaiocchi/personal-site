@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <script>!function(){var t=localStorage.getItem('theme')||'light',s=localStorage.getItem('season')||'summer';document.documentElement.setAttribute('data-bs-theme',t);document.documentElement.setAttribute('data-season',s)}()</script>
@@ -7,8 +7,8 @@
     <title>PCA Analysis – Lucio Baiocchi</title>
     <link rel="icon" type="image/x-icon" href="../img/LB.png">
     <meta name="description" content="PCA Psychophysical Analysis – Computational Linear Algebra project by Lucio Baiocchi">
-    <meta name="keywords" content="Lucio Baiocchi, PCA, principal component analysis, machine learning, scikit-learn, python, clustering">
     <meta name="author" content="Lucio Baiocchi">
+    <link rel="canonical" href="https://luciobaiocchi.com/projects/pca_analysis">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../css/style.css">
@@ -16,13 +16,13 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-            <button class="navbar-toggler ms-auto me-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler ms-auto me-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto text-center align-items-center">
                     <li class="nav-item">
-                        <button class="btn theme-toggle ms-1">
+                        <button class="btn theme-toggle ms-1" type="button" aria-label="Toggle color theme">
                             <i class="bi theme-icon bi-moon-stars-fill"></i>
                         </button>
                     </li>
@@ -34,23 +34,24 @@
     <main>
         <section class="project-intro">
             <h1>PCA Psychophysical Analysis</h1>
-            <p class="text-secondary">Dimensionality reduction and clustering of psychophysical behavioral data – Computational Linear Algebra course</p>
+            <p class="text-secondary">Could five principal components preserve anything interesting from 93 messy behavioural variables?</p>
         </section>
 
         <section class="project-details">
             <div class="project-grid">
                 <div>
-                    <h2>Project Description</h2>
+                    <h2>The question</h2>
                     <p>
-                        An exploratory data analysis project developed for the <strong>Computational Linear Algebra for Large Scale Problems</strong> course at Politecnico di Torino (2025/2026).
-                        The project applies PCA to reduce 93 initial variables into 5 principal components that capture the most significant variance in human psychophysical profiles, then uses K-Means clustering to identify distinct behavioral groups.
+                        For my <strong>Computational Linear Algebra for Large Scale Problems</strong> course, I used PCA to reduce 93 mixed
+                        psychophysical variables to five components. I then clustered the reduced data with K-Means and went back to the original
+                        variables to see whether those groups told a coherent story or were just convenient geometry.
                     </p>
-                    <h4 class="mt-4">Key Findings</h4>
+                    <h4 class="mt-4">What showed up</h4>
                     <ul>
-                        <li><strong>The Reckless Hedonist</strong> (Cluster 1): Larger physical stature (avg. 178.6 cm, 73.3 kg), sensation-seeking behavior.</li>
-                        <li><strong>The Anxious Conformist</strong> (Cluster 0): Smaller physical frames (avg. 169.3 cm, 59.3 kg).</li>
-                        <li><strong>The Female-Dominant Profile</strong> (Cluster 2): 60.6% female, distinct psychological markers.</li>
-                        <li><strong>The Heterogeneous Group</strong> (Cluster 3): High weight variability (σ = 16.8), diverse physical segment.</li>
+                        <li><strong>Cluster 1:</strong> taller and heavier on average (178.6 cm, 73.3 kg), with stronger sensation-seeking signals.</li>
+                        <li><strong>Cluster 0:</strong> shorter and lighter on average (169.3 cm, 59.3 kg), with a different anxiety/conformity pattern.</li>
+                        <li><strong>Cluster 2:</strong> 60.6% female, with several psychological variables separating it from the other groups.</li>
+                        <li><strong>Cluster 3:</strong> the least tidy group, including a much wider spread in weight (σ = 16.8).</li>
                     </ul>
                 </div>
                 <div>
@@ -66,7 +67,7 @@
 
             <div class="project-grid mt-5">
                 <div>
-                    <h2>Technologies Used</h2>
+                    <h2>Built with</h2>
                     <p>
                         <strong>Language:</strong> Python 3<br>
                         <strong>Libraries:</strong> Scikit-Learn, Pandas, NumPy, Matplotlib<br>
@@ -88,7 +89,7 @@
     </main>
 
     <footer class="text-center py-3 mt-5">
-        <p>&copy; 2025 Lucio Baiocchi | <a href="mailto:luciobaiocchi1@gmail.com">Contact me</a></p>
+        <p>&copy; 2026 Lucio Baiocchi | <a href="mailto:luciobaiocchi1@gmail.com">Contact me</a></p>
     </footer>
     <script src="../javascript/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

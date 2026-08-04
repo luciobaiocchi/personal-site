@@ -1,20 +1,19 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <script>!function(){var t=localStorage.getItem('theme')||'light',s=localStorage.getItem('season')||'summer';document.documentElement.setAttribute('data-bs-theme',t);document.documentElement.setAttribute('data-season',s)}()</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lucio Baiocchi</title>
-    <link rel="icon" type="image/x-icon" href="img/LB.png">
-    <meta name="description" content="Lucio Baiocchi - Portfolio e Contatti">
-    <meta name="keywords" content="Lucio Baiocchi, sviluppo, programmazione, portfolio">
+    <title>IoT Projects — Arduino, ESP32, Java &amp; Python | Lucio Baiocchi</title>
+    <link rel="icon" type="image/x-icon" href="../img/LB.png">
+    <meta name="description" content="Three hands-on IoT projects: a binary game, a smart waste bin, and a networked window controller using Arduino, ESP32, Java, and Python.">
     <meta name="author" content="Lucio Baiocchi">
+    <link rel="canonical" href="https://luciobaiocchi.com/projects/iot_projects">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../css/style.css">
-    <script src="https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.min.js"></script>
 
-    <!--  
+    <!--
      -->
 </head>
 
@@ -22,13 +21,13 @@
     <!--Header-->
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-            <button class="navbar-toggler ms-auto me-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler ms-auto me-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto text-center align-items-center">
                     <li class="nav-item">
-                        <button class="btn theme-toggle ms-1">
+                        <button class="btn theme-toggle ms-1" type="button" aria-label="Toggle color theme">
                             <i class="bi theme-icon bi-moon-stars-fill"></i>
                         </button>
                     </li>
@@ -40,7 +39,7 @@
     <main>
         <section class="project-intro">
             <h1>IoT Projects</h1>
-            <p class="text-secondary">A collection of academic and personal Internet of Things experiments</p>
+            <p class="text-secondary">Three projects where the code had to leave the laptop and make real hardware do something</p>
         </section>
 
         <!-- Project 1: Binary Game -->
@@ -49,10 +48,10 @@
                 <div>
                     <h2>Binary Game</h2>
                     <p>
-                        An interactive hardware-based game designed to test and improve knowledge of binary conversion 
-                        in a fast-paced environment.
+                        The first project is a small reaction game for practising binary conversion. The LCD shows a decimal number;
+                        the player has to represent it with four LEDs before the timer runs out. Each correct answer shortens the next round.
                     </p>
-                    <h4 class="mt-4">Gameplay & Components</h4>
+                    <h4 class="mt-4">Rules and parts</h4>
                     <ul>
                         <li><strong>Components:</strong> 4 green LEDs, 1 red LED, 4 buttons, 1 potentiometer, 1 LCD.</li>
                         <li><strong>Goal:</strong> Read the decimal number on the LCD and correctly light up the LEDs to represent it in binary.</li>
@@ -62,7 +61,7 @@
                 </div>
                 <div>
                     <div class="ratio ratio-16x9">
-                        <iframe src="https://www.youtube.com/embed/CACj1u8vGgM" allow="accelerometer; encrypted-media; gyroscope" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/CACj1u8vGgM" title="Binary Game demonstration" allow="accelerometer; encrypted-media; gyroscope" allowfullscreen></iframe>
                     </div>
                     <div class="text-end mt-3">
                         <a href="https://github.com/luciobaiocchi/IOT-project_1" class="btn btn-primary">GitHub Repo</a>
@@ -77,10 +76,10 @@
                 <div>
                     <h2>Smart Waste Management System</h2>
                     <p>
-                        An intelligent waste tracking system built on Arduino that monitors environmental parameters 
-                        and automates waste collection logistics.
+                        For the second project, we treated a waste bin as a small connected system. Arduino sensors report fill level,
+                        temperature, and nearby movement; a gate controls access, and a desktop view shows the current state and warnings.
                     </p>
-                    <h4 class="mt-4">System Features</h4>
+                    <h4 class="mt-4">What is connected</h4>
                     <ul>
                         <li><strong>Sensors:</strong> Real-time monitoring of waste level, temperature, and human presence.</li>
                         <li><strong>Automation:</strong> Automatic gate management for disposal security.</li>
@@ -90,7 +89,7 @@
                 </div>
                 <div>
                     <div class="ratio ratio-16x9">
-                        <iframe src="https://www.youtube.com/embed/G0cvC06uNy4" allow="accelerometer; encrypted-media; gyroscope" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/G0cvC06uNy4" title="Smart waste management demonstration" allow="accelerometer; encrypted-media; gyroscope" allowfullscreen></iframe>
                     </div>
                     <div class="text-end mt-3">
                         <a href="https://github.com/luciobaiocchi/IOT-project_2?tab=readme-ov-file#smart-waste-management-system" class="btn btn-primary">GitHub Repo</a>
@@ -103,12 +102,12 @@
         <section class="project-details">
             <div class="project-grid">
                 <div>
-                    <h2>Advanced Window Control System</h2>
+                    <h2>Networked Window Controller</h2>
                     <p>
-                        A complex distributed system for automated temperature monitoring and physical window control 
-                        using custom hardware and server-side logic.
+                        The last project connected several pieces: ESP32 temperature nodes, an Arduino and servo that move a physical window,
+                        a central server, and a remote dashboard. It was my first useful taste of debugging a distributed system one wire at a time.
                     </p>
-                    <h4 class="mt-4">Subsystems</h4>
+                    <h4 class="mt-4">The pieces</h4>
                     <ul>
                         <li><strong>Temperature Monitoring:</strong> ESP-32 based sensor nodes.</li>
                         <li><strong>Window Controller:</strong> Arduino-controlled servo motor for physical window movement.</li>
@@ -119,7 +118,7 @@
                 </div>
                 <div>
                     <div class="ratio ratio-16x9">
-                        <iframe src="https://www.youtube.com/embed/YA5omr81nk0" allow="accelerometer; encrypted-media; gyroscope" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/YA5omr81nk0" title="Window control system demonstration" allow="accelerometer; encrypted-media; gyroscope" allowfullscreen></iframe>
                     </div>
                     <div class="text-end mt-3">
                         <a href="https://github.com/luciobaiocchi/IOT-project_3" class="btn btn-primary">GitHub Repo</a>
@@ -131,14 +130,12 @@
 
 
 
-        
+
     <!-- Footer -->
     <footer class="text-center py-3 mt-5">
-        <p>&copy; 2025 Lucio Baiocchi | <a href="mailto:luciobaiocchi1@gmail.com">Contact me</a></p>
+        <p>&copy; 2026 Lucio Baiocchi | <a href="mailto:luciobaiocchi1@gmail.com">Contact me</a></p>
     </footer>
     <script src="../javascript/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-
-    

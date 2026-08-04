@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <script>!function(){var t=localStorage.getItem('theme')||'light',s=localStorage.getItem('season')||'summer';document.documentElement.setAttribute('data-bs-theme',t);document.documentElement.setAttribute('data-season',s)}()</script>
@@ -7,8 +7,8 @@
     <title>Numerical Optimization – Lucio Baiocchi</title>
     <link rel="icon" type="image/x-icon" href="../img/LB.png">
     <meta name="description" content="Numerical Optimization for Large Scale Problems – Modified and Truncated Newton methods by Lucio Baiocchi">
-    <meta name="keywords" content="Lucio Baiocchi, numerical optimization, Newton method, conjugate gradient, large scale, python">
     <meta name="author" content="Lucio Baiocchi">
+    <link rel="canonical" href="https://luciobaiocchi.com/projects/nm_optimization">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../css/style.css">
@@ -16,13 +16,13 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-            <button class="navbar-toggler ms-auto me-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler ms-auto me-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto text-center align-items-center">
                     <li class="nav-item">
-                        <button class="btn theme-toggle ms-1">
+                        <button class="btn theme-toggle ms-1" type="button" aria-label="Toggle color theme">
                             <i class="bi theme-icon bi-moon-stars-fill"></i>
                         </button>
                     </li>
@@ -34,16 +34,17 @@
     <main>
         <section class="project-intro">
             <h1>Numerical Optimization for Large Scale Problems</h1>
-            <p class="text-secondary">Implementation and benchmarking of Modified and Truncated Newton methods for second-order optimization</p>
+            <p class="text-secondary">Two Newton solvers, a lot of sparse linear algebra, and test problems with up to 100,000 variables</p>
         </section>
 
         <section class="project-details">
             <div class="project-grid">
                 <div>
-                    <h2>Project Description</h2>
+                    <h2>What I implemented</h2>
                     <p>
-                        Final project for the <strong>Numerical Optimization for Large Scale Problems</strong> course at Politecnico di Torino (January 2026).
-                        The project implements and compares two advanced second-order optimization algorithms, benchmarking them on large-scale problems up to dimension N = 100,000.
+                        For the final project in <strong>Numerical Optimization for Large Scale Problems</strong>, I implemented two second-order methods
+                        rather than calling a library solver. I then compared where they spent their time and how they behaved as the problems grew
+                        from classroom-sized examples to <code>N = 100,000</code> variables.
                     </p>
                     <h4 class="mt-4">Algorithms Implemented</h4>
                     <ul>
@@ -78,7 +79,7 @@
                     </ul>
                 </div>
                 <div>
-                    <h2>Technologies Used</h2>
+                    <h2>Built with</h2>
                     <p>
                         <strong>Language:</strong> Python 3<br>
                         <strong>Libraries:</strong> NumPy, SciPy (sparse, linalg), Matplotlib<br>
@@ -98,7 +99,7 @@
     </main>
 
     <footer class="text-center py-3 mt-5">
-        <p>&copy; 2025 Lucio Baiocchi | <a href="mailto:luciobaiocchi1@gmail.com">Contact me</a></p>
+        <p>&copy; 2026 Lucio Baiocchi | <a href="mailto:luciobaiocchi1@gmail.com">Contact me</a></p>
     </footer>
     <script src="../javascript/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

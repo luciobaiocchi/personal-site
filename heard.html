@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
@@ -15,13 +15,14 @@
         <link rel="icon" type="image/x-icon" href="img/LB.png" />
         <meta
             name="description"
-            content="HEARD (Hiking Emergency Assistance and Rescue Device) — an open-source LoRa mesh system that keeps hiking groups together off-grid. Print the enclosure, build the PCB, flash the firmware. Apache-2.0."
+            content="HEARD is an open-source LoRa mesh for off-grid hiking groups, with GPS route checks, multi-hop position relays, one-press SOS, and buildable hardware."
         />
         <meta
             name="keywords"
             content="HEARD, open source, hiking safety, LoRa, mesh network, ESP32, GPS, 3D printed, PCB, off-grid, Lucio Baiocchi"
         />
         <meta name="author" content="Lucio Baiocchi" />
+        <link rel="canonical" href="https://luciobaiocchi.com/heard" />
 
         <!-- Open Graph / social -->
         <meta property="og:type" content="website" />
@@ -123,12 +124,14 @@
                     <a
                         href="https://github.com/luciobaiocchi/heard"
                         target="_blank"
+                        rel="noopener noreferrer"
                         class="btn-heard btn-heard-ghost"
                         ><i class="fa-brands fa-github"></i> Star on GitHub</a
                     >
                     <a
                         href="https://discord.com/channels/1516476259100655818/1516477385313357884"
                         target="_blank"
+                        rel="noopener noreferrer"
                         class="btn-heard btn-heard-ghost"
                         ><i class="fa-brands fa-discord"></i> Join the
                         Discord</a
@@ -139,6 +142,7 @@
                     <a
                         href="https://github.com/luciobaiocchi/heard/stargazers"
                         target="_blank"
+                        rel="noopener noreferrer"
                         ><i class="fa-solid fa-star"></i>
                         <span class="gh-stars">—</span> stars</a
                     >
@@ -146,6 +150,7 @@
                     <a
                         href="https://github.com/luciobaiocchi/heard/forks"
                         target="_blank"
+                        rel="noopener noreferrer"
                         ><i class="fa-solid fa-code-fork"></i>
                         <span class="gh-forks">—</span> forks</a
                     >
@@ -181,23 +186,21 @@
             <!-- ════════ PROBLEM ════════ -->
             <section class="heard-section">
                 <h2>
-                    Safety gear is built for individuals. Accidents happen to
-                    groups.
+                    The dangerous part is often noticing too late that someone
+                    is missing.
                 </h2>
                 <p class="lead">
-                    Personal locator beacons and phone apps protect
-                    <em>one</em> person and assume a network. On a real trail a
-                    school group, a guided trek, a family what actually goes
-                    wrong is that someone drifts off the path, falls behind, and
-                    nobody notices until it is too late. Out where the cell
-                    towers stop, there is no tool that keeps the
-                    <strong>whole group</strong> aware of each other.
+                    Personal locator beacons protect one person, and phone apps
+                    usually assume a network. I kept thinking about a more ordinary
+                    failure on a school trip, guided trek, or family hike: someone
+                    drifts off the path or falls behind, and the group only notices
+                    much later. That is the gap I wanted HEARD to cover.
                 </p>
                 <p>
-                    HEARD started as a Computer Engineering bachelor's thesis at
+                    I started HEARD as my Computer Engineering bachelor's thesis at
                     the University of Bologna (2024–2025, supervised by Prof.
-                    Alessandro Ricci) and is now a fully open-source project.
-                    The goal: a cheap, rugged, build-it-yourself device that any
+                    Alessandro Ricci), then kept working on it as an open-source project.
+                    The goal is a cheap, rugged, build-it-yourself device that any
                     hiking group can carry so the guide always knows where
                     everyone is and anyone can call for help with one button.
                 </p>
@@ -401,6 +404,7 @@
                         <a
                             href="https://github.com/luciobaiocchi/heard/releases"
                             target="_blank"
+                            rel="noopener noreferrer"
                             class="btn-heard btn-heard-ghost mt-2"
                             ><i class="fa-solid fa-download"></i> Download
                             enclosure STLs</a
@@ -538,6 +542,7 @@
                     <a
                         href="https://www.youtube.com/watch?v=rSgT1LedNBk&t=1s"
                         target="_blank"
+                        rel="noopener noreferrer"
                         >watch the build on YouTube</a
                     >.
                 </p>
@@ -569,6 +574,7 @@
                                 <a
                                     href="https://wokwi.com/projects/436295484715573249"
                                     target="_blank"
+                                    rel="noopener noreferrer"
                                     >Wokwi</a
                                 >
                                 project, so you can see better all the
@@ -726,6 +732,7 @@ pio device monitor       # watch it acquire a GPS fix</code></pre>
                         <a
                             href="https://github.com/luciobaiocchi/heard"
                             target="_blank"
+                            rel="noopener noreferrer"
                             class="btn-heard btn-heard-primary"
                             ><i class="fa-brands fa-github"></i> Open the
                             repository</a
@@ -733,6 +740,7 @@ pio device monitor       # watch it acquire a GPS fix</code></pre>
                         <a
                             href="https://discord.com/channels/1516476259100655818/1516477385313357884"
                             target="_blank"
+                            rel="noopener noreferrer"
                             class="btn-heard btn-heard-ghost"
                             ><i class="fa-brands fa-discord"></i> Join the
                             Discord</a
@@ -750,7 +758,7 @@ pio device monitor       # watch it acquire a GPS fix</code></pre>
 
         <footer class="text-center py-3 mt-5">
             <p>
-                &copy; 2025 Lucio Baiocchi |
+                &copy; 2026 Lucio Baiocchi |
                 <a href="mailto:luciobaiocchi1@gmail.com">Contact me</a>
             </p>
         </footer>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <script>!function(){var t=localStorage.getItem('theme')||'light',s=localStorage.getItem('season')||'summer';document.documentElement.setAttribute('data-bs-theme',t);document.documentElement.setAttribute('data-season',s)}()</script>
@@ -7,8 +7,8 @@
     <title>LSA with rSVD – Lucio Baiocchi</title>
     <link rel="icon" type="image/x-icon" href="../img/LB.png">
     <meta name="description" content="Latent Semantic Analysis with Randomized SVD – text clustering and semantic search by Lucio Baiocchi">
-    <meta name="keywords" content="Lucio Baiocchi, LSA, rSVD, randomized SVD, NLP, text clustering, Python, semantic search">
     <meta name="author" content="Lucio Baiocchi">
+    <link rel="canonical" href="https://luciobaiocchi.com/projects/lsa_rsvd">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../css/style.css">
@@ -16,13 +16,13 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-            <button class="navbar-toggler ms-auto me-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler ms-auto me-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto text-center align-items-center">
                     <li class="nav-item">
-                        <button class="btn theme-toggle ms-1">
+                        <button class="btn theme-toggle ms-1" type="button" aria-label="Toggle color theme">
                             <i class="bi theme-icon bi-moon-stars-fill"></i>
                         </button>
                     </li>
@@ -34,17 +34,17 @@
     <main>
         <section class="project-intro">
             <h1>LSA with Randomized SVD</h1>
-            <p class="text-secondary">Latent semantic analysis of large text corpora using a custom rSVD implementation with GUI and semantic search</p>
+            <p class="text-secondary">I wrote randomized SVD, pointed it at 18,000 Usenet posts, and built a small semantic-search interface around the result</p>
         </section>
 
         <section class="project-details">
             <div class="project-grid">
                 <div>
-                    <h2>Project Description</h2>
+                    <h2>What I explored</h2>
                     <p>
-                        This project demonstrates how to extract latent concepts from a large text corpus by reducing the dimensionality of the Term-Document matrix.
-                        By using <strong>rSVD (Randomized Singular Value Decomposition)</strong>, the system achieves significantly faster performance than classical SVD
-                        on large matrices while maintaining high approximation accuracy.
+                        This course project started with a practical question: how much useful topic structure survives when a large term-document matrix
+                        is compressed? I implemented <strong>randomized Singular Value Decomposition</strong> myself, used it for latent semantic analysis,
+                        and compared the approximation and runtime with classical SVD instead of treating the decomposition as a black box.
                     </p>
                     <h4 class="mt-4">Dataset</h4>
                     <p>
@@ -53,20 +53,20 @@
                     </p>
                 </div>
                 <div>
-                    <h2>Key Features</h2>
+                    <h2>What I added around the algorithm</h2>
                     <ul>
-                        <li><strong>Custom rSVD:</strong> Implementation with Power Iterations to enhance singular value approximation accuracy.</li>
-                        <li><strong>Optimal Clustering:</strong> Automated search for the best number of clusters using the Silhouette Score.</li>
-                        <li><strong>GUI Mode:</strong> Interactive charts via Plotly and a built-in Semantic Search engine.</li>
-                        <li><strong>CLI Mode:</strong> Horizontal bar plots via Matplotlib for fast headless analysis.</li>
-                        <li><strong>Preprocessing Pipeline:</strong> Advanced tokenization with Snowball Stemming and custom stopword lists.</li>
+                        <li><strong>Power iterations</strong> to tighten the randomized low-rank approximation.</li>
+                        <li><strong>A sweep over cluster counts</strong>, compared with the Silhouette Score.</li>
+                        <li><strong>A desktop view</strong> with Plotly charts and semantic search.</li>
+                        <li><strong>A CLI path</strong> with Matplotlib output for running without the interface.</li>
+                        <li><strong>Text cleanup</strong> with Snowball stemming and a custom stop-word list.</li>
                     </ul>
                 </div>
             </div>
 
             <div class="project-grid">
                 <div>
-                    <h2>Technical Details</h2>
+                    <h2>Under the hood</h2>
                     <h4>The rSVD Algorithm</h4>
                     <p>
                         Classical SVD scales as O(mn·min(m,n)) — prohibitive for large matrices.
@@ -81,7 +81,7 @@
                     </p>
                 </div>
                 <div>
-                    <h2>Technologies Used</h2>
+                    <h2>Built with</h2>
                     <p>
                         <strong>Language:</strong> Python 3<br>
                         <strong>Libraries:</strong> NumPy, SciPy, Scikit-Learn, Matplotlib, Plotly, NLTK<br>
@@ -101,7 +101,7 @@
     </main>
 
     <footer class="text-center py-3 mt-5">
-        <p>&copy; 2025 Lucio Baiocchi | <a href="mailto:luciobaiocchi1@gmail.com">Contact me</a></p>
+        <p>&copy; 2026 Lucio Baiocchi | <a href="mailto:luciobaiocchi1@gmail.com">Contact me</a></p>
     </footer>
     <script src="../javascript/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

@@ -1,44 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
   <url>
     <loc>https://luciobaiocchi.com/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-08-04</lastmod>
   </url>
   <url>
-    <loc>https://luciobaiocchi.com/projects.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://luciobaiocchi.com/projects</loc>
+    <lastmod>2026-08-04</lastmod>
   </url>
   <url>
-    <loc>https://luciobaiocchi.com/blog.html</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://luciobaiocchi.com/projects/twl</loc>
+    <lastmod>2026-08-04</lastmod>
   </url>
-
-  <url><loc>https://luciobaiocchi.com/heard</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://luciobaiocchi.com/projects/nxord.html</loc><priority>0.7</priority></url>
-  <url><loc>https://luciobaiocchi.com/projects/medicaid.html</loc><priority>0.7</priority></url>
-  <url><loc>https://luciobaiocchi.com/projects/bakery_anomaly.html</loc><priority>0.7</priority></url>
-  <url><loc>https://luciobaiocchi.com/projects/thesis.html</loc><priority>0.7</priority></url>
-  <url><loc>https://luciobaiocchi.com/projects/pca_analysis.html</loc><priority>0.6</priority></url>
-  <url><loc>https://luciobaiocchi.com/projects/nm_optimization.html</loc><priority>0.6</priority></url>
-  <url><loc>https://luciobaiocchi.com/projects/lsa_rsvd.html</loc><priority>0.6</priority></url>
-  <url><loc>https://luciobaiocchi.com/projects/newspaper_classificator.html</loc><priority>0.6</priority></url>
-  <url><loc>https://luciobaiocchi.com/projects/giogreens.html</loc><priority>0.6</priority></url>
-  <url><loc>https://luciobaiocchi.com/projects/mydiet.html</loc><priority>0.6</priority></url>
-  <url><loc>https://luciobaiocchi.com/projects/gymlife.html</loc><priority>0.6</priority></url>
-  <url><loc>https://luciobaiocchi.com/projects/iot_projects.html</loc><priority>0.6</priority></url>
-  <url><loc>https://luciobaiocchi.com/projects/chat_python.html</loc><priority>0.6</priority></url>
-  <url><loc>https://luciobaiocchi.com/projects/dvrs.html</loc><priority>0.6</priority></url>
-  <url><loc>https://luciobaiocchi.com/projects/algorithm.html</loc><priority>0.6</priority></url>
-
   <url>
-    <loc>https://luciobaiocchi.com/blog/example.html</loc>
-    <lastmod>2025-06-01</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://luciobaiocchi.com/heard</loc>
+    <lastmod>2026-08-04</lastmod>
   </url>
-
+  <url>
+    <loc>https://luciobaiocchi.com/projects/nxord</loc>
+    <lastmod>2026-08-04</lastmod>
+  </url>
+  <url>
+    <loc>https://luciobaiocchi.com/projects/medicaid</loc>
+    <lastmod>2026-08-04</lastmod>
+  </url>
+  <url>
+    <loc>https://luciobaiocchi.com/projects/bakery_anomaly</loc>
+    <lastmod>2026-08-04</lastmod>
+  </url>
+  <url>
+    <loc>https://luciobaiocchi.com/projects/thesis</loc>
+    <lastmod>2026-08-04</lastmod>
+  </url>
+  <url>
+    <loc>https://luciobaiocchi.com/projects/pca_analysis</loc>
+    <lastmod>2026-08-04</lastmod>
+  </url>
+  <url>
+    <loc>https://luciobaiocchi.com/projects/nm_optimization</loc>
+    <lastmod>2026-08-04</lastmod>
+  </url>
+  <url>
+    <loc>https://luciobaiocchi.com/projects/lsa_rsvd</loc>
+    <lastmod>2026-08-04</lastmod>
+  </url>
+  <url>
+    <loc>https://luciobaiocchi.com/projects/newspaper_classificator</loc>
+    <lastmod>2026-08-04</lastmod>
+  </url>
+  <url>
+    <loc>https://luciobaiocchi.com/projects/giogreens</loc>
+    <lastmod>2026-08-04</lastmod>
+  </url>
+  <url>
+    <loc>https://luciobaiocchi.com/projects/mydiet</loc>
+    <lastmod>2026-08-04</lastmod>
+  </url>
+  <url>
+    <loc>https://luciobaiocchi.com/projects/gymlife</loc>
+    <lastmod>2026-08-04</lastmod>
+  </url>
+  <url>
+    <loc>https://luciobaiocchi.com/projects/iot_projects</loc>
+    <lastmod>2026-08-04</lastmod>
+  </url>
+  <url>
+    <loc>https://luciobaiocchi.com/projects/chat_python</loc>
+    <lastmod>2026-08-04</lastmod>
+  </url>
+  <url>
+    <loc>https://luciobaiocchi.com/projects/dvrs</loc>
+    <lastmod>2026-08-04</lastmod>
+  </url>
+  <url>
+    <loc>https://luciobaiocchi.com/projects/algorithm</loc>
+    <lastmod>2026-08-04</lastmod>
+  </url>
+  <url>
+    <loc>https://luciobaiocchi.com/blog</loc>
+    <lastmod>2026-06-17</lastmod>
+  </url>
+  <url>
+    <loc>https://luciobaiocchi.com/blog/ai</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
 </urlset>

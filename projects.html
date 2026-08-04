@@ -1,5 +1,5 @@
-<!doctype html>
-<html lang="it">
+<!DOCTYPE html>
+<html lang="en">
     <head>
         <meta charset="UTF-8" />
         <script>
@@ -11,12 +11,34 @@
             })();
         </script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Progetti - Lucio Baiocchi</title>
+        <title>Software Projects — Lucio Baiocchi</title>
         <link rel="icon" type="image/x-icon" href="img/LB.png" />
         <meta
             name="description"
-            content="Lucio Baiocchi - Portfolio e Contatti"
+            content="Software, AI, embedded systems, and open-source projects built by Lucio Baiocchi, with notes on the problems, decisions, and results behind each one."
         />
+        <meta name="author" content="Lucio Baiocchi" />
+        <link rel="canonical" href="https://luciobaiocchi.com/projects" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Software Projects — Lucio Baiocchi" />
+        <meta property="og:description" content="A collection of things I have built, from open-source security tools and LoRa hardware to applied ML and course projects." />
+        <meta property="og:url" content="https://luciobaiocchi.com/projects" />
+        <meta property="og:site_name" content="Lucio Baiocchi" />
+        <meta name="twitter:card" content="summary" />
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            "name": "Software Projects — Lucio Baiocchi",
+            "description": "Software, AI, embedded systems, and open-source projects built by Lucio Baiocchi.",
+            "url": "https://luciobaiocchi.com/projects",
+            "author": {
+                "@type": "Person",
+                "name": "Lucio Baiocchi",
+                "url": "https://luciobaiocchi.com/"
+            }
+        }
+        </script>
         <link
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
@@ -39,6 +61,9 @@
                     type="button"
                     data-bs-toggle="collapse"
                     data-bs-target="#navbarNav"
+                    aria-controls="navbarNav"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
                 >
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -47,7 +72,7 @@
                         class="navbar-nav ms-auto text-center align-items-center"
                     >
                         <li class="nav-item">
-                            <button class="btn theme-toggle ms-1">
+                            <button class="btn theme-toggle ms-1" type="button" aria-label="Toggle color theme">
                                 <i class="bi theme-icon bi-moon-stars-fill"></i>
                             </button>
                         </li>
@@ -58,12 +83,13 @@
 
         <main>
             <h1>Projects</h1>
+            <p class="text-secondary">Things I have built for work, university, and the fun of figuring out how they work.</p>
             <div id="projects-list"></div>
         </main>
 
         <footer class="text-center py-4">
             <p>
-                &copy; 2025 Lucio Baiocchi |
+                &copy; 2026 Lucio Baiocchi |
                 <a href="mailto:luciobaiocchi1@gmail.com">Contact me</a>
             </p>
         </footer>
@@ -74,66 +100,93 @@
         <script>
             const PROJECTS = [
                 {
+                    title: "Towel (twl)",
+                    desc: "I built Towel to stop handing real API keys to coding agents. A small Rust broker keeps each credential in a trusted process and only sends it to the destination I configured.",
+                    link: "./projects/twl.html",
+                    tech: [
+                        "fa-brands fa-rust",
+                        "fa-solid fa-shield-halved",
+                        "fa-solid fa-key",
+                    ],
+                    external: [
+                        {
+                            label: "site",
+                            href: "https://luciobaiocchi.github.io/twl/",
+                        },
+                        {
+                            label: "github",
+                            href: "https://github.com/luciobaiocchi/twl",
+                        },
+                    ],
+                },
+                {
                     title: "HEARD",
-                    desc: "Open-source LoRa mesh that keeps hiking groups together off-grid — GPS route-compliance, multi-hop relaying and one-press SOS. Fully open hardware: print the enclosure, build the PCB, flash the firmware. Apache-2.0.",
+                    desc: "My bachelor's thesis became an open-hardware project: handheld LoRa devices that help a hiking group stay on route, relay positions, and send an SOS when there is no phone signal.",
                     link: "./heard.html",
                     tech: [
                         "fa-sharp fa-solid fa-c",
                         "fa-solid fa-tower-broadcast",
                         "fa-solid fa-cube",
                     ],
-                    external: "https://github.com/luciobaiocchi/heard",
+                    external: [
+                        {
+                            label: "github",
+                            href: "https://github.com/luciobaiocchi/heard",
+                        },
+                    ],
                 },
                 {
                     title: "Nxord",
-                    desc: "Full-stack B2B platform that automates HoReCa order management with multimodal AI — any format (PDF, photo, audio) converted to structured ERP-ready records. In production.",
+                    desc: "A platform I co-founded and built for a food distributor. It reads orders from PDFs, photos, email, or audio, matches the products, and prepares the result for their ERP.",
                     link: "./projects/nxord.html",
                     tech: [
                         "fa-brands fa-python",
                         "fa-brands fa-react",
                         "fa-brands fa-docker",
                     ],
-                    external: "https://nxord.com/",
+                    external: [
+                        { label: "nxord.com", href: "https://nxord.com/" },
+                    ],
                 },
                 {
                     title: "MedicAId",
-                    desc: "AI health assistant on WhatsApp integrated with the Italian Electronic Health Record — medication reminders, appointments, prescriptions and caregiver mode. Hackathon prototype.",
+                    desc: "A five-hour hackathon prototype that puts a simulated Italian health record behind a WhatsApp chat, including reminders, appointments, prescriptions, and caregiver access.",
                     link: "./projects/medicaid.html",
                     tech: ["fa-brands fa-python", "fa-brands fa-whatsapp"],
                 },
                 {
                     title: "Bakery Anomaly Detection",
-                    desc: "Rolling Z-score with conjunction rule for production order error detection in an artisanal bakery — 2 months in production, F1 85.7% without oracle selection. Paper in preparation for SOMI @ ECML-PKDD 2026.",
+                    desc: "I built this with an artisanal bakery to catch suspicious production quantities before the morning shift starts. A simple rolling Z-score proved more useful here than a trained model.",
                     link: "./projects/bakery_anomaly.html",
                     tech: ["fa-brands fa-python"],
                 },
                 {
                     title: "PCA Psychophysical Analysis",
-                    desc: "PCA + K-Means on 93 behavioral variables — surfaced 4 psychophysical profiles from a dataset of human subjects.",
+                    desc: "A course project where I reduced 93 behavioural variables with PCA, then used K-Means to explore four broad profiles in the dataset.",
                     link: "./projects/pca_analysis.html",
                     tech: ["fa-brands fa-python"],
                 },
                 {
                     title: "Numerical Optimization",
-                    desc: "Implemented Modified & Truncated Newton solvers with sparse Hessian ops — solved 100k-variable problems in under 0.5s.",
+                    desc: "For a numerical optimization course, I implemented Modified and Truncated Newton solvers and tested them on sparse problems with up to 100,000 variables.",
                     link: "./projects/nm_optimization.html",
                     tech: ["fa-brands fa-python"],
                 },
                 {
                     title: "LSA with rSVD",
-                    desc: "Custom randomized SVD on 18k Usenet posts — topic clustering with Silhouette scoring and an interactive semantic search GUI.",
+                    desc: "I wrote a randomized SVD implementation and used it to cluster about 18,000 Usenet posts, with a small desktop interface for semantic search.",
                     link: "./projects/lsa_rsvd.html",
                     tech: ["fa-brands fa-python"],
                 },
                 {
-                    title: "Newspaper Classificator",
-                    desc: "End-to-end NLP classification pipeline — ranked 3rd out of 200 competing teams.",
+                    title: "Newspaper Classifier",
+                    desc: "A news-classification challenge at Politecnico di Torino. The pipeline placed 3rd among 200 groups with a macro F1 score of 0.741.",
                     link: "./projects/newspaper_classificator.html",
                     tech: ["fa-brands fa-python"],
                 },
                 {
                     title: "Giogreens",
-                    desc: "Full-stack plant e-commerce — PHP REST API, JS frontend, MySQL, Docker Compose.",
+                    desc: "A web technologies course project: a plant shop with a PHP API, plain JavaScript frontend, MySQL database, and separate customer and admin flows.",
                     link: "./projects/giogreens.html",
                     tech: [
                         "fa-brands fa-js",
@@ -145,19 +198,19 @@
                 },
                 {
                     title: "My Diet",
-                    desc: "Java desktop nutrition tracker with graph-based meal planning and SQLite persistence.",
+                    desc: "A Java desktop app from a database course. It connects clients and nutritionists around meal plans, progress tracking, and a MySQL database.",
                     link: "./projects/mydiet.html",
                     tech: ["fab fa-java", "fas fa-database"],
                 },
                 {
                     title: "Gym Life",
-                    desc: "2D retro gym simulation game — fully built in Java with custom physics and sprite engine.",
+                    desc: "A small 2D Java game about balancing training, energy, and mood. We drew the sprites and built the game loop and collision handling ourselves.",
                     link: "./projects/gymlife.html",
                     tech: ["fab fa-java"],
                 },
                 {
-                    title: "IOT Projects",
-                    desc: "Multi-platform IoT systems — embedded C sensors, Java middleware, Python analytics.",
+                    title: "IoT Projects",
+                    desc: "Three hands-on embedded projects: a binary game, a smart bin, and a networked window controller built with Arduino, ESP32, Java, and Python.",
                     link: "./projects/iot_projects.html",
                     tech: [
                         "fab fa-java",
@@ -167,19 +220,19 @@
                 },
                 {
                     title: "Chat-Python",
-                    desc: "Multi-user TCP chat — socket programming with threading and user session management.",
+                    desc: "A small multi-user TCP chat I wrote while learning sockets and threads in Python, with a central server and one thread per connected client.",
                     link: "./projects/chat_python.html",
                     tech: ["fa-brands fa-python"],
                 },
                 {
                     title: "DVRS",
-                    desc: "Bellman-Ford distance vector routing simulator with convergence visualization.",
+                    desc: "A visual distance-vector routing simulator. You can edit the network and watch routes converge as the Bellman-Ford updates move between nodes.",
                     link: "./projects/dvrs.html",
                     tech: ["fa-brands fa-python"],
                 },
                 {
                     title: "Algorithms Course Project",
-                    desc: "Dijkstra shortest-path solver on large city graphs — custom heap in C.",
+                    desc: "My final algorithms assignment: find the cheapest route across a rain-exposed city grid, using Dijkstra and a custom heap in C.",
                     link: "./projects/algorithm.html",
                     tech: ["fa-sharp fa-solid fa-c"],
                 },
@@ -190,11 +243,14 @@
                 const item = document.createElement("div");
                 item.className = "project-item";
                 const num = String(i + 1).padStart(2, "0");
-                const externalLink = p.external
-                    ? ` <a href="${p.external}" target="_blank" class="ms-2 text-decoration-none text-secondary" project-ext-link">↗</a>`
-                    : "";
+                const externalLinks = (p.external || [])
+                    .map(
+                        ({ label, href }) =>
+                            ` <a href="${href}" target="_blank" rel="noopener noreferrer" aria-label="${p.title}: ${label}" class="ms-2 text-decoration-none text-secondary project-ext-link">${label} ↗</a>`,
+                    )
+                    .join("");
                 item.innerHTML = `
-            <h3><span class="project-num">${num}</span><a href="${p.link}" class="text-decoration-none">${p.title}</a>${externalLink}</h3>
+            <h3><span class="project-num">${num}</span><a href="${p.link}" class="text-decoration-none">${p.title}</a>${externalLinks}</h3>
             <p class="mb-1">${p.desc}</p>
             <div class="tech-icons">${p.tech.map((cls) => `<i class="${cls}"></i>`).join("")}</div>
         `;
