@@ -1,180 +1,125 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script>!function(){var t=localStorage.getItem('theme')||'light',s=localStorage.getItem('season')||'summer';document.documentElement.setAttribute('data-bs-theme',t);document.documentElement.setAttribute('data-season',s)}()</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HEARD Thesis — Off-Grid Hiking Safety | Lucio Baiocchi</title>
-    <link rel="icon" type="image/x-icon" href="../img/LB.png">
+    <link rel="icon" type="image/png" href="../img/LB.png">
     <meta name="description" content="The thesis behind HEARD: embedded LoRa and GPS devices for keeping hiking groups coordinated when mobile coverage disappears.">
     <meta name="author" content="Lucio Baiocchi">
     <link rel="canonical" href="https://luciobaiocchi.com/projects/thesis">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../css/style.css">
 </head>
-
 <body>
-    <!--Header-->
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container">
-            <button class="navbar-toggler ms-auto me-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto text-center align-items-center">
-                    <li class="nav-item">
-                        <button class="btn theme-toggle ms-1" type="button" aria-label="Toggle color theme">
-                            <i class="bi theme-icon bi-moon-stars-fill"></i>
-                        </button>
-                    </li>
-                </ul>
-            </div>
-        </div>
+    <a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+    <a class="site-name" href="../index.html">Lucio Baiocchi</a>
+    <nav aria-label="Main navigation">
+        <a href="../index.html">home</a>
+        <span aria-hidden="true">·</span>
+        <a href="../projects.html" aria-current="location">projects</a>
+        <span aria-hidden="true">·</span>
+        <a href="../blog.html">writing</a>
+        <span aria-hidden="true">·</span>
+        <a href="mailto:luciobaiocchi1@gmail.com">email</a>
     </nav>
-
-<main>
-    <section class="project-intro">
+</header>
+<main id="main">
+    <p class="back-link"><a href="../projects.html">← All projects</a></p>
+    <header class="page-intro">
         <h1>HEARD — the thesis</h1>
-        <p class="text-secondary">The first working version of my off-grid group-safety idea, built from radios, GPS modules, and many breadboard wires</p>
-    </section>
-
-    <section class="project-details">
-        <div class="project-grid">
-            <div>
-                <h2>Where it started</h2>
-                <p>
-                    HEARD began as my bachelor's thesis and a simple hiking problem: once a group spreads out beyond shouting distance,
-                    phones are not a dependable way to know whether everyone is still together. I built a set of embedded devices that
-                    share positions over LoRa, check the planned route locally, and surface problems without relying on mobile coverage.
-                </p>
-                <h4 class="mt-4">What I wanted it to do</h4>
-                <ul>
-                    <li>Enable long-range communication without cellular networks</li>
-                    <li>Support real-time position sharing among group members</li>
-                    <li>Detect off-route deviations automatically</li>
-                    <li>Provide emergency triggering and fast alert propagation</li>
-                </ul>
-            </div>
-            <div>
-                <a href="https://www.youtube.com/watch?v=rSgT1LedNBk" target="_blank" rel="noopener noreferrer" class="video-thumb-link">
-                    <div class="video-wrap">
-                        <img src="https://img.youtube.com/vi/rSgT1LedNBk/maxresdefault.jpg"
-                             alt="HEARD project demo video"
-                             class="video-embed img-cover">
-                        <div class="video-play-overlay">▶ watch on youtube</div>
-                    </div>
-                </a>
-            </div>
-        </div>
-
-        <div class="project-grid">
-            <div>
-                <h2>System Architecture</h2>
-                <p>
-                    The device ecosystem is composed of three embedded units:
-                </p>
-                <ul>
-                    <li><strong>Heard Core:</strong> the group leader’s device, responsible for route creation, synchronization, and global monitoring.</li>
-                    <li><strong>Heard Node:</strong> a compact device for adults, capable of transmitting positions and receiving alerts.</li>
-                    <li><strong>Heard Pico:</strong> a minimal emergency-only device, ideal for children.</li>
-                </ul>
-                <h4 class="mt-4">Communication Layer</h4>
-                <p>
-                    The devices communicate via LoRa, enabling effective long-distance messaging (up to several kilometers).
-                    A hybrid communication model allows both direct broadcasting and multi-hop message propagation.
-                </p>
-            </div>
-            <div>
-                <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active"><img src="../img/projects/thesis/1.jpeg" class="d-block w-100 expandable-img" alt="HEARD prototype development photo 1" loading="lazy"></div>
-                        <div class="carousel-item"><img src="../img/projects/thesis/2.jpeg" class="d-block w-100 expandable-img" alt="HEARD prototype development photo 2" loading="lazy"></div>
-                        <div class="carousel-item"><img src="../img/projects/thesis/3.jpeg" class="d-block w-100 expandable-img" alt="HEARD prototype development photo 3" loading="lazy"></div>
-                        <div class="carousel-item"><img src="../img/projects/thesis/4.JPG" class="d-block w-100 expandable-img" alt="HEARD prototype development photo 4" loading="lazy"></div>
-                        <div class="carousel-item"><img src="../img/projects/thesis/5.png" class="d-block w-100 expandable-img" alt="HEARD prototype interface" loading="lazy"></div>
-                        <div class="carousel-item"><img src="../img/projects/thesis/6.JPG" class="d-block w-100 expandable-img" alt="HEARD Core device showing route status" loading="lazy"></div>
-                        <div class="carousel-item"><img src="../img/projects/thesis/7.JPG" class="d-block w-100 expandable-img" alt="HEARD prototype development photo 7" loading="lazy"></div>
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev" aria-label="Previous image">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next" aria-label="Next image">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <div class="project-grid">
-            <div>
-                <h2>Mobile Application</h2>
-                <p class="text-secondary">
-                    As an extension of the HEARD system, the mobile application provides a modern interface
-                    for viewing group activity, managing routes, and monitoring safety events in real time.
-                </p>
-                <h4 class="mt-4">Main Features</h4>
-                <ul>
-                    <li>Display of group members’ positions on local offline maps</li>
-                    <li>Visualization of route progress and safety alerts</li>
-                    <li>Integration with embedded devices for real-time updates</li>
-                </ul>
-            </div>
-            <div>
-                <div id="carouselApp" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active"><img src="../img/projects/thesis/app/1.png" class="d-block w-100 expandable-img" alt="App Screenshot 1"></div>
-                        <div class="carousel-item"><img src="../img/projects/thesis/app/2.png" class="d-block w-100 expandable-img" alt="App Screenshot 2"></div>
-                        <div class="carousel-item"><img src="../img/projects/thesis/app/3.png" class="d-block w-100 expandable-img" alt="App Screenshot 3"></div>
-                        <div class="carousel-item"><img src="../img/projects/thesis/app/4.png" class="d-block w-100 expandable-img" alt="App Screenshot 4"></div>
-                        <div class="carousel-item"><img src="../img/projects/thesis/app/5.png" class="d-block w-100 expandable-img" alt="App Screenshot 5"></div>
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselApp" data-bs-slide="prev" aria-label="Previous image">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselApp" data-bs-slide="next" aria-label="Next image">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Tecnologie Utilizzate -->
-        <div class="project-grid mt-5">
-            <div>
-                <h2>Built with</h2>
-                <p>
-                    <strong>Hardware:</strong> ESP32 (Pico, LILYGO T-TWR), LoRa (RFM95), GPS (Quectel L86), wavehark e-ink display 2,9".<br>
-                    <strong>Firmware:</strong> C/C++ (PlatformIO), FreeRTOS.<br>
-                    <strong>Mobile:</strong> Android (Kotlin), Jetpack Compose, Firebase, OSMDroid.
-                </p>
-            </div>
-            <div class="text-end d-flex align-items-end justify-content-end">
-                <p class="me-3"><strong>Hardware:</strong> <a href="https://github.com/luciobaiocchi/thesis" class="btn btn-primary">GitHub</a></p>
-                <p><strong>Mobile:</strong> <a href="https://github.com/luciobaiocchi/HEARD" class="btn btn-primary">GitHub</a></p>
-            </div>
-        </div>
-    </section>
+        <p>The first HEARD prototype: radios, GPS modules, and a lot of breadboard wires.</p>
+        <p><a href="../heard.html">HEARD project and build notes →</a></p>
+    </header>
+    <h2>Where it started</h2>
+    <p>HEARD began as my bachelor&#x27;s thesis. I wanted a hiking group to be able to share positions and notice when someone left the route, even without phone coverage. I built devices that use GPS to check their position and LoRa to exchange messages with the rest of the group.</p>
+    <h3>What I wanted it to do</h3>
+    <ul>
+        <li>Enable long-range communication without cellular networks</li>
+        <li>Support real-time position sharing among group members</li>
+        <li>Detect off-route deviations automatically</li>
+        <li>Provide emergency triggering and fast alert propagation</li>
+    </ul>
+    <p class="media-link"><a href="https://www.youtube.com/watch?v=rSgT1LedNBk">Watch the demo on YouTube</a></p>
+    <h2>System Architecture</h2>
+    <p>The device ecosystem is composed of three embedded units:</p>
+    <ul>
+        <li><strong>Heard Core:</strong> the group leader’s device, responsible for route creation, synchronization, and global monitoring.</li>
+        <li><strong>Heard Node:</strong> a compact device for adults, capable of transmitting positions and receiving alerts.</li>
+        <li><strong>Heard Pico:</strong> a minimal emergency-only device, ideal for children.</li>
+    </ul>
+    <h3>Communication Layer</h3>
+    <p>The devices communicate via LoRa, enabling effective long-distance messaging (up to several kilometers). A hybrid communication model allows both direct broadcasting and multi-hop message propagation.</p>
+    <figure>
+        <a href="../img/projects/thesis/1.jpeg" class="image-link"><img src="../img/projects/thesis/1.jpeg" alt="HEARD prototype development photo 1" loading="lazy"></a>
+        <figcaption>HEARD prototype development photo 1</figcaption>
+    </figure>
+    <details class="gallery">
+        <summary>More screenshots (6)</summary>
+        <figure>
+            <a href="../img/projects/thesis/2.jpeg" class="image-link"><img src="../img/projects/thesis/2.jpeg" alt="HEARD prototype development photo 2" loading="lazy"></a>
+            <figcaption>HEARD prototype development photo 2</figcaption>
+        </figure>
+        <figure>
+            <a href="../img/projects/thesis/3.jpeg" class="image-link"><img src="../img/projects/thesis/3.jpeg" alt="HEARD prototype development photo 3" loading="lazy"></a>
+            <figcaption>HEARD prototype development photo 3</figcaption>
+        </figure>
+        <figure>
+            <a href="../img/projects/thesis/4.JPG" class="image-link"><img src="../img/projects/thesis/4.JPG" alt="HEARD prototype development photo 4" loading="lazy"></a>
+            <figcaption>HEARD prototype development photo 4</figcaption>
+        </figure>
+        <figure>
+            <a href="../img/projects/thesis/5.png" class="image-link"><img src="../img/projects/thesis/5.png" alt="HEARD prototype interface" loading="lazy"></a>
+            <figcaption>HEARD prototype interface</figcaption>
+        </figure>
+        <figure>
+            <a href="../img/projects/thesis/6.JPG" class="image-link"><img src="../img/projects/thesis/6.JPG" alt="HEARD Core device showing route status" loading="lazy"></a>
+            <figcaption>HEARD Core device showing route status</figcaption>
+        </figure>
+        <figure>
+            <a href="../img/projects/thesis/7.JPG" class="image-link"><img src="../img/projects/thesis/7.JPG" alt="HEARD prototype development photo 7" loading="lazy"></a>
+            <figcaption>HEARD prototype development photo 7</figcaption>
+        </figure>
+    </details>
+    <h2>Mobile Application</h2>
+    <p>As an extension of the HEARD system, the mobile application provides a modern interface for viewing group activity, managing routes, and monitoring safety events in real time.</p>
+    <h3>Main Features</h3>
+    <ul>
+        <li>Display of group members’ positions on local offline maps</li>
+        <li>Visualization of route progress and safety alerts</li>
+        <li>Integration with embedded devices for real-time updates</li>
+    </ul>
+    <figure>
+        <a href="../img/projects/thesis/app/1.png" class="image-link"><img src="../img/projects/thesis/app/1.png" alt="App Screenshot 1" loading="lazy"></a>
+        <figcaption>App Screenshot 1</figcaption>
+    </figure>
+    <details class="gallery">
+        <summary>More screenshots (4)</summary>
+        <figure>
+            <a href="../img/projects/thesis/app/2.png" class="image-link"><img src="../img/projects/thesis/app/2.png" alt="App Screenshot 2" loading="lazy"></a>
+            <figcaption>App Screenshot 2</figcaption>
+        </figure>
+        <figure>
+            <a href="../img/projects/thesis/app/3.png" class="image-link"><img src="../img/projects/thesis/app/3.png" alt="App Screenshot 3" loading="lazy"></a>
+            <figcaption>App Screenshot 3</figcaption>
+        </figure>
+        <figure>
+            <a href="../img/projects/thesis/app/4.png" class="image-link"><img src="../img/projects/thesis/app/4.png" alt="App Screenshot 4" loading="lazy"></a>
+            <figcaption>App Screenshot 4</figcaption>
+        </figure>
+        <figure>
+            <a href="../img/projects/thesis/app/5.png" class="image-link"><img src="../img/projects/thesis/app/5.png" alt="App Screenshot 5" loading="lazy"></a>
+            <figcaption>App Screenshot 5</figcaption>
+        </figure>
+    </details>
+    <h2>Built with</h2>
+    <p><strong>Hardware:</strong> ESP32 (Pico, LILYGO T-TWR), LoRa (RFM95), GPS (Quectel L86), wavehark e-ink display 2,9".<br> <strong>Firmware:</strong> C/C++ (PlatformIO), FreeRTOS.<br> <strong>Mobile:</strong> Android (Kotlin), Jetpack Compose, Firebase, OSMDroid.</p>
+    <p><strong>Hardware:</strong> <a href="https://github.com/luciobaiocchi/thesis">GitHub</a></p>
+    <p><strong>Mobile:</strong> <a href="https://github.com/luciobaiocchi/HEARD">GitHub</a></p>
 </main>
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- Footer -->
-    <footer class="text-center py-3 mt-5">
-        <p>&copy; 2026 Lucio Baiocchi | <a href="mailto:luciobaiocchi1@gmail.com">Contact me</a></p>
-    </footer>
-    <script src="../javascript/script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<footer class="site-footer" id="contacts">
+    <p><a href="https://github.com/luciobaiocchi">GitHub</a> · <a href="https://www.linkedin.com/in/lucio-baiocchi-39b420243/">LinkedIn</a> · <a href="https://www.youtube.com/@luciobaiocchi">YouTube</a></p>
+    <p><a href="mailto:luciobaiocchi1@gmail.com">luciobaiocchi1@gmail.com</a></p>
+</footer>
 </body>
 </html>

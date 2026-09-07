@@ -2,108 +2,58 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script>!function(){var t=localStorage.getItem('theme')||'light',s=localStorage.getItem('season')||'summer';document.documentElement.setAttribute('data-bs-theme',t);document.documentElement.setAttribute('data-season',s)}()</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LSA with rSVD – Lucio Baiocchi</title>
-    <link rel="icon" type="image/x-icon" href="../img/LB.png">
+    <link rel="icon" type="image/png" href="../img/LB.png">
     <meta name="description" content="Latent Semantic Analysis with Randomized SVD – text clustering and semantic search by Lucio Baiocchi">
     <meta name="author" content="Lucio Baiocchi">
     <link rel="canonical" href="https://luciobaiocchi.com/projects/lsa_rsvd">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container">
-            <button class="navbar-toggler ms-auto me-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto text-center align-items-center">
-                    <li class="nav-item">
-                        <button class="btn theme-toggle ms-1" type="button" aria-label="Toggle color theme">
-                            <i class="bi theme-icon bi-moon-stars-fill"></i>
-                        </button>
-                    </li>
-                </ul>
-            </div>
-        </div>
+    <a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+    <a class="site-name" href="../index.html">Lucio Baiocchi</a>
+    <nav aria-label="Main navigation">
+        <a href="../index.html">home</a>
+        <span aria-hidden="true">·</span>
+        <a href="../projects.html" aria-current="location">projects</a>
+        <span aria-hidden="true">·</span>
+        <a href="../blog.html">writing</a>
+        <span aria-hidden="true">·</span>
+        <a href="mailto:luciobaiocchi1@gmail.com">email</a>
     </nav>
-
-    <main>
-        <section class="project-intro">
-            <h1>LSA with Randomized SVD</h1>
-            <p class="text-secondary">I wrote randomized SVD, pointed it at 18,000 Usenet posts, and built a small semantic-search interface around the result</p>
-        </section>
-
-        <section class="project-details">
-            <div class="project-grid">
-                <div>
-                    <h2>What I explored</h2>
-                    <p>
-                        This course project started with a practical question: how much useful topic structure survives when a large term-document matrix
-                        is compressed? I implemented <strong>randomized Singular Value Decomposition</strong> myself, used it for latent semantic analysis,
-                        and compared the approximation and runtime with classical SVD instead of treating the decomposition as a black box.
-                    </p>
-                    <h4 class="mt-4">Dataset</h4>
-                    <p>
-                        <strong>20 Newsgroups</strong> — ~18,000 Usenet posts across 20 topic categories.
-                        The dataset was preprocessed with Snowball Stemming and custom stop-word filtering.
-                    </p>
-                </div>
-                <div>
-                    <h2>What I added around the algorithm</h2>
-                    <ul>
-                        <li><strong>Power iterations</strong> to tighten the randomized low-rank approximation.</li>
-                        <li><strong>A sweep over cluster counts</strong>, compared with the Silhouette Score.</li>
-                        <li><strong>A desktop view</strong> with Plotly charts and semantic search.</li>
-                        <li><strong>A CLI path</strong> with Matplotlib output for running without the interface.</li>
-                        <li><strong>Text cleanup</strong> with Snowball stemming and a custom stop-word list.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="project-grid">
-                <div>
-                    <h2>Under the hood</h2>
-                    <h4>The rSVD Algorithm</h4>
-                    <p>
-                        Classical SVD scales as O(mn·min(m,n)) — prohibitive for large matrices.
-                        The randomized approach projects the matrix onto a lower-dimensional subspace first, then applies SVD to the smaller matrix,
-                        achieving near O(mnk) complexity for rank-k approximation.
-                        Power Iterations further refine the approximation quality.
-                    </p>
-                    <h4 class="mt-4">Clustering Workflow</h4>
-                    <p>
-                        After dimensionality reduction, documents are clustered in the latent concept space.
-                        The Silhouette Score is computed across a range of k values to automatically identify the most cohesive grouping.
-                    </p>
-                </div>
-                <div>
-                    <h2>Built with</h2>
-                    <p>
-                        <strong>Language:</strong> Python 3<br>
-                        <strong>Libraries:</strong> NumPy, SciPy, Scikit-Learn, Matplotlib, Plotly, NLTK<br>
-                        <strong>Techniques:</strong> Randomized SVD, LSA, K-Means, Silhouette Score, TF-IDF, Snowball Stemming<br>
-                        <strong>Interfaces:</strong> GUI (Plotly + Tkinter), CLI (Matplotlib)
-                    </p>
-                </div>
-            </div>
-
-            <div class="project-grid mt-5">
-                <div></div>
-                <div class="text-end d-flex align-items-end justify-content-end">
-                    <p><strong>Link repo:</strong> <a href="https://github.com/luciobaiocchi/LSA_with_rSVD" class="btn btn-primary">GitHub</a></p>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="text-center py-3 mt-5">
-        <p>&copy; 2026 Lucio Baiocchi | <a href="mailto:luciobaiocchi1@gmail.com">Contact me</a></p>
-    </footer>
-    <script src="../javascript/script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</header>
+<main id="main">
+    <p class="back-link"><a href="../projects.html">← All projects</a></p>
+    <header class="page-intro">
+        <h1>LSA with Randomized SVD</h1>
+        <p>Clustering and searching Usenet posts with my own randomized SVD implementation.</p>
+    </header>
+    <h2>What I explored</h2>
+    <p>For this course project, I implemented randomized Singular Value Decomposition and used it for latent semantic analysis. I compared it with classical SVD, then used the reduced representation to cluster and search about 18,000 Usenet posts.</p>
+    <h3>Dataset</h3>
+    <p><strong>20 Newsgroups</strong> — ~18,000 Usenet posts across 20 topic categories. The dataset was preprocessed with Snowball Stemming and custom stop-word filtering.</p>
+    <h2>What I added around the algorithm</h2>
+    <ul>
+        <li><strong>Power iterations</strong> to tighten the randomized low-rank approximation.</li>
+        <li><strong>A sweep over cluster counts</strong>, compared with the Silhouette Score.</li>
+        <li><strong>A desktop view</strong> with Plotly charts and semantic search.</li>
+        <li><strong>A CLI path</strong> with Matplotlib output for running without the interface.</li>
+        <li><strong>Text cleanup</strong> with Snowball stemming and a custom stop-word list.</li>
+    </ul>
+    <h2>Under the hood</h2>
+    <h3>The rSVD Algorithm</h3>
+    <p>Classical SVD scales as O(mn·min(m,n)) — prohibitive for large matrices. The randomized approach projects the matrix onto a lower-dimensional subspace first, then applies SVD to the smaller matrix, achieving near O(mnk) complexity for rank-k approximation. Power Iterations further refine the approximation quality.</p>
+    <h3>Clustering Workflow</h3>
+    <p>After dimensionality reduction, documents are clustered in the latent concept space. The Silhouette Score is computed across a range of k values to automatically identify the most cohesive grouping.</p>
+    <h2>Built with</h2>
+    <p><strong>Language:</strong> Python 3<br> <strong>Libraries:</strong> NumPy, SciPy, Scikit-Learn, Matplotlib, Plotly, NLTK<br> <strong>Techniques:</strong> Randomized SVD, LSA, K-Means, Silhouette Score, TF-IDF, Snowball Stemming<br> <strong>Interfaces:</strong> GUI (Plotly + Tkinter), CLI (Matplotlib)</p>
+    <p><strong>Source:</strong> <a href="https://github.com/luciobaiocchi/LSA_with_rSVD">GitHub</a></p>
+</main>
+<footer class="site-footer" id="contacts">
+    <p><a href="https://github.com/luciobaiocchi">GitHub</a> · <a href="https://www.linkedin.com/in/lucio-baiocchi-39b420243/">LinkedIn</a> · <a href="https://www.youtube.com/@luciobaiocchi">YouTube</a></p>
+    <p><a href="mailto:luciobaiocchi1@gmail.com">luciobaiocchi1@gmail.com</a></p>
+</footer>
 </body>
 </html>

@@ -2,124 +2,73 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script>!function(){var t=localStorage.getItem('theme')||'light',s=localStorage.getItem('season')||'summer';document.documentElement.setAttribute('data-bs-theme',t);document.documentElement.setAttribute('data-season',s)}()</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyDiet — Java Nutrition Tracker | Lucio Baiocchi</title>
-    <link rel="icon" type="image/x-icon" href="../img/LB.png">
+    <link rel="icon" type="image/png" href="../img/LB.png">
     <meta name="description" content="A Java and MySQL desktop application connecting clients and nutritionists around meal plans, progress tracking, and diet management.">
     <meta name="author" content="Lucio Baiocchi">
     <link rel="canonical" href="https://luciobaiocchi.com/projects/mydiet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../css/style.css">
-    <!--
-     -->
 </head>
-
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container">
-            <button class="navbar-toggler ms-auto me-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto text-center align-items-center">
-                    <li class="nav-item">
-                        <button class="btn theme-toggle ms-1" type="button" aria-label="Toggle color theme">
-                            <i class="bi theme-icon bi-moon-stars-fill"></i>
-                        </button>
-                    </li>
-                </ul>
-            </div>
-        </div>
+    <a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+    <a class="site-name" href="../index.html">Lucio Baiocchi</a>
+    <nav aria-label="Main navigation">
+        <a href="../index.html">home</a>
+        <span aria-hidden="true">·</span>
+        <a href="../projects.html" aria-current="location">projects</a>
+        <span aria-hidden="true">·</span>
+        <a href="../blog.html">writing</a>
+        <span aria-hidden="true">·</span>
+        <a href="mailto:luciobaiocchi1@gmail.com">email</a>
     </nav>
-
-    <main>
-        <section class="project-intro">
-            <h1>MyDiet</h1>
-            <p class="text-secondary">A database course project for keeping meals, goals, and diet plans in one desktop app</p>
-        </section>
-
-        <section class="project-details">
-            <div class="project-grid">
-                <div>
-                    <h2>What I worked on</h2>
-                    <p>
-                        MyDiet came out of a <strong>Database Systems</strong> course. The interesting part was not just making a calorie counter;
-                        it was modelling foods, meals, plans, users, and nutritionists cleanly enough that the desktop interface could answer
-                        ordinary questions without turning every action into a special case.
-                    </p>
-                    <h4 class="mt-4">What it can do</h4>
-                    <ul>
-                        <li><strong>Meal log:</strong> record daily meals and calculate their calories.</li>
-                        <li><strong>History:</strong> keep past entries in a relational database instead of flat files.</li>
-                        <li><strong>Desktop screens:</strong> use Java Swing to browse and edit plans, foods, and goals.</li>
-                    </ul>
-                </div>
-                <div>
-                    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active"><img src="../img/projects/mydiet/img/login.png" class="d-block w-100 expandable-img" alt="MyDiet login screen" loading="lazy"></div>
-                            <div class="carousel-item"><img src="../img/projects/mydiet/img/modifica dieta.png" class="d-block w-100 expandable-img" alt="MyDiet diet-editing screen" loading="lazy"></div>
-                            <div class="carousel-item"><img src="../img/projects/mydiet/img/visualizzazione nutrizionisti.png" class="d-block w-100 expandable-img" alt="MyDiet nutritionist list" loading="lazy"></div>
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev" aria-label="Previous image">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next" aria-label="Next image">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-grid">
-                <div>
-                    <h2>How I organised it</h2>
-                    <p>
-                        I used <strong>MVC (Model-View-Controller)</strong> to keep database queries away from the Swing screens.
-                        That made it easier to change a view without also rewriting how meals and plans were stored.
-                    </p>
-                    <ul>
-                        <li>Separate model, view, and controller packages</li>
-                        <li>SQL constraints and transactions for data integrity</li>
-                        <li>Event-driven UI updates</li>
-                    </ul>
-                </div>
-                <div>
-                    <h2>The database work</h2>
-                    <p>
-                        Meals and body measurements remain available over time, so a user can compare progress and adjust a plan.
-                        The database schema also keeps nutritionists, clients, foods, and tariffs connected without duplicating them in the UI.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Tecnologie Utilizzate -->
-            <div class="project-grid mt-5">
-                <div>
-                    <h2>Built with</h2>
-                    <p>
-                        <strong>Frontend &amp; Backend:</strong> Java (Swing).<br>
-                        <strong>Database:</strong> MySQL.<br>
-                        <strong>Architecture:</strong> MVC Pattern.
-                    </p>
-                </div>
-                <div class="text-end d-flex align-items-end justify-content-end">
-                    <p><strong>Link repo:</strong> <a href="https://github.com/luciobaiocchi/MyDiet" class="btn btn-primary">GitHub</a></p>
-                </div>
-            </div>
-        </section>
-    </main>
-
-
-
-
-    <!-- Footer -->
-    <footer class="text-center py-3 mt-5">
-        <p>&copy; 2026 Lucio Baiocchi | <a href="mailto:luciobaiocchi1@gmail.com">Contact me</a></p>
-    </footer>
-    <script src="../javascript/script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</header>
+<main id="main">
+    <p class="back-link"><a href="../projects.html">← All projects</a></p>
+    <header class="page-intro">
+        <h1>MyDiet</h1>
+        <p>Meal plans, progress records, and a relational database, in a Java desktop app.</p>
+    </header>
+    <h2>What I worked on</h2>
+    <p>I built MyDiet for a Database Systems course. The app connects clients and nutritionists through meal plans, goals, and progress records. Most of the work was in the database: deciding how those records relate to each other, then making them usable from a Java Swing interface.</p>
+    <h3>What it can do</h3>
+    <ul>
+        <li><strong>Meal log:</strong> record daily meals and calculate their calories.</li>
+        <li><strong>History:</strong> keep past entries in a relational database instead of flat files.</li>
+        <li><strong>Desktop screens:</strong> use Java Swing to browse and edit plans, foods, and goals.</li>
+    </ul>
+    <figure>
+        <a href="../img/projects/mydiet/img/login.png" class="image-link"><img src="../img/projects/mydiet/img/login.png" alt="MyDiet login screen" loading="lazy"></a>
+        <figcaption>MyDiet login screen</figcaption>
+    </figure>
+    <details class="gallery">
+        <summary>More screenshots (2)</summary>
+        <figure>
+            <a href="../img/projects/mydiet/img/modifica dieta.png" class="image-link"><img src="../img/projects/mydiet/img/modifica dieta.png" alt="MyDiet diet-editing screen" loading="lazy"></a>
+            <figcaption>MyDiet diet-editing screen</figcaption>
+        </figure>
+        <figure>
+            <a href="../img/projects/mydiet/img/visualizzazione nutrizionisti.png" class="image-link"><img src="../img/projects/mydiet/img/visualizzazione nutrizionisti.png" alt="MyDiet nutritionist list" loading="lazy"></a>
+            <figcaption>MyDiet nutritionist list</figcaption>
+        </figure>
+    </details>
+    <h2>How I organised it</h2>
+    <p>I used <strong>MVC (Model-View-Controller)</strong> to keep database queries away from the Swing screens. That made it easier to change a view without also rewriting how meals and plans were stored.</p>
+    <ul>
+        <li>Separate model, view, and controller packages</li>
+        <li>SQL constraints and transactions for data integrity</li>
+        <li>Event-driven UI updates</li>
+    </ul>
+    <h2>The database work</h2>
+    <p>Meals and body measurements remain available over time, so a user can compare progress and adjust a plan. The database schema also keeps nutritionists, clients, foods, and tariffs connected without duplicating them in the UI.</p>
+    <h2>Built with</h2>
+    <p><strong>Frontend &amp; Backend:</strong> Java (Swing).<br> <strong>Database:</strong> MySQL.<br> <strong>Architecture:</strong> MVC Pattern.</p>
+    <p><strong>Source:</strong> <a href="https://github.com/luciobaiocchi/MyDiet">GitHub</a></p>
+</main>
+<footer class="site-footer" id="contacts">
+    <p><a href="https://github.com/luciobaiocchi">GitHub</a> · <a href="https://www.linkedin.com/in/lucio-baiocchi-39b420243/">LinkedIn</a> · <a href="https://www.youtube.com/@luciobaiocchi">YouTube</a></p>
+    <p><a href="mailto:luciobaiocchi1@gmail.com">luciobaiocchi1@gmail.com</a></p>
+</footer>
 </body>
 </html>

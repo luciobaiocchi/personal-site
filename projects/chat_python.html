@@ -1,122 +1,67 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script>!function(){var t=localStorage.getItem('theme')||'light',s=localStorage.getItem('season')||'summer';document.documentElement.setAttribute('data-bs-theme',t);document.documentElement.setAttribute('data-season',s)}()</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Python TCP Chat — Lucio Baiocchi</title>
-    <link rel="icon" type="image/x-icon" href="../img/LB.png">
+    <link rel="icon" type="image/png" href="../img/LB.png">
     <meta name="description" content="A small multi-user TCP chat built in Python to learn socket programming, threads, client sessions, and a Tkinter interface.">
     <meta name="author" content="Lucio Baiocchi">
     <link rel="canonical" href="https://luciobaiocchi.com/projects/chat_python">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../css/style.css">
-
-    <!--
-     -->
 </head>
-
 <body>
-    <!--Header-->
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container">
-            <button class="navbar-toggler ms-auto me-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto text-center align-items-center">
-                    <li class="nav-item">
-                        <button class="btn theme-toggle ms-1" type="button" aria-label="Toggle color theme">
-                            <i class="bi theme-icon bi-moon-stars-fill"></i>
-                        </button>
-                    </li>
-                </ul>
-            </div>
-        </div>
+    <a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+    <a class="site-name" href="../index.html">Lucio Baiocchi</a>
+    <nav aria-label="Main navigation">
+        <a href="../index.html">home</a>
+        <span aria-hidden="true">·</span>
+        <a href="../projects.html" aria-current="location">projects</a>
+        <span aria-hidden="true">·</span>
+        <a href="../blog.html">writing</a>
+        <span aria-hidden="true">·</span>
+        <a href="mailto:luciobaiocchi1@gmail.com">email</a>
     </nav>
-
-    <main>
-        <section class="project-intro">
-            <h1>Chat Python</h1>
-            <p class="text-secondary">A small multi-user chat I wrote while learning sockets and threads in Python</p>
-        </section>
-
-        <section class="project-details">
-            <div class="project-grid">
-                <div>
-                    <h2>What I built</h2>
-                    <p>
-                        I wanted a project where the networking was visible rather than hidden behind a framework.
-                        A central Python server accepts TCP connections, gives each client its own thread, and relays
-                        messages to everyone in the room. A small Tkinter client keeps the terminal plumbing out of the way.
-                    </p>
-                    <h4 class="mt-4">What it does</h4>
-                    <ul>
-                        <li>Concurrent client handling via threading</li>
-                        <li>Real-time message broadcasting</li>
-                        <li>Dynamic nickname assignment and management</li>
-                        <li>Graphical User Interface for clients</li>
-                    </ul>
-                </div>
-                <div>
-                    <div class="ratio ratio-16x9">
-                        <iframe src="https://www.youtube.com/embed/21a17PKDktM" title="Python chat demonstration" allow="accelerometer; encrypted-media; gyroscope" allowfullscreen></iframe>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-grid">
-                <div>
-                    <h2>Server Architecture</h2>
-                    <p>
-                        The server acts as the central hub, managing socket connections and message distribution.
-                    </p>
-                    <ul>
-                        <li>Listens for incoming TCP connections</li>
-                        <li>Spawns a new thread for each connected client</li>
-                        <li>Broadcasts messages from one client to all others</li>
-                        <li>Maintains a registry of active users</li>
-                    </ul>
-                </div>
-                <div>
-                    <h2>Client Application</h2>
-                    <p>
-                        The client provides an intuitive interface for users to interact with the chat room.
-                    </p>
-                    <ul>
-                        <li>Threaded message reception (non-blocking UI)</li>
-                        <li>Tkinter-based GUI for message display and input</li>
-                        <li>Automatic connection handling and protocol management</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Tecnologie Utilizzate -->
-            <div class="project-grid mt-5">
-                <div>
-                    <h2>Built with</h2>
-                    <p>
-                        <strong>Language:</strong> Python 3.<br>
-                        <strong>Networking:</strong> <code>socket</code> library for TCP communication.<br>
-                        <strong>Concurrency:</strong> <code>threading</code> for parallel request handling.<br>
-                        <strong>GUI:</strong> <code>tkinter</code> for the client interface.
-                    </p>
-                </div>
-                <div class="text-end d-flex align-items-end justify-content-end">
-                    <p><strong>Link repo:</strong> <a href="https://github.com/luciobaiocchi/Chat-phython" class="btn btn-primary">GitHub</a></p>
-                </div>
-            </div>
-        </section>
-    </main>
-
-
-    <!-- Footer -->
-    <footer class="text-center py-3 mt-5">
-        <p>&copy; 2026 Lucio Baiocchi | <a href="mailto:luciobaiocchi1@gmail.com">Contact me</a></p>
-    </footer>
-    <script src="../javascript/script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</header>
+<main id="main">
+    <p class="back-link"><a href="../projects.html">← All projects</a></p>
+    <header class="page-intro">
+        <h1>Chat Python</h1>
+        <p>Learning sockets and threads by building a chat app.</p>
+    </header>
+    <h2>What I built</h2>
+    <p>I wrote this to get some practice with TCP sockets and threads. A central Python server gives each connected client its own thread and relays messages to the rest of the room. The client has a small Tkinter window for reading and sending messages.</p>
+    <h3>What it does</h3>
+    <ul>
+        <li>Concurrent client handling via threading</li>
+        <li>Real-time message broadcasting</li>
+        <li>Dynamic nickname assignment and management</li>
+        <li>Graphical User Interface for clients</li>
+    </ul>
+    <p class="media-link"><a href="https://www.youtube.com/watch?v=21a17PKDktM">Python chat demonstration (YouTube)</a></p>
+    <h2>Server Architecture</h2>
+    <p>The server acts as the central hub, managing socket connections and message distribution.</p>
+    <ul>
+        <li>Listens for incoming TCP connections</li>
+        <li>Spawns a new thread for each connected client</li>
+        <li>Broadcasts messages from one client to all others</li>
+        <li>Maintains a registry of active users</li>
+    </ul>
+    <h2>Client Application</h2>
+    <p>The client provides an intuitive interface for users to interact with the chat room.</p>
+    <ul>
+        <li>Threaded message reception (non-blocking UI)</li>
+        <li>Tkinter-based GUI for message display and input</li>
+        <li>Automatic connection handling and protocol management</li>
+    </ul>
+    <h2>Built with</h2>
+    <p><strong>Language:</strong> Python 3.<br> <strong>Networking:</strong> <code>socket</code> library for TCP communication.<br> <strong>Concurrency:</strong> <code>threading</code> for parallel request handling.<br> <strong>GUI:</strong> <code>tkinter</code> for the client interface.</p>
+    <p><strong>Source:</strong> <a href="https://github.com/luciobaiocchi/Chat-phython">GitHub</a></p>
+</main>
+<footer class="site-footer" id="contacts">
+    <p><a href="https://github.com/luciobaiocchi">GitHub</a> · <a href="https://www.linkedin.com/in/lucio-baiocchi-39b420243/">LinkedIn</a> · <a href="https://www.youtube.com/@luciobaiocchi">YouTube</a></p>
+    <p><a href="mailto:luciobaiocchi1@gmail.com">luciobaiocchi1@gmail.com</a></p>
+</footer>
 </body>
 </html>

@@ -2,101 +2,58 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script>!function(){var t=localStorage.getItem('theme')||'light',s=localStorage.getItem('season')||'summer';document.documentElement.setAttribute('data-bs-theme',t);document.documentElement.setAttribute('data-season',s)}()</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bakery Anomaly Detection — Lucio Baiocchi</title>
-    <link rel="icon" type="image/x-icon" href="../img/LB.png">
+    <link rel="icon" type="image/png" href="../img/LB.png">
     <meta name="description" content="A practical anomaly detector built with an artisanal bakery to catch mistaken production quantities before the morning shift starts.">
     <meta name="author" content="Lucio Baiocchi">
     <link rel="canonical" href="https://luciobaiocchi.com/projects/bakery_anomaly">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../css/style.css">
 </head>
-
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container">
-            <button class="navbar-toggler ms-auto me-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto text-center align-items-center">
-                    <li class="nav-item">
-                        <button class="btn theme-toggle ms-1" type="button" aria-label="Toggle color theme">
-                            <i class="bi theme-icon bi-moon-stars-fill"></i>
-                        </button>
-                    </li>
-                </ul>
-            </div>
-        </div>
+    <a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+    <a class="site-name" href="../index.html">Lucio Baiocchi</a>
+    <nav aria-label="Main navigation">
+        <a href="../index.html">home</a>
+        <span aria-hidden="true">·</span>
+        <a href="../projects.html" aria-current="location">projects</a>
+        <span aria-hidden="true">·</span>
+        <a href="../blog.html">writing</a>
+        <span aria-hidden="true">·</span>
+        <a href="mailto:luciobaiocchi1@gmail.com">email</a>
     </nav>
-
-    <main>
-        <section class="project-intro">
-            <h1>Bakery Anomaly Detection</h1>
-            <p class="text-secondary">A local bakery taught me that the useful model is often the one nobody has to babysit</p>
-            <p class="project-desc">
-                <strong>2 months in production</strong> ·
-                Paper in preparation for <em>SOMI @ ECML-PKDD 2026</em>
-            </p>
-        </section>
-
-        <section class="project-details">
-            <div class="project-grid">
-                <div>
-                    <h2>Overview</h2>
-                    <p>
-                        I built this with an artisanal bakery in northern Italy (about 50 employees and 200 products).
-                        Every morning, the owner exports a CSV with that day's planned quantities. The app points out entries that look like
-                        typing mistakes before those numbers reach purchasing and the kitchen, then gets out of the way.
-                    </p>
-                    <p>That last part matters: the person using it is the bakery owner, not a data scientist.</p>
-                </div>
-                <div>
-                    <h2>Why I did not train a model</h2>
-                    <p>
-                        My first instinct was to compare Isolation Forest, LOF, and other familiar anomaly detectors. The data quickly made
-                        that feel dishonest. Each product behaves differently on each weekday, history is short, and the distribution keeps moving.
-                        A model can look sophisticated here while learning almost nothing useful.
-                    </p>
-                    <p>Five properties make trained ML models unsuitable:</p>
-                    <ol>
-                        <li><strong>Day-of-week independence</strong> — Monday orders differ systematically from Saturday for every product. A DOW-aware model would need ~600 instances, each trained on 4 data points.</li>
-                        <li><strong>No inter-product correlation</strong> — a mistyped quantity carries zero signal in any other product.</li>
-                        <li><strong>Extreme data scarcity</strong> — a 4-week rolling window means 4 training observations per model.</li>
-                        <li><strong>Continuous distribution shift</strong> — seasonal volumes, new products, discontinued items.</li>
-                        <li><strong>Zero-maintenance requirement</strong> — no IT budget for retraining pipelines.</li>
-                    </ol>
-                </div>
-            </div>
-
-            <div class="project-grid">
-                <div>
-                    <h2>The version that stuck</h2>
-                    <p>
-                        A <strong>rolling statistical estimator with a conjunction rule</strong>: for each (product, day-of-week) pair,
-                        compute mean and standard deviation over the last W same-weekday observations (default W = 4).
-                        Flag an anomaly only when <em>all three</em> conditions hold simultaneously:
-                    </p>
-                    <ul>
-                        <li>Z-score &gt; 7.0</li>
-                        <li>Percentage deviation &gt; 30%</li>
-                        <li>Absolute deviation &gt; volume-tier threshold</li>
-                    </ul>
-                    <p>
-                        A fourth component — a <strong>year-over-year seasonality shield</strong> — suppresses false positives on
-                        seasonal products (Easter specialties, holiday items) by comparing against the same date one year prior.
-                    </p>
-                    <p>
-                        There is no training job, model artefact, or drift monitor to maintain. The baseline moves with the recent data,
-                        and a new product can be handled from its second observation.
-                    </p>
-                </div>
-                <div>
-                    <h2>Architecture</h2>
-                    <pre>CSV upload (daily)
+</header>
+<main id="main">
+    <p class="back-link"><a href="../projects.html">← All projects</a></p>
+    <header class="page-intro">
+        <h1>Bakery Anomaly Detection</h1>
+        <p>Checking a bakery&#x27;s planned quantities for typing mistakes before production starts.</p>
+        <p><strong>In production</strong></p>
+    </header>
+    <h2>Overview</h2>
+    <p>I built this with a bakery in northern Italy, with about 50 employees and 200 products. The owner uploads a CSV of the day&#x27;s planned quantities. The app flags entries that look mistyped so they can be checked before purchasing and production begin.</p>
+    <h2>Why I did not train a model</h2>
+    <p>I considered Isolation Forest, LOF, and other anomaly detectors, but there was very little history to learn from. Each product has a different pattern for each weekday, and the catalogue and quantities keep changing. I needed a check the owner could use without someone maintaining a model.</p>
+    <p>These were the constraints I worked with:</p>
+    <ol>
+        <li><strong>Day-of-week independence</strong> — Monday orders differ systematically from Saturday for every product. A DOW-aware model would need ~600 instances, each trained on 4 data points.</li>
+        <li><strong>No inter-product correlation</strong> — a mistyped quantity carries zero signal in any other product.</li>
+        <li><strong>Extreme data scarcity</strong> — a 4-week rolling window means 4 training observations per model.</li>
+        <li><strong>Continuous distribution shift</strong> — seasonal volumes, new products, discontinued items.</li>
+        <li><strong>Zero-maintenance requirement</strong> — no IT budget for retraining pipelines.</li>
+    </ol>
+    <h2>The check I use</h2>
+    <p>A <strong>rolling statistical estimator with a conjunction rule</strong>: for each (product, day-of-week) pair, compute mean and standard deviation over the last W same-weekday observations (default W = 4). Flag an anomaly only when <em>all three</em> conditions hold simultaneously:</p>
+    <ul>
+        <li>Z-score &gt; 7.0</li>
+        <li>Percentage deviation &gt; 30%</li>
+        <li>Absolute deviation &gt; volume-tier threshold</li>
+    </ul>
+    <p>A fourth component — a <strong>year-over-year seasonality shield</strong> — suppresses false positives on seasonal products (Easter specialties, holiday items) by comparing against the same date one year prior.</p>
+    <p>There is no training job, model artefact, or drift monitor to maintain. The baseline moves with the recent data, and a new product can be handled from its second observation.</p>
+    <h2>Architecture</h2>
+    <pre tabindex="0">CSV upload (daily)
        │
   Streamlit frontend
        │
@@ -111,129 +68,88 @@
   ├── Precomputed baselines
   ├── Audit log (append-only)
   └── Auth (role-based)</pre>
-                    <p>
-                        Two user roles: an <strong>administrator view</strong> (full table with Z-score, deviation, time-series charts)
-                        and a simplified <strong>operator view</strong> (one review card per flag, business-language summaries:
-                        <em>"You ordered 500 kg; the usual Monday order is 48 ± 6 kg"</em>).
-                    </p>
-                    <p class="text-secondary project-desc">
-                        Deployed on free tiers only: Streamlit Cloud, Supabase, Cloudflare DNS.<br>
-                        Total recurring infrastructure cost: €0/month.
-                    </p>
-                </div>
-            </div>
-
-            <div class="mt-4 mb-5">
-                <h2>Benchmark Results</h2>
-                <p class="text-secondary project-desc">
-                    496-anomaly labelled test set, constructed with the bakery's cooperation. Competing methods receive
-                    oracle threshold selection (best possible F1 on test set) — the deployed Z-score gets no oracle.
-                </p>
-                <div class="table-responsive">
-                    <table class="table benchmark-table tech-table">
-                        <thead>
-                            <tr>
-                                <th>Method</th>
-                                <th>Window W</th>
-                                <th>Precision</th>
-                                <th>Recall</th>
-                                <th>F1</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="deployed">
-                                <td><strong>Z-score (deployed)</strong> ← no oracle</td>
-                                <td>4</td>
-                                <td>89.0%</td>
-                                <td>90.9%</td>
-                                <td><strong>85.7%</strong></td>
-                            </tr>
-                            <tr>
-                                <td>Z-score (oracle)</td>
-                                <td>4</td>
-                                <td>83.0%</td>
-                                <td>91.1%</td>
-                                <td>86.9%</td>
-                            </tr>
-                            <tr>
-                                <td>MAD (oracle)</td>
-                                <td>4</td>
-                                <td>82.3%</td>
-                                <td>83.2%</td>
-                                <td>82.8%</td>
-                            </tr>
-                            <tr>
-                                <td>Holt-Winters (oracle)</td>
-                                <td>4</td>
-                                <td>—</td>
-                                <td>—</td>
-                                <td>0% (inapplicable)</td>
-                            </tr>
-                            <tr>
-                                <td>Z-score (oracle)</td>
-                                <td>24</td>
-                                <td>86.5%</td>
-                                <td>91.6%</td>
-                                <td>89.0%</td>
-                            </tr>
-                            <tr>
-                                <td>MAD (oracle)</td>
-                                <td>24</td>
-                                <td>83.7%</td>
-                                <td>92.8%</td>
-                                <td>88.0%</td>
-                            </tr>
-                            <tr>
-                                <td>Holt-Winters (oracle)</td>
-                                <td>24</td>
-                                <td>66.5%</td>
-                                <td>75.7%</td>
-                                <td>70.8%</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <p class="project-desc">
-                    The deployed settings land within 1.2 percentage points of the oracle-tuned Z-score at the same four-week window,
-                    without choosing a threshold on the test set. Longer windows score a little higher offline, but they adapt too slowly
-                    for the bakery's changing catalogue. Holt-Winters cannot fit the four-observation case at all and is far slower at W = 24.
-                </p>
-            </div>
-
-            <div class="project-grid">
-                <div>
-                    <h2>What changed after people used it</h2>
-                    <ul>
-                        <li><strong>Too many warnings make every warning invisible.</strong> Once false positives get near 20%, the owner stops trusting the list.</li>
-                        <li><strong>Easter broke the first version.</strong> Legitimate seasonal spikes looked alarming, so I added the year-over-year check.</li>
-                        <li><strong>Maintenance has to be close to zero.</strong> A scheduled retraining pipeline would not survive in this setting.</li>
-                        <li><strong>The explanation is part of the result.</strong> “500 kg versus a usual Monday of 48 ± 6 kg” is something the operator can act on.</li>
-                    </ul>
-                </div>
-                <div>
-                    <h2>Academic Output</h2>
-                    <p>
-                        <em>"When Simpler Is Necessary: Anomaly Detection for Production Orders in an Artisanal Bakery"</em><br>
-                        Lucio Baiocchi — MSc Data Science and Engineering, Politecnico di Torino<br>
-                        Submitted to <strong>SOMI Workshop @ ECML-PKDD 2026</strong> (Springer LNCS)
-                    </p>
-                    <p>
-                        Main contribution: a <strong>problem characterisation framework</strong> — a decision tree that predicts,
-                        from the structural properties of a monitoring problem, whether a rolling statistical estimator or a
-                        trained ML model is the appropriate tool.
-                    </p>
-                    <p class="project-desc">
-                        <strong>Stack:</strong> Python · Streamlit · Supabase (PostgreSQL) · Streamlit Cloud · Cloudflare
-                    </p>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="text-center py-3 mt-5">
-        <p>&copy; 2026 Lucio Baiocchi | <a href="mailto:luciobaiocchi1@gmail.com">Contact me</a></p>
-    </footer>
-    <script src="../javascript/script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <p>Two user roles: an <strong>administrator view</strong> (full table with Z-score, deviation, time-series charts) and a simplified <strong>operator view</strong> (one review card per flag, business-language summaries: <em>"You ordered 500 kg; the usual Monday order is 48 ± 6 kg"</em>).</p>
+    <p>Deployed on free tiers only: Streamlit Cloud, Supabase, Cloudflare DNS.<br> Total recurring infrastructure cost: €0/month.</p>
+    <h2>Benchmark Results</h2>
+    <p>496-anomaly labelled test set, constructed with the bakery's cooperation. Competing methods receive oracle threshold selection (best possible F1 on test set) — the deployed Z-score gets no oracle.</p>
+    <div class="table-scroll" tabindex="0" role="region" aria-label="Project data">
+        <table>
+            <thead>
+                <tr>
+                    <th>Method</th>
+                    <th>Window W</th>
+                    <th>Precision</th>
+                    <th>Recall</th>
+                    <th>F1</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Z-score (deployed)</strong> ← no oracle</td>
+                    <td>4</td>
+                    <td>89.0%</td>
+                    <td>90.9%</td>
+                    <td><strong>85.7%</strong></td>
+                </tr>
+                <tr>
+                    <td>Z-score (oracle)</td>
+                    <td>4</td>
+                    <td>83.0%</td>
+                    <td>91.1%</td>
+                    <td>86.9%</td>
+                </tr>
+                <tr>
+                    <td>MAD (oracle)</td>
+                    <td>4</td>
+                    <td>82.3%</td>
+                    <td>83.2%</td>
+                    <td>82.8%</td>
+                </tr>
+                <tr>
+                    <td>Holt-Winters (oracle)</td>
+                    <td>4</td>
+                    <td>—</td>
+                    <td>—</td>
+                    <td>0% (inapplicable)</td>
+                </tr>
+                <tr>
+                    <td>Z-score (oracle)</td>
+                    <td>24</td>
+                    <td>86.5%</td>
+                    <td>91.6%</td>
+                    <td>89.0%</td>
+                </tr>
+                <tr>
+                    <td>MAD (oracle)</td>
+                    <td>24</td>
+                    <td>83.7%</td>
+                    <td>92.8%</td>
+                    <td>88.0%</td>
+                </tr>
+                <tr>
+                    <td>Holt-Winters (oracle)</td>
+                    <td>24</td>
+                    <td>66.5%</td>
+                    <td>75.7%</td>
+                    <td>70.8%</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <p>The deployed settings land within 1.2 percentage points of the oracle-tuned Z-score at the same four-week window, without choosing a threshold on the test set. Longer windows score a little higher offline, but they adapt too slowly for the bakery's changing catalogue. Holt-Winters cannot fit the four-observation case at all and is far slower at W = 24.</p>
+    <h2>What changed after people used it</h2>
+    <ul>
+        <li><strong>Too many warnings make every warning invisible.</strong> Once false positives get near 20%, the owner stops trusting the list.</li>
+        <li><strong>Easter broke the first version.</strong> Legitimate seasonal spikes looked alarming, so I added the year-over-year check.</li>
+        <li><strong>Maintenance has to be close to zero.</strong> A scheduled retraining pipeline would not survive in this setting.</li>
+        <li><strong>The explanation is part of the result.</strong> “500 kg versus a usual Monday of 48 ± 6 kg” is something the operator can act on.</li>
+    </ul>
+    <h2>Built with</h2>
+    <p><strong>Stack:</strong> Python · Streamlit · Supabase (PostgreSQL) · Streamlit Cloud · Cloudflare</p>
+</main>
+<footer class="site-footer" id="contacts">
+    <p><a href="https://github.com/luciobaiocchi">GitHub</a> · <a href="https://www.linkedin.com/in/lucio-baiocchi-39b420243/">LinkedIn</a> · <a href="https://www.youtube.com/@luciobaiocchi">YouTube</a></p>
+    <p><a href="mailto:luciobaiocchi1@gmail.com">luciobaiocchi1@gmail.com</a></p>
+</footer>
 </body>
 </html>

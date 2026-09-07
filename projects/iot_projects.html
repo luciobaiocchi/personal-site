@@ -2,140 +2,72 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script>!function(){var t=localStorage.getItem('theme')||'light',s=localStorage.getItem('season')||'summer';document.documentElement.setAttribute('data-bs-theme',t);document.documentElement.setAttribute('data-season',s)}()</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IoT Projects — Arduino, ESP32, Java &amp; Python | Lucio Baiocchi</title>
-    <link rel="icon" type="image/x-icon" href="../img/LB.png">
+    <link rel="icon" type="image/png" href="../img/LB.png">
     <meta name="description" content="Three hands-on IoT projects: a binary game, a smart waste bin, and a networked window controller using Arduino, ESP32, Java, and Python.">
     <meta name="author" content="Lucio Baiocchi">
     <link rel="canonical" href="https://luciobaiocchi.com/projects/iot_projects">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../css/style.css">
-
-    <!--
-     -->
 </head>
-
 <body>
-    <!--Header-->
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container">
-            <button class="navbar-toggler ms-auto me-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto text-center align-items-center">
-                    <li class="nav-item">
-                        <button class="btn theme-toggle ms-1" type="button" aria-label="Toggle color theme">
-                            <i class="bi theme-icon bi-moon-stars-fill"></i>
-                        </button>
-                    </li>
-                </ul>
-            </div>
-        </div>
+    <a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+    <a class="site-name" href="../index.html">Lucio Baiocchi</a>
+    <nav aria-label="Main navigation">
+        <a href="../index.html">home</a>
+        <span aria-hidden="true">·</span>
+        <a href="../projects.html" aria-current="location">projects</a>
+        <span aria-hidden="true">·</span>
+        <a href="../blog.html">writing</a>
+        <span aria-hidden="true">·</span>
+        <a href="mailto:luciobaiocchi1@gmail.com">email</a>
     </nav>
-
-    <main>
-        <section class="project-intro">
-            <h1>IoT Projects</h1>
-            <p class="text-secondary">Three projects where the code had to leave the laptop and make real hardware do something</p>
-        </section>
-
-        <!-- Project 1: Binary Game -->
-        <section class="project-details border-bottom">
-            <div class="project-grid">
-                <div>
-                    <h2>Binary Game</h2>
-                    <p>
-                        The first project is a small reaction game for practising binary conversion. The LCD shows a decimal number;
-                        the player has to represent it with four LEDs before the timer runs out. Each correct answer shortens the next round.
-                    </p>
-                    <h4 class="mt-4">Rules and parts</h4>
-                    <ul>
-                        <li><strong>Components:</strong> 4 green LEDs, 1 red LED, 4 buttons, 1 potentiometer, 1 LCD.</li>
-                        <li><strong>Goal:</strong> Read the decimal number on the LCD and correctly light up the LEDs to represent it in binary.</li>
-                        <li><strong>Challenge:</strong> Time limit <code>T1</code> decreases as the score increases.</li>
-                    </ul>
-                    <p class="mt-4"><strong>Technologies:</strong> C, PlatformIO</p>
-                </div>
-                <div>
-                    <div class="ratio ratio-16x9">
-                        <iframe src="https://www.youtube.com/embed/CACj1u8vGgM" title="Binary Game demonstration" allow="accelerometer; encrypted-media; gyroscope" allowfullscreen></iframe>
-                    </div>
-                    <div class="text-end mt-3">
-                        <a href="https://github.com/luciobaiocchi/IOT-project_1" class="btn btn-primary">GitHub Repo</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Project 2: Smart Waste Management -->
-        <section class="project-details border-bottom">
-            <div class="project-grid">
-                <div>
-                    <h2>Smart Waste Management System</h2>
-                    <p>
-                        For the second project, we treated a waste bin as a small connected system. Arduino sensors report fill level,
-                        temperature, and nearby movement; a gate controls access, and a desktop view shows the current state and warnings.
-                    </p>
-                    <h4 class="mt-4">What is connected</h4>
-                    <ul>
-                        <li><strong>Sensors:</strong> Real-time monitoring of waste level, temperature, and human presence.</li>
-                        <li><strong>Automation:</strong> Automatic gate management for disposal security.</li>
-                        <li><strong>Remote Communication:</strong> Integrated GUI for system status and alerts.</li>
-                    </ul>
-                    <p class="mt-4"><strong>Technologies:</strong> Java, C++, PlatformIO</p>
-                </div>
-                <div>
-                    <div class="ratio ratio-16x9">
-                        <iframe src="https://www.youtube.com/embed/G0cvC06uNy4" title="Smart waste management demonstration" allow="accelerometer; encrypted-media; gyroscope" allowfullscreen></iframe>
-                    </div>
-                    <div class="text-end mt-3">
-                        <a href="https://github.com/luciobaiocchi/IOT-project_2?tab=readme-ov-file#smart-waste-management-system" class="btn btn-primary">GitHub Repo</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Project 3: Monitoring & Window Control -->
-        <section class="project-details">
-            <div class="project-grid">
-                <div>
-                    <h2>Networked Window Controller</h2>
-                    <p>
-                        The last project connected several pieces: ESP32 temperature nodes, an Arduino and servo that move a physical window,
-                        a central server, and a remote dashboard. It was my first useful taste of debugging a distributed system one wire at a time.
-                    </p>
-                    <h4 class="mt-4">The pieces</h4>
-                    <ul>
-                        <li><strong>Temperature Monitoring:</strong> ESP-32 based sensor nodes.</li>
-                        <li><strong>Window Controller:</strong> Arduino-controlled servo motor for physical window movement.</li>
-                        <li><strong>Control Unit:</strong> Central server managing distributed logic.</li>
-                        <li><strong>Dashboard:</strong> Remote GUI connecting to the central server for manual override.</li>
-                    </ul>
-                    <p class="mt-4"><strong>Technologies:</strong> C++, Java, Python, HTTP/MQTT Protocols</p>
-                </div>
-                <div>
-                    <div class="ratio ratio-16x9">
-                        <iframe src="https://www.youtube.com/embed/YA5omr81nk0" title="Window control system demonstration" allow="accelerometer; encrypted-media; gyroscope" allowfullscreen></iframe>
-                    </div>
-                    <div class="text-end mt-3">
-                        <a href="https://github.com/luciobaiocchi/IOT-project_3" class="btn btn-primary">GitHub Repo</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-
-
-
-    <!-- Footer -->
-    <footer class="text-center py-3 mt-5">
-        <p>&copy; 2026 Lucio Baiocchi | <a href="mailto:luciobaiocchi1@gmail.com">Contact me</a></p>
-    </footer>
-    <script src="../javascript/script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</header>
+<main id="main">
+    <p class="back-link"><a href="../projects.html">← All projects</a></p>
+    <header class="page-intro">
+        <h1>IoT Projects</h1>
+        <p>Three assignments involving sensors, small boards, and code that controls them.</p>
+    </header>
+    <h2>Binary Game</h2>
+    <p>The first assignment was a reaction game for practising binary conversion. An LCD shows a decimal number, and the player has to enter its binary equivalent with four LEDs before the timer runs out. Each correct answer makes the next round shorter.</p>
+    <h3>Rules and parts</h3>
+    <ul>
+        <li><strong>Components:</strong> 4 green LEDs, 1 red LED, 4 buttons, 1 potentiometer, 1 LCD.</li>
+        <li><strong>Goal:</strong> Read the decimal number on the LCD and correctly light up the LEDs to represent it in binary.</li>
+        <li><strong>Challenge:</strong> Time limit <code>T1</code> decreases as the score increases.</li>
+    </ul>
+    <p><strong>Technologies:</strong> C, PlatformIO</p>
+    <p class="media-link"><a href="https://www.youtube.com/watch?v=CACj1u8vGgM">Binary Game demonstration (YouTube)</a></p>
+    <a href="https://github.com/luciobaiocchi/IOT-project_1">GitHub Repo</a>
+    <h2>Smart Waste Management System</h2>
+    <p>For the second project, we treated a waste bin as a small connected system. Arduino sensors report fill level, temperature, and nearby movement; a gate controls access, and a desktop view shows the current state and warnings.</p>
+    <h3>What is connected</h3>
+    <ul>
+        <li><strong>Sensors:</strong> Real-time monitoring of waste level, temperature, and human presence.</li>
+        <li><strong>Automation:</strong> Automatic gate management for disposal security.</li>
+        <li><strong>Remote Communication:</strong> Integrated GUI for system status and alerts.</li>
+    </ul>
+    <p><strong>Technologies:</strong> Java, C++, PlatformIO</p>
+    <p class="media-link"><a href="https://www.youtube.com/watch?v=G0cvC06uNy4">Smart waste management demonstration (YouTube)</a></p>
+    <a href="https://github.com/luciobaiocchi/IOT-project_2?tab=readme-ov-file#smart-waste-management-system">GitHub Repo</a>
+    <h2>Networked Window Controller</h2>
+    <p>The last project connected several pieces: ESP32 temperature nodes, an Arduino and servo that move a physical window, a central server, and a remote dashboard. It was my first useful taste of debugging a distributed system one wire at a time.</p>
+    <h3>The pieces</h3>
+    <ul>
+        <li><strong>Temperature Monitoring:</strong> ESP-32 based sensor nodes.</li>
+        <li><strong>Window Controller:</strong> Arduino-controlled servo motor for physical window movement.</li>
+        <li><strong>Control Unit:</strong> Central server managing distributed logic.</li>
+        <li><strong>Dashboard:</strong> Remote GUI connecting to the central server for manual override.</li>
+    </ul>
+    <p><strong>Technologies:</strong> C++, Java, Python, HTTP/MQTT Protocols</p>
+    <p class="media-link"><a href="https://www.youtube.com/watch?v=YA5omr81nk0">Window control system demonstration (YouTube)</a></p>
+    <a href="https://github.com/luciobaiocchi/IOT-project_3">GitHub Repo</a>
+</main>
+<footer class="site-footer" id="contacts">
+    <p><a href="https://github.com/luciobaiocchi">GitHub</a> · <a href="https://www.linkedin.com/in/lucio-baiocchi-39b420243/">LinkedIn</a> · <a href="https://www.youtube.com/@luciobaiocchi">YouTube</a></p>
+    <p><a href="mailto:luciobaiocchi1@gmail.com">luciobaiocchi1@gmail.com</a></p>
+</footer>
 </body>
 </html>
