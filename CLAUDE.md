@@ -2,6 +2,12 @@
 
 This is Lucio Baiocchi's personal website, served as static files from Cloudflare Pages at luciobaiocchi.com.
 
+Cloudflare Pages config files (do not delete):
+- `_headers` — security headers, cache policy, CSP
+- `_redirects` — 404 fallback routing
+- `robots.txt` — search engine crawling rules
+- `sitemap.xml` — sitemap for search engines
+
 Use plain HTML and `css/style.css` for the personal pages. There is no build system. Keep the narrow reading layout, system serif font, underlined links, and simple text navigation. Use native HTML for galleries, tables, and links to full-size images. HEARD is an exception: preserve its original landing-page design, using `css/heard.css`, `css/themes.css`, and `javascript/heard.js`.
 
 Run `python3 -m http.server 8000 --bind 127.0.0.1` for a local preview. Check desktop and narrow phone widths, keyboard navigation, and local links after changing the layout.
